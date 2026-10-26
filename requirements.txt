@@ -1,1 +1,4 @@
 docling==2.140.0
+docling==2.140.0
+numpy==2.5.4
+sentence-transformers==6.2.0
