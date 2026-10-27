@@ -1,0 +1,13 @@
+strategy,method,split,questions,anchor_hit_at_k,anchor_mrr_at_k,anchor_recall_at_k,full_anchor_coverage_at_k,median_context_words,median_latency_ms
+fixed,bm25,development,39,0.949,0.782,0.916,0.872,1250,0.53
+fixed,dense,development,39,0.923,0.8,0.902,0.872,1250,32.63
+fixed,rrf,development,39,1,0.823,0.959,0.897,1250,34.62
+structured,bm25,development,39,1,0.785,0.955,0.923,921,0.73
+structured,dense,development,39,0.949,0.832,0.923,0.897,879,33.61
+structured,rrf,development,39,1,0.868,0.971,0.949,906,33.56
+semantic,bm25,development,39,0.949,0.752,0.892,0.821,967,0.78
+semantic,dense,development,39,0.923,0.846,0.915,0.897,957,32.91
+semantic,rrf,development,39,1,0.892,0.964,0.897,981,33.26
+hybrid,bm25,development,39,0.974,0.791,0.943,0.897,1233,1.66
+hybrid,dense,development,39,0.949,0.848,0.935,0.897,1177,32.82
+hybrid,rrf,development,39,1,0.904,0.968,0.923,1219,33.31

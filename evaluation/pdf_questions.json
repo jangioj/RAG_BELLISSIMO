@@ -1,0 +1,380 @@
+
+{
+  "dataset_name": "Core Rules PDF retrieval diagnostic",
+  "version": "1.0",
+  "source": "Core Rules.pdf (60 pages; uploaded original)",
+  "purpose": "Compare PDF chunking and retrieval strategies on source-grounded questions before final RAG integration.",
+  "scope": "Retrieval evidence only; not generation evaluation; source is the uploaded PDF edition.",
+  "splits": {
+    "development": 12,
+    "held_out": 3
+  },
+  "metrics_recommended": [
+    "HitRate@5 (at least one relevant chunk)",
+    "MRR@5 (first relevant chunk)",
+    "Evidence sufficiency@5 (all required facts supported)"
+  ],
+  "evaluation_note": "Question evidence references pages and source-level facts, not any chunk IDs. Judgments must inspect retrieved text for each required fact. Anchors are cross-checks, not exact-string relevance labels; do not grade solely by anchor matches. Held-out queries should be used only after selecting or tuning retrieval on the development set.",
+  "questions": [
+    {
+      "id": "PDF_01",
+      "split": "development",
+      "category": "definition_paraphrase",
+      "question": "How close must two enemy models be to count as within Engagement Range?",
+      "reference_answer": "Within 1 inch horizontally and 5 inches vertically.",
+      "required_evidence": [
+        {
+          "page": 7,
+          "anchor": "within 1\" horizontally and 5\" vertically",
+          "fact": "Engagement Range requires within 1 inch horizontally and 5 inches vertically."
+        }
+      ]
+    },
+    {
+      "id": "PDF_02",
+      "split": "development",
+      "category": "conditional_rule",
+      "question": "For a unit of eight models, how many other models must each model remain near, and at what distances?",
+      "reference_answer": "Every model must be within 2 inches horizontally and 5 inches vertically of at least two other models from that unit.",
+      "required_evidence": [
+        {
+          "page": 6,
+          "anchor": "While a unit has seven or more models",
+          "fact": "The two-neighbor rule applies at seven or more models."
+        },
+        {
+          "page": 6,
+          "anchor": "within 2\" horizontally",
+          "fact": "The horizontal coherency threshold is 2 inches."
+        },
+        {
+          "page": 6,
+          "anchor": "within 2\" horizontally and 5\" vertically of at least two other models",
+          "fact": "Each model needs at least two same-unit neighbors within 2 inches horizontally and 5 inches vertically."
+        }
+      ]
+    },
+    {
+      "id": "PDF_03",
+      "split": "held_out",
+      "category": "rule_exception",
+      "question": "What happens if a unit cannot finish a move while maintaining Unit Coherency?",
+      "reference_answer": "It cannot make the move, and its models are returned to their previous positions.",
+      "required_evidence": [
+        {
+          "page": 6,
+          "anchor": "If a unit cannot end a move in Unit Coherency",
+          "fact": "A failed coherency condition invalidates the move."
+        },
+        {
+          "page": 6,
+          "anchor": "its models are returned to their previous positions",
+          "fact": "Models must return to their previous positions."
+        }
+      ]
+    },
+    {
+      "id": "PDF_04",
+      "split": "development",
+      "category": "multi_condition",
+      "question": "When is a Battle-shock test required, and what happens to a unit that fails?",
+      "reference_answer": "In the Command phase Battle-shock step, units below half-strength on the battlefield test; a failed test makes the unit Battle-shocked until the start of its next Command phase. Its models have OC 0, it cannot be affected by its player's Stratagems, and falling back requires Desperate Escape tests for every model.",
+      "required_evidence": [
+        {
+          "page": 11,
+          "anchor": "on the battlefield that is Below Half-strength",
+          "fact": "Below Half-strength units on the battlefield must test in the Battle-shock step."
+        },
+        {
+          "page": 11,
+          "anchor": "the Objective Control characteristic of all of its models is 0",
+          "fact": "Battle-shocked models have OC 0."
+        },
+        {
+          "page": 11,
+          "anchor": "must take a Desperate Escape test",
+          "fact": "Falling back while Battle-shocked requires Desperate Escape tests."
+        },
+        {
+          "page": 11,
+          "anchor": "cannot use Stratagems to affect that unit",
+          "fact": "The controlling player cannot use Stratagems on the unit."
+        }
+      ]
+    },
+    {
+      "id": "PDF_05",
+      "split": "development",
+      "category": "cross_section_exception",
+      "question": "My unit Advanced but carries an Assault weapon. Can it shoot or charge that turn, and which guns may it fire?",
+      "reference_answer": "It cannot charge. An Advanced unit with Assault weapons remains eligible to shoot, but when selected it may resolve attacks only with its Assault weapons.",
+      "required_evidence": [
+        {
+          "page": 14,
+          "anchor": "A unit cannot shoot or declare a charge in the same turn that it Advanced",
+          "fact": "Ordinarily an Advanced unit cannot shoot or charge that turn."
+        },
+        {
+          "page": 25,
+          "anchor": "If a unit that Advanced this turn contains any models equipped with Assault weapons",
+          "fact": "Assault provides an exception to the shooting restriction."
+        },
+        {
+          "page": 25,
+          "anchor": "only resolve attacks using Assault weapons",
+          "fact": "That unit can resolve attacks only with Assault weapons."
+        }
+      ]
+    },
+    {
+      "id": "PDF_06",
+      "split": "development",
+      "category": "multi_condition",
+      "question": "A Battle-shocked squad Falls Back. Which extra dice rolls are required, what do 1s or 2s do, and can it shoot afterward?",
+      "reference_answer": "Before moving, take one Desperate Escape test per model. Each D6 roll of 1–2 destroys one model from the falling-back unit. A unit that Fell Back cannot shoot or declare a charge that turn.",
+      "required_evidence": [
+        {
+          "page": 14,
+          "anchor": "if a unit is Battle-shocked when it is selected to Fall Back",
+          "fact": "Battle-shocked units falling back trigger tests for every model."
+        },
+        {
+          "page": 14,
+          "anchor": "For each roll of 1-2",
+          "fact": "A Desperate Escape test fails on 1–2."
+        },
+        {
+          "page": 14,
+          "anchor": "A unit cannot shoot or declare a charge in the same turn that it Fell Back",
+          "fact": "Falling-back units cannot shoot or charge that turn."
+        }
+      ]
+    },
+    {
+      "id": "PDF_07",
+      "split": "development",
+      "category": "paraphrase_negative",
+      "question": "Can an enemy shoot a Lone Operative from 18 inches away when it is not attached to another unit?",
+      "reference_answer": "No. A Lone Operative outside an Attached unit may only be selected as a ranged target if the attacking model is within 12 inches.",
+      "required_evidence": [
+        {
+          "page": 19,
+          "anchor": "Unless part of an Attached unit",
+          "fact": "The Lone Operative targeting restriction applies when not attached."
+        },
+        {
+          "page": 19,
+          "anchor": "if the attacking model is within 12\"",
+          "fact": "The ranged attacker must be within 12 inches."
+        }
+      ]
+    },
+    {
+      "id": "PDF_08",
+      "split": "development",
+      "category": "exception",
+      "question": "Can a Vehicle fire ranged weapons while fighting at close quarters, and what accuracy modifier applies?",
+      "reference_answer": "Yes. Monsters and Vehicles can shoot while within Engagement Range. Their ranged attacks take -1 to the Hit roll when engaged, except attacks made with a Pistol.",
+      "required_evidence": [
+        {
+          "page": 20,
+          "anchor": "Monster and Vehicle units are eligible to shoot",
+          "fact": "Monsters and Vehicles can shoot while within Engagement Range."
+        },
+        {
+          "page": 20,
+          "anchor": "unless that attack is made with a Pistol",
+          "fact": "The hit-roll penalty does not apply to Pistols."
+        },
+        {
+          "page": 20,
+          "anchor": "subtract 1 from that attack",
+          "fact": "Shooting while engaged normally subtracts 1 from the Hit roll."
+        }
+      ]
+    },
+    {
+      "id": "PDF_09",
+      "split": "held_out",
+      "category": "conditional_rule",
+      "question": "What penalties apply when an indirect-fire weapon targets enemies no attacker can see?",
+      "reference_answer": "It may still target the unit, but if no models in the target unit are visible when the target is selected, each attack suffers -1 to Hit and the target receives the Benefit of Cover.",
+      "required_evidence": [
+        {
+          "page": 26,
+          "anchor": "attacks can be made with them even if the target is not visible",
+          "fact": "Indirect Fire can attack invisible targets."
+        },
+        {
+          "page": 26,
+          "anchor": "subtract 1 from that attack",
+          "fact": "Fully unseen target imposes -1 to Hit."
+        },
+        {
+          "page": 26,
+          "anchor": "the target has the Benefit of Cover",
+          "fact": "Fully unseen target has Benefit of Cover."
+        }
+      ]
+    },
+    {
+      "id": "PDF_10",
+      "split": "development",
+      "category": "exception",
+      "question": "A Hazardous weapon fails its test. What happens to an ordinary bearer versus a Character, Monster, or Vehicle?",
+      "reference_answer": "After the attacks, roll one D6 per Hazardous weapon used. For each 1, one Hazardous-equipped model is destroyed; if the selected model is a Character, Monster, or Vehicle, it takes 3 mortal wounds instead.",
+      "required_evidence": [
+        {
+          "page": 28,
+          "anchor": "one Hazardous test for each Hazardous weapon",
+          "fact": "One Hazardous test is rolled per Hazardous weapon used."
+        },
+        {
+          "page": 28,
+          "anchor": "For each roll of 1",
+          "fact": "A result of 1 fails the test."
+        },
+        {
+          "page": 28,
+          "anchor": "Character, Monster or Vehicle",
+          "fact": "Characters, Monsters and Vehicles are exceptions."
+        },
+        {
+          "page": 28,
+          "anchor": "3 mortal wounds instead",
+          "fact": "Those exceptions take three mortal wounds rather than being destroyed."
+        }
+      ]
+    },
+    {
+      "id": "PDF_11",
+      "split": "development",
+      "category": "deployment_condition",
+      "question": "At what point can a unit with Deep Strike arrive, and how far must it be from opposing models?",
+      "reference_answer": "If every model has Deep Strike, it can begin in Reserves and enter in the Reinforcements step of one of its controller's Movement phases, more than 9 inches horizontally from all enemy models.",
+      "required_evidence": [
+        {
+          "page": 39,
+          "anchor": "if every model in a unit has this ability",
+          "fact": "Every model must have Deep Strike."
+        },
+        {
+          "page": 39,
+          "anchor": "in the Reinforcements step",
+          "fact": "The unit arrives during the Reinforcements step."
+        },
+        {
+          "page": 39,
+          "anchor": "more than 9\" horizontally away from all enemy models",
+          "fact": "The unit must arrive more than 9 inches horizontally from enemies."
+        }
+      ]
+    },
+    {
+      "id": "PDF_12",
+      "split": "development",
+      "category": "multi_condition",
+      "question": "When does a Leader join a Bodyguard unit, and whose Toughness is used when the Attached unit is attacked?",
+      "reference_answer": "A Leader attaches to an eligible Bodyguard unit during Declare Battle Formations. Only one Leader can attach to each Bodyguard unit. When the attached unit is attacked, use the Bodyguard models' Toughness; attacks cannot normally be allocated to a Character before the Bodyguards are destroyed.",
+      "required_evidence": [
+        {
+          "page": 39,
+          "anchor": "During the Declare Battle Formations step",
+          "fact": "Attachment occurs during Declare Battle Formations."
+        },
+        {
+          "page": 39,
+          "anchor": "Each Bodyguard unit can only have one Leader attached",
+          "fact": "At most one Leader is attached per Bodyguard unit."
+        },
+        {
+          "page": 39,
+          "anchor": "Toughness characteristic of the Bodyguard models",
+          "fact": "Use Bodyguard Toughness when attacked."
+        },
+        {
+          "page": 39,
+          "anchor": "cannot be allocated to a Character model",
+          "fact": "An attack cannot normally be allocated to the Leader while Bodyguards remain."
+        }
+      ]
+    },
+    {
+      "id": "PDF_13",
+      "split": "development",
+      "category": "stratagem_conditions",
+      "question": "When can Fire Overwatch be used, which unit is eligible, and what dice result is needed to hit?",
+      "reference_answer": "During the opponent's Movement or Charge phase, just after a unit is set up or begins/ends a specified move, a friendly unit within 24 inches that would be eligible to shoot can target it. Each ranged attack hits only on an unmodified 6, and Fire Overwatch can be used only once per turn.",
+      "required_evidence": [
+        {
+          "page": 42,
+          "anchor": "WHEN: Your opponent’s Movement or Charge phase",
+          "fact": "Fire Overwatch triggers during the opponent Movement or Charge phase."
+        },
+        {
+          "page": 42,
+          "anchor": "within 24\" of that enemy unit",
+          "fact": "The target friendly unit must be within 24 inches and eligible to shoot."
+        },
+        {
+          "page": 42,
+          "anchor": "an unmodified Hit roll of 6 is required",
+          "fact": "A hit requires an unmodified 6."
+        },
+        {
+          "page": 42,
+          "anchor": "once per turn",
+          "fact": "Fire Overwatch is limited to once per turn."
+        }
+      ]
+    },
+    {
+      "id": "PDF_14",
+      "split": "held_out",
+      "category": "terrain_exception",
+      "question": "May a unit outside a ruin fire through its windows at enemies standing beyond the ruin, and are there exceptions?",
+      "reference_answer": "Normally no: ruins block line of sight through and over them, even through open windows or doors. Aircraft and Towering models are exceptions; models can see into ruins and models wholly inside can see out normally.",
+      "required_evidence": [
+        {
+          "page": 48,
+          "anchor": "Models cannot see over or through",
+          "fact": "Ruins block line of sight over and through the terrain feature."
+        },
+        {
+          "page": 48,
+          "anchor": "even if it would be possible to draw line",
+          "fact": "Openings do not override the ruin line-of-sight restriction."
+        },
+        {
+          "page": 48,
+          "anchor": "Aircraft and Towering models are exceptions",
+          "fact": "Aircraft and Towering models are exceptions."
+        }
+      ]
+    },
+    {
+      "id": "PDF_15",
+      "split": "development",
+      "category": "multi_condition",
+      "question": "How do you determine who controls an objective, and what happens if both players have the same score?",
+      "reference_answer": "Models within 3 inches horizontally and 5 inches vertically contribute their OC values. Sum those values for each player; at the end of a phase, the player with the higher Level of Control controls the objective. Equal totals mean it remains contested.",
+      "required_evidence": [
+        {
+          "page": 58,
+          "anchor": "within 3\" horizontally and 5\" vertically",
+          "fact": "Models count if within 3 inches horizontally and 5 inches vertically."
+        },
+        {
+          "page": 58,
+          "anchor": "add together the OC characteristics",
+          "fact": "Level of Control is the sum of nearby models OC values."
+        },
+        {
+          "page": 58,
+          "anchor": "If both players have the same Level of Control",
+          "fact": "Equal control means the objective is contested."
+        }
+      ]
+    }
+  ]
+}

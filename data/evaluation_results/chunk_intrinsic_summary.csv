@@ -1,0 +1,6 @@
+strategy,chunks,median_words,p95_tokens,max_tokens,over_limit,overlap_pct,same_content_as_hybrid
+fixed,126,250.0,346,440,0,19.9,True
+structured,147,168,299,415,0,0.0,True
+semantic,137,195,304,328,0,0.0,True
+semantic_pure,105,115,977,2382,19,0.0,True
+hybrid,113,231,411,472,0,0.0,True

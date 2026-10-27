@@ -1,0 +1,5 @@
+strategy,method,split,questions,anchor_hit_at_k,anchor_mrr_at_k,anchor_recall_at_k,full_anchor_coverage_at_k,median_context_words,median_latency_ms
+structured,bm25,held_out,12,0.917,0.778,0.917,0.917,928,0.43
+structured,dense,held_out,12,0.833,0.729,0.833,0.833,853,29.02
+structured,rrf,held_out,12,0.917,0.778,0.917,0.917,898,34.69
+structured,rrf_context,held_out,12,0.917,0.778,0.917,0.917,1382,13.55

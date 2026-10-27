@@ -1,0 +1,1153 @@
+{
+  "dataset_name": "Core Rules PDF retrieval benchmark (extended)",
+  "version": "1.1",
+  "source": "Core Rules.pdf (60 pages; uploaded original)",
+  "purpose": "Offline diagnostic comparison across PDF retrieval and chunking methods, with source-level evidence anchors.",
+  "scope": "Retrieval evidence only; not generation evaluation; source is the uploaded PDF edition.",
+  "splits": {
+    "development": 39,
+    "held_out": 12
+  },
+  "metrics_recommended": [
+    "HitRate@5 (at least one relevant chunk)",
+    "MRR@5 (first relevant chunk)",
+    "Evidence sufficiency@5 (all required facts supported)"
+  ],
+  "evaluation_note": "Anchors are literal evidence probes, NOT complete relevance labels; false negatives arise from paraphrase or segmentation. Do not interpret coverage as answer correctness. Validate references against the original PDF. Keep held_out untouched until choosing the candidate on development. Manually inspect missing facts and representative high-ranked chunks.",
+  "questions": [
+    {
+      "id": "PDF_01",
+      "split": "development",
+      "category": "definition_paraphrase",
+      "question": "How close must two enemy models be to count as within Engagement Range?",
+      "reference_answer": "Within 1 inch horizontally and 5 inches vertically.",
+      "required_evidence": [
+        {
+          "page": 7,
+          "anchor": "within 1\" horizontally and 5\" vertically",
+          "fact": "Engagement Range requires within 1 inch horizontally and 5 inches vertically."
+        }
+      ]
+    },
+    {
+      "id": "PDF_02",
+      "split": "development",
+      "category": "conditional_rule",
+      "question": "For a unit of eight models, how many other models must each model remain near, and at what distances?",
+      "reference_answer": "Every model must be within 2 inches horizontally and 5 inches vertically of at least two other models from that unit.",
+      "required_evidence": [
+        {
+          "page": 6,
+          "anchor": "While a unit has seven or more models",
+          "fact": "The two-neighbor rule applies at seven or more models."
+        },
+        {
+          "page": 6,
+          "anchor": "within 2\" horizontally",
+          "fact": "The horizontal coherency threshold is 2 inches."
+        },
+        {
+          "page": 6,
+          "anchor": "within 2\" horizontally and 5\" vertically of at least two other models",
+          "fact": "Each model needs at least two same-unit neighbors within 2 inches horizontally and 5 inches vertically."
+        }
+      ]
+    },
+    {
+      "id": "PDF_03",
+      "split": "held_out",
+      "category": "rule_exception",
+      "question": "What happens if a unit cannot finish a move while maintaining Unit Coherency?",
+      "reference_answer": "It cannot make the move, and its models are returned to their previous positions.",
+      "required_evidence": [
+        {
+          "page": 6,
+          "anchor": "If a unit cannot end a move in Unit Coherency",
+          "fact": "A failed coherency condition invalidates the move."
+        },
+        {
+          "page": 6,
+          "anchor": "its models are returned to their previous positions",
+          "fact": "Models must return to their previous positions."
+        }
+      ]
+    },
+    {
+      "id": "PDF_04",
+      "split": "development",
+      "category": "multi_condition",
+      "question": "When is a Battle-shock test required, and what happens to a unit that fails?",
+      "reference_answer": "In the Command phase Battle-shock step, units below half-strength on the battlefield test; a failed test makes the unit Battle-shocked until the start of its next Command phase. Its models have OC 0, it cannot be affected by its player's Stratagems, and falling back requires Desperate Escape tests for every model.",
+      "required_evidence": [
+        {
+          "page": 11,
+          "anchor": "on the battlefield that is Below Half-strength",
+          "fact": "Below Half-strength units on the battlefield must test in the Battle-shock step."
+        },
+        {
+          "page": 11,
+          "anchor": "the Objective Control characteristic of all of its models is 0",
+          "fact": "Battle-shocked models have OC 0."
+        },
+        {
+          "page": 11,
+          "anchor": "must take a Desperate Escape test",
+          "fact": "Falling back while Battle-shocked requires Desperate Escape tests."
+        },
+        {
+          "page": 11,
+          "anchor": "cannot use Stratagems to affect that unit",
+          "fact": "The controlling player cannot use Stratagems on the unit."
+        }
+      ]
+    },
+    {
+      "id": "PDF_05",
+      "split": "development",
+      "category": "cross_section_exception",
+      "question": "My unit Advanced but carries an Assault weapon. Can it shoot or charge that turn, and which guns may it fire?",
+      "reference_answer": "It cannot charge. An Advanced unit with Assault weapons remains eligible to shoot, but when selected it may resolve attacks only with its Assault weapons.",
+      "required_evidence": [
+        {
+          "page": 14,
+          "anchor": "A unit cannot shoot or declare a charge in the same turn that it Advanced",
+          "fact": "Ordinarily an Advanced unit cannot shoot or charge that turn."
+        },
+        {
+          "page": 25,
+          "anchor": "If a unit that Advanced this turn contains any models equipped with Assault weapons",
+          "fact": "Assault provides an exception to the shooting restriction."
+        },
+        {
+          "page": 25,
+          "anchor": "only resolve attacks using Assault weapons",
+          "fact": "That unit can resolve attacks only with Assault weapons."
+        }
+      ]
+    },
+    {
+      "id": "PDF_06",
+      "split": "development",
+      "category": "multi_condition",
+      "question": "A Battle-shocked squad Falls Back. Which extra dice rolls are required, what do 1s or 2s do, and can it shoot afterward?",
+      "reference_answer": "Before moving, take one Desperate Escape test per model. Each D6 roll of 1–2 destroys one model from the falling-back unit. A unit that Fell Back cannot shoot or declare a charge that turn.",
+      "required_evidence": [
+        {
+          "page": 14,
+          "anchor": "if a unit is Battle-shocked when it is selected to Fall Back",
+          "fact": "Battle-shocked units falling back trigger tests for every model."
+        },
+        {
+          "page": 14,
+          "anchor": "For each roll of 1-2",
+          "fact": "A Desperate Escape test fails on 1–2."
+        },
+        {
+          "page": 14,
+          "anchor": "A unit cannot shoot or declare a charge in the same turn that it Fell Back",
+          "fact": "Falling-back units cannot shoot or charge that turn."
+        }
+      ]
+    },
+    {
+      "id": "PDF_07",
+      "split": "development",
+      "category": "paraphrase_negative",
+      "question": "Can an enemy shoot a Lone Operative from 18 inches away when it is not attached to another unit?",
+      "reference_answer": "No. A Lone Operative outside an Attached unit may only be selected as a ranged target if the attacking model is within 12 inches.",
+      "required_evidence": [
+        {
+          "page": 19,
+          "anchor": "Unless part of an Attached unit",
+          "fact": "The Lone Operative targeting restriction applies when not attached."
+        },
+        {
+          "page": 19,
+          "anchor": "if the attacking model is within 12\"",
+          "fact": "The ranged attacker must be within 12 inches."
+        }
+      ]
+    },
+    {
+      "id": "PDF_08",
+      "split": "development",
+      "category": "exception",
+      "question": "Can a Vehicle fire ranged weapons while fighting at close quarters, and what accuracy modifier applies?",
+      "reference_answer": "Yes. Monsters and Vehicles can shoot while within Engagement Range. Their ranged attacks take -1 to the Hit roll when engaged, except attacks made with a Pistol.",
+      "required_evidence": [
+        {
+          "page": 20,
+          "anchor": "Monster and Vehicle units are eligible to shoot",
+          "fact": "Monsters and Vehicles can shoot while within Engagement Range."
+        },
+        {
+          "page": 20,
+          "anchor": "unless that attack is made with a Pistol",
+          "fact": "The hit-roll penalty does not apply to Pistols."
+        },
+        {
+          "page": 20,
+          "anchor": "subtract 1 from that attack",
+          "fact": "Shooting while engaged normally subtracts 1 from the Hit roll."
+        }
+      ]
+    },
+    {
+      "id": "PDF_09",
+      "split": "held_out",
+      "category": "conditional_rule",
+      "question": "What penalties apply when an indirect-fire weapon targets enemies no attacker can see?",
+      "reference_answer": "It may still target the unit, but if no models in the target unit are visible when the target is selected, each attack suffers -1 to Hit and the target receives the Benefit of Cover.",
+      "required_evidence": [
+        {
+          "page": 26,
+          "anchor": "attacks can be made with them even if the target is not visible",
+          "fact": "Indirect Fire can attack invisible targets."
+        },
+        {
+          "page": 26,
+          "anchor": "subtract 1 from that attack",
+          "fact": "Fully unseen target imposes -1 to Hit."
+        },
+        {
+          "page": 26,
+          "anchor": "the target has the Benefit of Cover",
+          "fact": "Fully unseen target has Benefit of Cover."
+        }
+      ]
+    },
+    {
+      "id": "PDF_10",
+      "split": "development",
+      "category": "exception",
+      "question": "A Hazardous weapon fails its test. What happens to an ordinary bearer versus a Character, Monster, or Vehicle?",
+      "reference_answer": "After the attacks, roll one D6 per Hazardous weapon used. For each 1, one Hazardous-equipped model is destroyed; if the selected model is a Character, Monster, or Vehicle, it takes 3 mortal wounds instead.",
+      "required_evidence": [
+        {
+          "page": 28,
+          "anchor": "one Hazardous test for each Hazardous weapon",
+          "fact": "One Hazardous test is rolled per Hazardous weapon used."
+        },
+        {
+          "page": 28,
+          "anchor": "For each roll of 1",
+          "fact": "A result of 1 fails the test."
+        },
+        {
+          "page": 28,
+          "anchor": "Character, Monster or Vehicle",
+          "fact": "Characters, Monsters and Vehicles are exceptions."
+        },
+        {
+          "page": 28,
+          "anchor": "3 mortal wounds instead",
+          "fact": "Those exceptions take three mortal wounds rather than being destroyed."
+        }
+      ]
+    },
+    {
+      "id": "PDF_11",
+      "split": "development",
+      "category": "deployment_condition",
+      "question": "At what point can a unit with Deep Strike arrive, and how far must it be from opposing models?",
+      "reference_answer": "If every model has Deep Strike, it can begin in Reserves and enter in the Reinforcements step of one of its controller's Movement phases, more than 9 inches horizontally from all enemy models.",
+      "required_evidence": [
+        {
+          "page": 39,
+          "anchor": "if every model in a unit has this ability",
+          "fact": "Every model must have Deep Strike."
+        },
+        {
+          "page": 39,
+          "anchor": "in the Reinforcements step",
+          "fact": "The unit arrives during the Reinforcements step."
+        },
+        {
+          "page": 39,
+          "anchor": "more than 9\" horizontally away from all enemy models",
+          "fact": "The unit must arrive more than 9 inches horizontally from enemies."
+        }
+      ]
+    },
+    {
+      "id": "PDF_12",
+      "split": "development",
+      "category": "multi_condition",
+      "question": "When does a Leader join a Bodyguard unit, and whose Toughness is used when the Attached unit is attacked?",
+      "reference_answer": "A Leader attaches to an eligible Bodyguard unit during Declare Battle Formations. Only one Leader can attach to each Bodyguard unit. When the attached unit is attacked, use the Bodyguard models' Toughness; attacks cannot normally be allocated to a Character before the Bodyguards are destroyed.",
+      "required_evidence": [
+        {
+          "page": 39,
+          "anchor": "During the Declare Battle Formations step",
+          "fact": "Attachment occurs during Declare Battle Formations."
+        },
+        {
+          "page": 39,
+          "anchor": "Each Bodyguard unit can only have one Leader attached",
+          "fact": "At most one Leader is attached per Bodyguard unit."
+        },
+        {
+          "page": 39,
+          "anchor": "Toughness characteristic of the Bodyguard models",
+          "fact": "Use Bodyguard Toughness when attacked."
+        },
+        {
+          "page": 39,
+          "anchor": "cannot be allocated to a Character model",
+          "fact": "An attack cannot normally be allocated to the Leader while Bodyguards remain."
+        }
+      ]
+    },
+    {
+      "id": "PDF_13",
+      "split": "development",
+      "category": "stratagem_conditions",
+      "question": "When can Fire Overwatch be used, which unit is eligible, and what dice result is needed to hit?",
+      "reference_answer": "During the opponent's Movement or Charge phase, just after a unit is set up or begins/ends a specified move, a friendly unit within 24 inches that would be eligible to shoot can target it. Each ranged attack hits only on an unmodified 6, and Fire Overwatch can be used only once per turn.",
+      "required_evidence": [
+        {
+          "page": 42,
+          "anchor": "WHEN: Your opponent’s Movement or Charge phase",
+          "fact": "Fire Overwatch triggers during the opponent Movement or Charge phase."
+        },
+        {
+          "page": 42,
+          "anchor": "within 24\" of that enemy unit",
+          "fact": "The target friendly unit must be within 24 inches and eligible to shoot."
+        },
+        {
+          "page": 42,
+          "anchor": "an unmodified Hit roll of 6 is required",
+          "fact": "A hit requires an unmodified 6."
+        },
+        {
+          "page": 42,
+          "anchor": "once per turn",
+          "fact": "Fire Overwatch is limited to once per turn."
+        }
+      ]
+    },
+    {
+      "id": "PDF_14",
+      "split": "held_out",
+      "category": "terrain_exception",
+      "question": "May a unit outside a ruin fire through its windows at enemies standing beyond the ruin, and are there exceptions?",
+      "reference_answer": "Normally no: ruins block line of sight through and over them, even through open windows or doors. Aircraft and Towering models are exceptions; models can see into ruins and models wholly inside can see out normally.",
+      "required_evidence": [
+        {
+          "page": 48,
+          "anchor": "Models cannot see over or through",
+          "fact": "Ruins block line of sight over and through the terrain feature."
+        },
+        {
+          "page": 48,
+          "anchor": "even if it would be possible to draw line",
+          "fact": "Openings do not override the ruin line-of-sight restriction."
+        },
+        {
+          "page": 48,
+          "anchor": "Aircraft and Towering models are exceptions",
+          "fact": "Aircraft and Towering models are exceptions."
+        }
+      ]
+    },
+    {
+      "id": "PDF_15",
+      "split": "development",
+      "category": "multi_condition",
+      "question": "How do you determine who controls an objective, and what happens if both players have the same score?",
+      "reference_answer": "Models within 3 inches horizontally and 5 inches vertically contribute their OC values. Sum those values for each player; at the end of a phase, the player with the higher Level of Control controls the objective. Equal totals mean it remains contested.",
+      "required_evidence": [
+        {
+          "page": 58,
+          "anchor": "within 3\" horizontally and 5\" vertically",
+          "fact": "Models count if within 3 inches horizontally and 5 inches vertically."
+        },
+        {
+          "page": 58,
+          "anchor": "add together the OC characteristics",
+          "fact": "Level of Control is the sum of nearby models OC values."
+        },
+        {
+          "page": 58,
+          "anchor": "If both players have the same Level of Control",
+          "fact": "Equal control means the objective is contested."
+        }
+      ]
+    },
+    {
+      "id": "PDF_16",
+      "split": "development",
+      "category": "definition",
+      "question": "When is an enemy unit considered visible to a model?",
+      "reference_answer": "An enemy unit is visible if at least one model in that unit is visible to the observing model.",
+      "required_evidence": [
+        {
+          "page": 8,
+          "anchor": "If one or more models in a unit is visible to the observing model",
+          "fact": "At least one model in the target unit must be visible."
+        }
+      ]
+    },
+    {
+      "id": "PDF_17",
+      "split": "held_out",
+      "category": "definition",
+      "question": "What is the difference between a visible unit and a fully visible unit?",
+      "reference_answer": "A unit is visible when at least one model is visible. It is fully visible only if every model in the unit is fully visible to the observing model.",
+      "required_evidence": [
+        {
+          "page": 8,
+          "anchor": "If one or more models in a unit is visible",
+          "fact": "A unit is visible if one or more models are visible."
+        },
+        {
+          "page": 8,
+          "anchor": "If every model in a unit is fully visible",
+          "fact": "A fully visible unit requires every model to be fully visible."
+        }
+      ]
+    },
+    {
+      "id": "PDF_18",
+      "split": "development",
+      "category": "definition",
+      "question": "When is a unit considered Below Half-strength?",
+      "reference_answer": "For units starting with multiple models, fewer than half the starting models remain. For units starting with one model, their remaining wounds are less than half their Wounds characteristic.",
+      "required_evidence": [
+        {
+          "page": 12,
+          "anchor": "If a unit has a Starting Strength of 1",
+          "fact": "Single-model units have a special criterion."
+        },
+        {
+          "page": 12,
+          "anchor": "its remaining number of wounds is less than half",
+          "fact": "Single-model units use remaining wounds."
+        },
+        {
+          "page": 12,
+          "anchor": "number of models in that unit is less than half",
+          "fact": "Other units use surviving model count."
+        }
+      ]
+    },
+    {
+      "id": "PDF_19",
+      "split": "development",
+      "category": "definition",
+      "question": "What is a Critical Hit, and can a natural roll of 1 ever hit?",
+      "reference_answer": "An unmodified Hit roll of 6 is a Critical Hit and always succeeds; an unmodified Hit roll of 1 always fails.",
+      "required_evidence": [
+        {
+          "page": 21,
+          "anchor": "An unmodified Hit roll of 6 is called a Critical Hit",
+          "fact": "A natural six is a critical hit."
+        },
+        {
+          "page": 21,
+          "anchor": "An unmodified Hit roll of 1 always fails",
+          "fact": "A natural one always fails."
+        }
+      ]
+    },
+    {
+      "id": "PDF_20",
+      "split": "development",
+      "category": "definition",
+      "question": "How does an invulnerable saving throw differ from an armour saving throw?",
+      "reference_answer": "Invulnerable saves are never modified by Armour Penetration. The controlling player chooses either the normal Save or the invulnerable save for that attack, not both.",
+      "required_evidence": [
+        {
+          "page": 22,
+          "anchor": "choose to use either that model",
+          "fact": "Choose normal or invulnerable saving throw."
+        },
+        {
+          "page": 22,
+          "anchor": "never modified by an attack",
+          "fact": "Invulnerable saving throws ignore AP modifiers."
+        }
+      ]
+    },
+    {
+      "id": "PDF_21",
+      "split": "development",
+      "category": "definition",
+      "question": "When is a unit considered destroyed?",
+      "reference_answer": "A unit is destroyed when every model in that unit has been destroyed.",
+      "required_evidence": [
+        {
+          "page": 12,
+          "anchor": "When every model in a unit has been destroyed",
+          "fact": "All its models must be destroyed."
+        }
+      ]
+    },
+    {
+      "id": "PDF_22",
+      "split": "development",
+      "category": "paraphrase",
+      "question": "Can my soldiers simply walk over a low obstacle, or do they need to count its height as movement?",
+      "reference_answer": "A model can move over a terrain feature 2 inches or less in height as if it were not there. For taller terrain, climbing counts vertical distance toward movement.",
+      "required_evidence": [
+        {
+          "page": 15,
+          "anchor": "2\" or less in height as if they were not there",
+          "fact": "Obstacles of 2 inches or less do not cost vertical movement."
+        },
+        {
+          "page": 15,
+          "anchor": "counting the vertical distance up",
+          "fact": "Taller terrain counts vertical distance."
+        }
+      ]
+    },
+    {
+      "id": "PDF_23",
+      "split": "development",
+      "category": "paraphrase",
+      "question": "I have a soldier carrying two different guns. Can it shoot at two different enemy squads?",
+      "reference_answer": "Yes. A model may target different units with different ranged weapons, but cannot split attacks from the same weapon across several targets.",
+      "required_evidence": [
+        {
+          "page": 19,
+          "anchor": "it can shoot each of them at a different target",
+          "fact": "Different weapons can target different enemy units."
+        },
+        {
+          "page": 19,
+          "anchor": "cannot split attacks from the same weapon",
+          "fact": "A single weapon cannot divide attacks between targets."
+        }
+      ]
+    },
+    {
+      "id": "PDF_24",
+      "split": "held_out",
+      "category": "paraphrase",
+      "question": "My reinforcements just arrived on the battlefield. Can they immediately move again or attack?",
+      "reference_answer": "They cannot move further that Movement phase because they count as having made a Normal move. They can otherwise act normally that turn, including shooting or charging when eligible.",
+      "required_evidence": [
+        {
+          "page": 16,
+          "anchor": "count as having made a",
+          "fact": "Reserves count as having made a Normal move."
+        },
+        {
+          "page": 16,
+          "anchor": "cannot move further during",
+          "fact": "No further movement in the same phase."
+        },
+        {
+          "page": 16,
+          "anchor": "can act normally this turn",
+          "fact": "Other actions are permitted."
+        }
+      ]
+    },
+    {
+      "id": "PDF_25",
+      "split": "development",
+      "category": "paraphrase",
+      "question": "Can passengers fire their own weapons from inside a vehicle?",
+      "reference_answer": "Only if the Transport has Firing Deck X: select up to X embarked models and one ranged weapon from each, which the Transport then counts as equipped with for its own shooting.",
+      "required_evidence": [
+        {
+          "page": 17,
+          "anchor": "up to ‘x’ models embarked within it",
+          "fact": "Firing Deck permits selecting up to X passengers."
+        },
+        {
+          "page": 17,
+          "anchor": "select one ranged weapon",
+          "fact": "One weapon is selected from each passenger."
+        },
+        {
+          "page": 17,
+          "anchor": "counts as being equipped with all of the weapons",
+          "fact": "The Transport, not the passengers as separate units, makes the attacks."
+        }
+      ]
+    },
+    {
+      "id": "PDF_26",
+      "split": "development",
+      "category": "paraphrase",
+      "question": "If my weapon has Twin-linked, do I get another chance when I fail to wound an enemy?",
+      "reference_answer": "Yes. Twin-linked allows re-rolling that weapon’s Wound roll.",
+      "required_evidence": [
+        {
+          "page": 25,
+          "anchor": "you can re-roll that",
+          "fact": "Twin-linked permits Wound-roll rerolls."
+        }
+      ]
+    },
+    {
+      "id": "PDF_27",
+      "split": "development",
+      "category": "paraphrase",
+      "question": "Does a flamethrower-like Torrent weapon need to roll to hit?",
+      "reference_answer": "No. A Torrent attack automatically hits the target.",
+      "required_evidence": [
+        {
+          "page": 25,
+          "anchor": "that attack automatically hits",
+          "fact": "Torrent attacks automatically hit."
+        }
+      ]
+    },
+    {
+      "id": "PDF_28",
+      "split": "development",
+      "category": "exception",
+      "question": "Can troops shoot and charge after leaving a Transport that has already made a Normal move?",
+      "reference_answer": "They may shoot, but cannot charge or move further in that Movement phase; they count as having made a Normal move.",
+      "required_evidence": [
+        {
+          "page": 17,
+          "anchor": "made a Normal move this phase count as having made a Normal move",
+          "fact": "Disembarked unit counts as having moved normally."
+        },
+        {
+          "page": 17,
+          "anchor": "cannot move further during this phase",
+          "fact": "The unit cannot move again."
+        },
+        {
+          "page": 17,
+          "anchor": "cannot declare a charge in the same turn",
+          "fact": "It cannot charge that turn."
+        },
+        {
+          "page": 17,
+          "anchor": "can otherwise act normally",
+          "fact": "Shooting remains permitted if eligible."
+        }
+      ]
+    },
+    {
+      "id": "PDF_29",
+      "split": "development",
+      "category": "exception",
+      "question": "Can passengers disembark after their Transport has Advanced or Fallen Back?",
+      "reference_answer": "No. Units cannot disembark from a Transport that Advanced or Fell Back that turn.",
+      "required_evidence": [
+        {
+          "page": 17,
+          "anchor": "Units cannot disembark from a Transport model",
+          "fact": "Disembarkation is prohibited after the Transport Advances or Falls Back."
+        },
+        {
+          "page": 17,
+          "anchor": "Advanced or Fell Back this turn",
+          "fact": "The forbidden moves are Advance and Fall Back."
+        }
+      ]
+    },
+    {
+      "id": "PDF_30",
+      "split": "development",
+      "category": "exception",
+      "question": "Can a model fire its Pistol and its other ranged weapons together?",
+      "reference_answer": "Generally no: it must choose Pistols or its other ranged weapons. Monster and Vehicle models are exempt from this restriction.",
+      "required_evidence": [
+        {
+          "page": 25,
+          "anchor": "unless it is a Monster or Vehicle model",
+          "fact": "Monsters and Vehicles are exceptions."
+        },
+        {
+          "page": 25,
+          "anchor": "either shoot with its Pistols or with all of its other ranged weapons",
+          "fact": "Other models must choose Pistols versus non-Pistols."
+        }
+      ]
+    },
+    {
+      "id": "PDF_31",
+      "split": "held_out",
+      "category": "exception",
+      "question": "When does a Heavy weapon receive a bonus to its Hit roll?",
+      "reference_answer": "If the attacking model’s unit Remained Stationary that turn, add 1 to its Heavy weapon Hit roll.",
+      "required_evidence": [
+        {
+          "page": 26,
+          "anchor": "unit Remained Stationary this turn",
+          "fact": "The unit must Remain Stationary."
+        },
+        {
+          "page": 26,
+          "anchor": "add 1 to that attack",
+          "fact": "Heavy adds 1 to Hit."
+        }
+      ]
+    },
+    {
+      "id": "PDF_32",
+      "split": "development",
+      "category": "exception",
+      "question": "Can a sniper with Precision choose to wound an enemy Character protected by Bodyguards?",
+      "reference_answer": "Yes. After a Precision attack successfully wounds an Attached unit, if a Character in it is visible to the attacker, the attacking player can allocate that attack to the Character.",
+      "required_evidence": [
+        {
+          "page": 26,
+          "anchor": "successfully wounds an Attached unit",
+          "fact": "Precision requires a successful wound on an attached unit."
+        },
+        {
+          "page": 26,
+          "anchor": "Character model in that unit is visible",
+          "fact": "The Character must be visible."
+        },
+        {
+          "page": 26,
+          "anchor": "allocated to that Character model",
+          "fact": "The attacker may allocate the wound to that Character."
+        }
+      ]
+    },
+    {
+      "id": "PDF_33",
+      "split": "development",
+      "category": "exception",
+      "question": "Does an infantry model with a 3+ Save benefit from cover against an AP 0 ranged attack?",
+      "reference_answer": "No. A model with a 3+ or better Save does not gain Benefit of Cover against an attack with AP 0.",
+      "required_evidence": [
+        {
+          "page": 44,
+          "anchor": "Save characteristic of 3+ or better",
+          "fact": "Save of 3+ or better is the exception."
+        },
+        {
+          "page": 44,
+          "anchor": "Armour Penetration characteristic of 0",
+          "fact": "The exception applies at AP 0."
+        }
+      ]
+    },
+    {
+      "id": "PDF_34",
+      "split": "development",
+      "category": "numeric",
+      "question": "If I roll a 5 on a D6 to determine a D3 result, what do I get?",
+      "reference_answer": "3: halve the D6 roll and round up.",
+      "required_evidence": [
+        {
+          "page": 9,
+          "anchor": "halve the result",
+          "fact": "D3 is half of the D6 result."
+        },
+        {
+          "page": 9,
+          "anchor": "rounding up to a whole number",
+          "fact": "Round up, so 5 gives 3."
+        }
+      ]
+    },
+    {
+      "id": "PDF_35",
+      "split": "held_out",
+      "category": "numeric",
+      "question": "A Rapid Fire 1 weapon normally makes two attacks. How many attacks does it make against a target within half range?",
+      "reference_answer": "Three attacks: Rapid Fire 1 adds one to the weapon’s normal two attacks at half range.",
+      "required_evidence": [
+        {
+          "page": 25,
+          "anchor": "within half that weapon",
+          "fact": "Rapid Fire applies within half range."
+        },
+        {
+          "page": 25,
+          "anchor": "increased by the amount denoted",
+          "fact": "Rapid Fire 1 adds one attack."
+        }
+      ]
+    },
+    {
+      "id": "PDF_36",
+      "split": "development",
+      "category": "numeric",
+      "question": "A Melta 2 weapon rolls 4 damage against a target within half its range. How much damage is inflicted?",
+      "reference_answer": "Six damage: the Melta 2 ability adds 2 to a damage result of 4 within half range.",
+      "required_evidence": [
+        {
+          "page": 26,
+          "anchor": "within half that weapon",
+          "fact": "Melta applies within half weapon range."
+        },
+        {
+          "page": 26,
+          "anchor": "increased by the amount denoted",
+          "fact": "Melta 2 adds 2 to Damage."
+        }
+      ]
+    },
+    {
+      "id": "PDF_37",
+      "split": "development",
+      "category": "numeric",
+      "question": "A Blast weapon targets a unit containing 11 models. How many additional attacks does it receive?",
+      "reference_answer": "Two additional attacks: Blast adds one attack per full five models in the targeted unit.",
+      "required_evidence": [
+        {
+          "page": 26,
+          "anchor": "for every five models",
+          "fact": "Blast adds one attack per five models."
+        },
+        {
+          "page": 26,
+          "anchor": "contains 11 models",
+          "fact": "The Core Rules example includes an 11-model unit."
+        }
+      ]
+    },
+    {
+      "id": "PDF_38",
+      "split": "development",
+      "category": "numeric",
+      "question": "A Sustained Hits 2 weapon rolls a Critical Hit. How many total hits does that attack score?",
+      "reference_answer": "Three hits: the original successful hit plus two additional hits.",
+      "required_evidence": [
+        {
+          "page": 28,
+          "anchor": "a total of 3 hits",
+          "fact": "The example explicitly gives three hits."
+        },
+        {
+          "page": 28,
+          "anchor": "2 from the",
+          "fact": "Two additional hits come from Sustained Hits 2."
+        }
+      ]
+    },
+    {
+      "id": "PDF_39",
+      "split": "held_out",
+      "category": "numeric",
+      "question": "How does the Grenade Stratagem determine the number of mortal wounds inflicted?",
+      "reference_answer": "During your Shooting phase, an eligible Grenades unit can target a visible enemy unit within 8 inches that is not engaged with your units. Roll six D6; each 4+ causes one mortal wound.",
+      "required_evidence": [
+        {
+          "page": 42,
+          "anchor": "TARGET: One Grenades unit",
+          "fact": "The target is an eligible Grenades unit."
+        },
+        {
+          "page": 42,
+          "anchor": "within 8\" of and visible",
+          "fact": "The enemy target must be visible and within 8 inches."
+        },
+        {
+          "page": 42,
+          "anchor": "Roll six D6: for each 4+",
+          "fact": "Each 4+ on six dice causes one mortal wound."
+        }
+      ]
+    },
+    {
+      "id": "PDF_40",
+      "split": "development",
+      "category": "multi_rule",
+      "question": "What happens to passengers when their Transport is destroyed, and how does Emergency Disembarkation change the procedure?",
+      "reference_answer": "Normally the embarked unit immediately disembarks within 3 inches; roll one D6 per disembarking model, with each 1 causing a mortal wound to its unit. The unit is Battle-shocked until its next Command phase, counts as having made a Normal move and cannot charge that turn. If normal placement is impossible, Emergency Disembarkation uses 6 inches and causes a mortal wound per 1–3; models unable to be placed are destroyed.",
+      "required_evidence": [
+        {
+          "page": 18,
+          "anchor": "within 3\" of that Transport",
+          "fact": "Normal disembarkation is within 3 inches."
+        },
+        {
+          "page": 18,
+          "anchor": "For each roll of 1",
+          "fact": "A 1 causes a mortal wound in normal disembarkation."
+        },
+        {
+          "page": 18,
+          "anchor": "that unit is Battle-shocked",
+          "fact": "Disembarking passengers are Battle-shocked."
+        },
+        {
+          "page": 18,
+          "anchor": "cannot declare a charge",
+          "fact": "They cannot charge that turn."
+        },
+        {
+          "page": 18,
+          "anchor": "within 6\" of the destroyed Transport",
+          "fact": "Emergency disembarkation allows 6 inches."
+        },
+        {
+          "page": 18,
+          "anchor": "for each roll of 1-3",
+          "fact": "Emergency rolls 1–3 cause mortal wounds."
+        },
+        {
+          "page": 18,
+          "anchor": "that model is destroyed",
+          "fact": "Unplaceable models are destroyed."
+        }
+      ]
+    },
+    {
+      "id": "PDF_41",
+      "split": "development",
+      "category": "multi_rule",
+      "question": "If my unit charges two enemy units, must it reach both, and when can it fight?",
+      "reference_answer": "A charge against two declared targets must be able to finish in Engagement Range of both, remain in Unit Coherency, and avoid Engagement Range of untargeted enemies; otherwise it fails. A successfully charging unit gains Fights First for that turn and fights in that step when eligible.",
+      "required_evidence": [
+        {
+          "page": 29,
+          "anchor": "every unit that you selected as a target",
+          "fact": "The charge must reach all declared targets."
+        },
+        {
+          "page": 29,
+          "anchor": "not a target of the charge",
+          "fact": "The charge cannot engage untargeted units."
+        },
+        {
+          "page": 29,
+          "anchor": "In Unit Coherency",
+          "fact": "A successful charge maintains coherency."
+        },
+        {
+          "page": 29,
+          "anchor": "that unit has the Fights First",
+          "fact": "Charging grants Fights First."
+        },
+        {
+          "page": 32,
+          "anchor": "eligible units with the Fights First ability fight",
+          "fact": "Fights First units fight in that step."
+        }
+      ]
+    },
+    {
+      "id": "PDF_42",
+      "split": "held_out",
+      "category": "multi_rule",
+      "question": "My unit finishes fighting but cannot move into Engagement Range of any enemy. Can it still Consolidate towards an objective?",
+      "reference_answer": "Yes, if it can instead consolidate toward the closest objective marker and end within range of that objective in Unit Coherency. Otherwise it cannot consolidate.",
+      "required_evidence": [
+        {
+          "page": 35,
+          "anchor": "towards the closest objective marker",
+          "fact": "Fallback consolidation can approach the closest objective."
+        },
+        {
+          "page": 35,
+          "anchor": "within range of that objective marker",
+          "fact": "The unit must end within objective range."
+        },
+        {
+          "page": 35,
+          "anchor": "in Unit Coherency",
+          "fact": "Unit Coherency must be retained."
+        }
+      ]
+    },
+    {
+      "id": "PDF_43",
+      "split": "development",
+      "category": "multi_rule",
+      "question": "If a unit with Scouts 6\" starts embarked in a Dedicated Transport, can the vehicle make the Scout move instead?",
+      "reference_answer": "Yes. If all embarked models have Scouts, the Dedicated Transport can move instead up to the permitted distance, ending more than 9 inches horizontally from enemy models.",
+      "required_evidence": [
+        {
+          "page": 39,
+          "anchor": "provided only models with this ability are embarked",
+          "fact": "Every embarked model must have Scouts."
+        },
+        {
+          "page": 39,
+          "anchor": "Dedicated Transport model",
+          "fact": "A Dedicated Transport can make the move."
+        },
+        {
+          "page": 39,
+          "anchor": "more than 9\"",
+          "fact": "The Scout move must end more than 9 inches away."
+        }
+      ]
+    },
+    {
+      "id": "PDF_44",
+      "split": "development",
+      "category": "multi_rule",
+      "question": "How do the arrival restrictions for Strategic Reserves differ between battle round 2 and battle round 3?",
+      "reference_answer": "In round 2, Strategic Reserves must be deployed wholly within 6 inches of a battlefield edge, outside the enemy deployment zone. From round 3 onward, they can deploy wholly within 6 inches of any battlefield edge, including the enemy deployment zone. In either case, they must not be set up within 9 inches horizontally of enemy models.",
+      "required_evidence": [
+        {
+          "page": 43,
+          "anchor": "During the second battle round",
+          "fact": "Round 2 has distinct arrival restrictions."
+        },
+        {
+          "page": 43,
+          "anchor": "no model in those units can be set up within the enemy deployment zone",
+          "fact": "Round 2 excludes the enemy deployment zone."
+        },
+        {
+          "page": 43,
+          "anchor": "Starting from the third battle round",
+          "fact": "From round 3 restrictions change."
+        },
+        {
+          "page": 43,
+          "anchor": "cannot be set up within 9\" horizontally",
+          "fact": "Always respect the 9-inch enemy exclusion."
+        }
+      ]
+    },
+    {
+      "id": "PDF_45",
+      "split": "development",
+      "category": "multi_rule",
+      "question": "Can Feel No Pain prevent mortal wounds, and can a model use two Feel No Pain abilities against the same wound?",
+      "reference_answer": "Yes, Feel No Pain applies to wounds lost due to mortal wounds. No, a model with multiple Feel No Pain abilities can use only one for each wound.",
+      "required_evidence": [
+        {
+          "page": 23,
+          "anchor": "including wounds lost due to mortal",
+          "fact": "Feel No Pain covers mortal wounds."
+        },
+        {
+          "page": 23,
+          "anchor": "you can only use one of those abilities",
+          "fact": "Only one Feel No Pain ability may be used per wound."
+        }
+      ]
+    },
+    {
+      "id": "PDF_46",
+      "split": "held_out",
+      "category": "edge_case",
+      "question": "Can a unit without Fly declare a charge against an enemy Aircraft?",
+      "reference_answer": "No. Only units that can Fly can select an Aircraft unit as the target of a charge. Aircraft units cannot declare charges themselves.",
+      "required_evidence": [
+        {
+          "page": 54,
+          "anchor": "only units that can Fly can select an Aircraft",
+          "fact": "Only Fly units can charge Aircraft."
+        },
+        {
+          "page": 54,
+          "anchor": "Aircraft units cannot declare a charge",
+          "fact": "Aircraft cannot declare charges."
+        }
+      ]
+    },
+    {
+      "id": "PDF_47",
+      "split": "development",
+      "category": "edge_case",
+      "question": "Can Infantry move directly through the walls of a Ruin? Can Vehicles do the same?",
+      "reference_answer": "Infantry and Beast models can pass through Ruins’ walls, floors, and similar features. Vehicles have no such general permission under the Ruins Movement rule.",
+      "required_evidence": [
+        {
+          "page": 48,
+          "anchor": "Infantry and Beast models can",
+          "fact": "Infantry and Beasts can pass through ruin walls."
+        },
+        {
+          "page": 48,
+          "anchor": "All other models can only be set up",
+          "fact": "Other models, including Vehicles, have distinct restrictions."
+        }
+      ]
+    },
+    {
+      "id": "PDF_48",
+      "split": "development",
+      "category": "edge_case",
+      "question": "When does a model shooting from an elevated Ruin benefit from Plunging Fire?",
+      "reference_answer": "When a model wholly within the Ruin is at least 6 inches vertically above ground level and all models in the target unit are at ground level, it improves the AP characteristic of that ranged attack by 1.",
+      "required_evidence": [
+        {
+          "page": 48,
+          "anchor": "6\" or more",
+          "fact": "The shooter must be at least 6 inches above ground level."
+        },
+        {
+          "page": 48,
+          "anchor": "every model in the target unit is at ground",
+          "fact": "Every targeted model must be on ground level."
+        },
+        {
+          "page": 48,
+          "anchor": "improve the Armour Penetration",
+          "fact": "Plunging Fire improves AP by 1."
+        }
+      ]
+    },
+    {
+      "id": "PDF_49",
+      "split": "held_out",
+      "category": "edge_case",
+      "question": "Can I include four units with the same datasheet in my army, and are there exceptions?",
+      "reference_answer": "Normally no: no more than three units with the same datasheet name. Battleline and Dedicated Transport units may include up to six of the same datasheet.",
+      "required_evidence": [
+        {
+          "page": 56,
+          "anchor": "three units with the same datasheet name",
+          "fact": "The normal maximum is three units."
+        },
+        {
+          "page": 56,
+          "anchor": "or six units with the same datasheet name",
+          "fact": "Battleline and Dedicated Transports allow up to six."
+        }
+      ]
+    },
+    {
+      "id": "PDF_50",
+      "split": "development",
+      "category": "edge_case",
+      "question": "Does a unit shooting through Woods automatically see its target as fully visible?",
+      "reference_answer": "No. If an observer outside Woods must look through or over them, the target is not fully visible and may gain the Benefit of Cover. Aircraft and Towering are exceptions; models wholly within Woods can see out normally.",
+      "required_evidence": [
+        {
+          "page": 47,
+          "anchor": "must look through or over this",
+          "fact": "Viewing through Woods prevents full visibility."
+        },
+        {
+          "page": 47,
+          "anchor": "never considered to be fully visible",
+          "fact": "Woods restrict full visibility."
+        },
+        {
+          "page": 47,
+          "anchor": "Aircraft and Towering models are exceptions",
+          "fact": "Aircraft and Towering are exceptions."
+        }
+      ]
+    },
+    {
+      "id": "PDF_51",
+      "split": "held_out",
+      "category": "edge_case",
+      "question": "In the Only War mission, when do players begin scoring Victory Points for objectives, and how many can they score each turn?",
+      "reference_answer": "From battle round 2, at the end of each player’s Command phase, the active player scores 1 VP per objective marker they control, up to 3 VP per turn.",
+      "required_evidence": [
+        {
+          "page": 59,
+          "anchor": "Starting from the second battle round",
+          "fact": "Scoring starts in battle round 2."
+        },
+        {
+          "page": 59,
+          "anchor": "end of each player",
+          "fact": "Scoring occurs at the end of each Command phase."
+        },
+        {
+          "page": 59,
+          "anchor": "to a maximum of 3VP",
+          "fact": "The per-turn maximum is three VP."
+        }
+      ]
+    }
+  ]
+}
