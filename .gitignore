@@ -5,3 +5,4 @@ __pycache__/
 .pytest_cache/
 data/raw/
 data/processed/
+data/evaluation_results/sql_test/*.json
