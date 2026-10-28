@@ -187,7 +187,9 @@
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       keyInput.value = "";
-      keyStatus.textContent = "Key set for this session. You can start asking questions.";
+      app.classList.add("book-unlocked");
+      document.getElementById("archiveBook").setAttribute("aria-label", "Open book, archive unlocked");
+      keyStatus.textContent = "Key set for this session. The archive is open.";
     } catch (error) {
       keyStatus.classList.add("error");
       keyStatus.textContent = `Could not set the key (${error.message}).`;

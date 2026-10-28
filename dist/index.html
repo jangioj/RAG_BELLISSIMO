@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#111616" />
-  <title>Archivum · Chat preview</title>
-  <meta name="description" content="A visual preview of the rules chat interface." />
+  <title>ARCHIVUM · Warhammer 40,000 Rules Assistant</title>
+  <meta name="description" content="A multi-channel RAG assistant for Warhammer 40,000 rules and datasheets." />
   <style>
     :root{--bg:#101615;--rail:#141b1a;--panel:#192220;--raised:#202b28;--line:#35413c;--text:#e8e6dc;--muted:#a5ada6;--dim:#76827a;--gold:#d4ae6c;--gold2:#f0d8a8;--green:#9db7a3;--radius:15px}
     *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
@@ -31,6 +31,15 @@
       radial-gradient(1px 1px at 10% 76%,#ead8ac 80%,transparent),radial-gradient(2px 2px at 23% 89%,#f3ead2 80%,transparent),radial-gradient(1px 1px at 39% 83%,#d8c49a 80%,transparent),radial-gradient(1px 1px at 58% 94%,#e5d4ae 80%,transparent),radial-gradient(2px 2px at 70% 82%,#f1e5c7 80%,transparent),radial-gradient(1px 1px at 88% 89%,#e9d19e 80%,transparent),radial-gradient(ellipse at 50% 39%,#32403944,transparent 66%);opacity:.9}
     .art{height:275px;width:min(100%,330px)}
     @media(max-width:1120px){.app{grid-template-columns:205px minmax(0,1fr)}}@media(max-width:680px){.app{display:block}.status{display:none}.art{height:230px;width:275px}.welcome{padding-top:20px}}
+    .welcome .project-attribution{margin:24px auto 0;color:#98a69b;font-size:11px;line-height:1.65;letter-spacing:.02em}.railfoot strong{color:var(--gold2);font-weight:600}
+
+    /* The archive is sealed until the session API key has been saved successfully. */
+    .book-open-art,.book-closed-art{transform-box:fill-box;transition:opacity .65s ease,transform .85s cubic-bezier(.19,1,.22,1)}
+    .book-open-art{opacity:0;transform-origin:center center;transform:scaleX(.70)}
+    .book-closed-art{opacity:1;transform-origin:left center;transform:rotateY(0deg) scale(1)}
+    .app.book-unlocked .book-open-art{opacity:1;transform:scaleX(1);transition-delay:.24s}
+    .app.book-unlocked .book-closed-art{opacity:0;transform:rotateY(-84deg) scale(.88)}
+    @media (prefers-reduced-motion: reduce){.book-open-art,.book-closed-art{transition:none!important}}
   </style>
 </head>
 <body>
@@ -39,26 +48,52 @@
       <div class="brand"><div class="seal">A</div><div><div class="brandname">ARCHIVUM</div><div class="brandsub">Game rules</div></div></div>
       <button class="new" id="newChat">New chat <span>＋</span></button>
       <div><p class="smallhead">Your session</p><nav class="history"><button id="exampleNav">Example: visibility</button></nav></div>
-      <div class="railfoot">Demo version</div>
+      <div class="railfoot"><strong>Broadening 1: RAG</strong><br>Project by A. Angiolillo<br>M2 Computational Linguistics<br>Université Paris Cité</div>
     </aside>
     <main class="main">
-      <header class="top"><div class="top-left"><div><div class="eyebrow">Rules reference</div><div class="topic" id="topic">New chat</div></div></div><span class="status">Visual preview</span></header>
+      <header class="top"><div class="top-left"><div><div class="eyebrow">Rules reference</div><div class="topic" id="topic">New chat</div></div></div><span class="status">Warhammer 40,000</span></header>
       <section class="welcome" aria-label="Welcome screen"><div class="welcome-inner">
-        <svg class="art" viewBox="0 0 320 275" role="img" aria-label="Open book with tall pages and stars">
+        <svg class="art" viewBox="0 0 320 275" role="img" id="archiveBook" aria-label="Closed book, awaiting an API key">
           <defs><linearGradient id="cover" x2="1" y2="1"><stop stop-color="#9d8255"/><stop offset="1" stop-color="#584c39"/></linearGradient><linearGradient id="page" x2="1" y2="1"><stop stop-color="#e9ddbc"/><stop offset="1" stop-color="#a69b7b"/></linearGradient></defs>
           <circle cx="160" cy="132" r="116" fill="none" stroke="#8e9f8b" opacity=".30"/><circle cx="160" cy="132" r="91" fill="none" stroke="#8e9f8b" opacity=".20"/>
           <g fill="#e9d7a9"><circle cx="29" cy="62" r="1.7"/><circle cx="57" cy="22" r="1.2"/><circle cx="92" cy="47" r="1.5"/><circle cx="228" cy="34" r="1.2"/><circle cx="273" cy="50" r="2"/><circle cx="300" cy="91" r="1.2"/><circle cx="21" cy="155" r="1.2"/><circle cx="289" cy="184" r="1.6"/><circle cx="64" cy="217" r="1.2"/><circle cx="246" cy="235" r="1.4"/><circle cx="104" cy="13" r="1"/><circle cx="306" cy="31" r="1"/></g>
           <g fill="#e6cd94" opacity=".8"><path d="m39 99 2 7 7 2-7 2-2 7-2-7-7-2 7-2z"/><path d="m284 120 2 8 8 2-8 2-2 8-2-8-8-2 8-2z"/><path d="m258 16 2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></g>
+          <g class="book-open-art">
           <path d="M39 50q58-10 121 5 63-15 121-5v182q-62-7-121 13-59-20-121-13z" fill="url(#cover)" stroke="#dab87d" stroke-width="3"/>
           <path d="M48 56q54-8 106 8v170q-53-18-106-10z" fill="url(#page)" stroke="#b6945f" stroke-width="2.5"/>
           <path d="M272 56q-54-8-106 8v170q53-18 106-10z" fill="url(#page)" stroke="#b6945f" stroke-width="2.5"/>
           <path d="M160 59v179" stroke="#654d34" stroke-width="5"/><path d="M154 64q4-4 6-5 2 1 6 5v170q-4-2-6 4-2-6-6-4z" fill="#7c684b" opacity=".8"/>
           <g stroke="#786e56" stroke-width="1.7" opacity=".55" fill="none"><path d="M61 91q37-6 78 5M61 108q37-6 78 5M61 125q37-6 78 5M61 142q37-6 78 5M61 159q37-6 78 5M61 176q37-6 78 5M61 193q37-6 78 5"/><path d="M181 96q41-11 78-5M181 113q41-11 78-5M181 130q41-11 78-5M181 147q41-11 78-5M181 164q41-11 78-5M181 181q41-11 78-5M181 198q41-11 78-5"/></g>
+          </g>
+          <g class="book-closed-art">
+            <ellipse cx="160" cy="244" rx="90" ry="10" fill="#000" opacity=".24"/>
+            <rect x="85" y="27" width="163" height="215" rx="10" fill="#332d25" stroke="#7c6344" stroke-width="2"/>
+            <path d="M91 30H239Q248 30 248 41V235Q248 243 239 243H91Z" fill="#d9cda8" stroke="#bfa873" stroke-width="2"/>
+            <g stroke="#99825a" opacity=".6" stroke-width="1">
+              <path d="M97 232H245M97 228H245M97 224H245"/>
+            </g>
+            <rect x="78" y="20" width="160" height="211" rx="9" fill="url(#cover)" stroke="#e7bf7b" stroke-width="3"/>
+            <rect x="90" y="32" width="136" height="186" rx="5" fill="none" stroke="#e2bb79" stroke-width="2"/>
+            <rect x="95" y="37" width="126" height="176" rx="3" fill="none" stroke="#aa8754" stroke-width="1"/>
+            <rect x="78" y="21" width="18" height="210" rx="6" fill="#4b4135" stroke="#c9a56d" stroke-width="1.5"/>
+            <g stroke="#d0ae75" opacity=".8" stroke-width="1.4">
+              <path d="M82 44h10M82 57h10M82 195h10M82 208h10"/>
+            </g>
+            <g fill="none" stroke="#d7b679" stroke-width="1.8" opacity=".85">
+              <path d="M105 58h17m-17 0v17M210 58h-17m17 0v17M105 193h17m-17 0v-17M210 193h-17m17 0v-17"/>
+              <circle cx="158" cy="117" r="35"/>
+              <circle cx="158" cy="117" r="28" opacity=".45"/>
+            </g>
+            <path d="m158 88 8 21 21 8-21 8-8 21-8-21-21-8 21-8z" fill="#e3c388"/>
+            <circle cx="158" cy="117" r="6" fill="#615139"/>
+            <text x="158" y="172" fill="#f0d7a2" text-anchor="middle" font-family="Georgia,serif" font-size="13" letter-spacing="2.4">ARCHIVUM</text>
+          </g>
           <path d="m160 29 4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#d6b77f"/>
         </svg>
         <form class="key-panel" id="keyForm" autocomplete="off"><label for="apiKey">Instructor API key</label><div class="key-row"><input id="apiKey" type="password" placeholder="Google AI Studio key" autocomplete="off" spellcheck="false" disabled/><button id="saveKey" type="submit" disabled>Set key</button></div><p class="key-status" id="keyStatus" role="status">The field is available in the local version.</p></form>
         <div class="welcome-kicker">Rules chat</div><h1>Ask a question.</h1><p>Answers about rules, units and stratagems, with sources you can check.</p>
         <div class="prompts"><button id="showExample">View an example →</button><button id="focusQuestion">Ask a question</button></div>
+        <p class="project-attribution">Broadening 1: RAG · A. Angiolillo<br>M2 Computational Linguistics · Université Paris Cité</p>
       </div></section>
       <div class="conversation" id="conversation"><div class="date">Example conversation</div>
         <div class="question">Can I target a model that is partly obscured by terrain?</div>
