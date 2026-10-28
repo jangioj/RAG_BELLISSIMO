@@ -85,6 +85,27 @@ Do not select mixed merely because a named unit
 appears. Determine whether its actual database
 information is needed.
 
+IMPORTANT MIXED ROUTING RULES
+
+When answering a question requires both a general
+gameplay rule and a unit-specific characteristic
+from the database, always select mixed.
+
+This includes questions about objective control,
+wound rolls, and other calculations that combine
+unit statistics with general rules.
+
+Conversation history may resolve the identity of
+a unit, but it does not replace database retrieval.
+For follow-up questions, retrieve any required
+unit-specific characteristic from SQL even if
+the unit was mentioned in a previous turn.
+
+If the numerical characteristic is explicitly
+provided in the user's current question, SQL
+retrieval is not necessary unless another
+database fact is needed.
+
 QUERY DECOMPOSITION
 
 Return these fields:

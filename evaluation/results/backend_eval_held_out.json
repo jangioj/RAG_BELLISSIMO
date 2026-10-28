@@ -1,0 +1,2633 @@
+{
+  "benchmark_version": "1.0",
+  "evaluated_at_utc": "2026-10-28T17:38:25.952871+00:00",
+  "split": "held_out",
+  "metrics": {
+    "tested": 13,
+    "status_ok": 10,
+    "route_correct": 11,
+    "route_labeled": 11,
+    "routing_accuracy": 1.0,
+    "factual_correctness": null,
+    "faithfulness": null,
+    "note": "Routing accuracy is automatic. Answer correctness and faithfulness have not yet been evaluated."
+  },
+  "cases": [
+    {
+      "id": "P05",
+      "split": "held_out",
+      "category": "pdf",
+      "question": "May a Vehicle shoot while in Engagement Range of an enemy, and is there a hit-roll penalty?",
+      "reference_answer": "Yes. Monsters and Vehicles can shoot while engaged. Their ranged attacks normally suffer -1 to Hit, except attacks made with Pistols.",
+      "expected_route": "pdf",
+      "answerable": true,
+      "gold_pdf_evidence": [
+        {
+          "page": 20,
+          "anchor": "Monster and Vehicle units are eligible to shoot"
+        }
+      ],
+      "gold_sql_evidence": null,
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "ok",
+        "route": "pdf",
+        "resolved_question": "May a Vehicle shoot while in Engagement Range of an enemy, and is there a hit-roll penalty?",
+        "answer": "Yes, a Vehicle unit is eligible to shoot in its controlling player's Shooting phase even while it is within Engagement Range of one or more enemy units [P1]. Yes, there is a hit-roll penalty: unless the attack is made with a Pistol, you must subtract 1 from that attack's Hit roll [P1, P2].",
+        "citations": [
+          "P1",
+          "P2"
+        ],
+        "sources": [
+          {
+            "id": "P1",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0047",
+            "page_start": 20,
+            "page_end": 20,
+            "text": "#### BIG GUNS NEVER TIRE\n\nMonsters and war engines can dispense death from afar even as they trample the masses before them.\n\nMonster and Vehicle units are eligible to shoot in their controlling player's Shooting phase even while they are within Engagement Range of one or more enemy units. Ranged weapons equipped by Monster and Vehicle units can target one or more of the enemy units they are within Engagement Range of, even if other friendly units are also within Engagement Range of the same enemy unit. Each time a Monster or Vehicle model makes a ranged attack, if its unit was within Engagement Range of one or more enemy units when it selected its targets, unless that attack is made with a Pistol (pg 25), subtract 1 from that attack's Hit roll.\n\nYou can select an enemy Monster or Vehicle unit within Engagement Range of one or more units from your army as a target of ranged weapons. Each time a model from your army makes a ranged attack against such a target, unless that attack is made with a Pistol, subtract 1 from that attack's Hit roll.",
+            "score": 0.032266458495966696,
+            "method": "rrf"
+          },
+          {
+            "id": "P2",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0048",
+            "page_start": 20,
+            "page_end": 20,
+            "text": "Designer's Note: A unit that is within Engagement Range of an enemy Monster or Vehicle unit is still not eligible to shoot, and so cannot make ranged attacks against that Monster or Vehicle unit (unless that unit is eligible to shoot even while within Engagement Range of enemy units, e.g. it is itself a Monster or Vehicle unit, or its models are equipped with Pistols). Other units from your army that are eligible to shoot can, however, target and shoot that enemy Monster or Vehicle unit.\n- Monsters and Vehicles can shoot, and be shot at, even while they are within Engagement Range of enemy units. Each time a ranged attack is made by or against such a unit, subtract 1 from that attack's Hit roll (unless shooting with a Pistol).",
+            "score": 0.032266458495966696,
+            "method": "rrf"
+          },
+          {
+            "id": "P3",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0046",
+            "page_start": 20,
+            "page_end": 20,
+            "text": "#### Locked in Combat\n\nA unit is not eligible to shoot while it is within Engagement Range of one or more enemy units.\n\nWhile an enemy unit is within Engagement Rage of one or more units from your army, you cannot select that enemy unit as a target of ranged weapons.\n\nMonster and Vehicle units are exceptions to these rules, as described in the Big Guns Never Tire section (see right).\n- Units cannot shoot while within Engagement Range of enemy units.\n- Units cannot shoot at targets within Engagement Range of friendly units.\n\n#### STEALTH\n\nSome warriors are masters of disguise and concealment.\n\nIf every model in a unit has this ability, then each time a ranged attack is made against it, subtract 1 from that attack's Hit roll.",
+            "score": 0.03225806451612903,
+            "method": "rrf"
+          },
+          {
+            "id": "P4",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0064",
+            "page_start": 25,
+            "page_end": 25,
+            "text": "#### IGNORES COVER\n\nSome weapons are designed to root enemy formations out of entrenched positions.\n\nWeapons with [IGNORES COVER] in their profile are known as Ignores Cover weapons. Each time an attack is made with such a weapon, the target cannot have the Benefit of Cover against that attack (pg 44).\n\n#### TWIN-LINKED\n\nDual weapons are often grafted to the same targeting system for greater lethality.\n\nWeapons with [TWIN-LINKED] in their profile are known as Twin-linked weapons. Each time an attack is made with such a weapon, you can re-roll that attack's Wound roll.\n\n#### PISTOL\n\nPistols can be wielded even at point-blank range.\n\nWeapons with [PISTOL] in their profile are known as Pistols. If a unit contains any models equipped with Pistols, that unit is eligible to shoot in its controlling player's Shooting phase even while it is within Engagement Range of one or more enemy units. When such a unit is selected to shoot, it can only resolve attacks using its Pistols and can only target one of the enemy units it is within Engagement Range of. In such circumstances, a Pistol can target an enemy unit even if other friendly units are within Engagement Range of the same enemy unit.",
+            "score": 0.030330882352941176,
+            "method": "rrf"
+          },
+          {
+            "id": "P5",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0044",
+            "page_start": 19,
+            "page_end": 20,
+            "text": "#### LONE OPERATIVE\n\nAssassins and other covert agents are difficult to track and pinpoint in the swirling maelstrom of battle.\n\nUnless part of an Attached unit (see Leader, page 39), this unit can only be selected as the target of a ranged attack if the attacking model is within 12\".\n\n**Shooting sequence (source diagram):** 1. Select eligible unit. 2. Select targets. 3. Make ranged attacks. 4. Repeat for next eligible unit.\n\n#### MAKE RANGED ATTACKS\n\nThe shooting unit's models now make attacks using their ranged weapons. Each time a model shoots with a ranged weapon, it will make a number of attacks equal to the Attacks (A) characteristic in that weapon's profile. You make one Hit roll for each attack being made (see Making Attacks, pages 21-23).\n\nIf you selected more than one target for your unit to shoot at, you must resolve all of the attacks against one target before moving on to the next target. If your unit is shooting more than one ranged weapon at a target, and those weapons have different profiles, then after you have resolved attacks with one of those weapons you must, if any other weapons with the same profile are also being shot at that unit, resolve those attacks before resolving any other attacks against the target.",
+            "score": 0.029418126757516764,
+            "method": "rrf"
+          }
+        ],
+        "usage": {
+          "routing": {
+            "input_tokens": 1098,
+            "output_tokens": 114,
+            "total_tokens": 1212
+          },
+          "sql": null,
+          "answer": {
+            "input_tokens": 1675,
+            "output_tokens": 112,
+            "total_tokens": 1787
+          },
+          "total_tokens": 2999
+        },
+        "error": null
+      },
+      "diagnostics": {
+        "route_correct": true,
+        "required_citation_types_present": true,
+        "pdf_page_coverage_proxy": {
+          "required_pages": [
+            20
+          ],
+          "found_pages": [
+            20
+          ],
+          "fraction": 1.0
+        },
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": false
+        }
+      },
+      "elapsed_seconds": 31.99,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "P06",
+      "split": "held_out",
+      "category": "pdf",
+      "question": "If a Battle-shocked unit Falls Back, what tests are made, what happens on 1–2, and can it shoot later that turn?",
+      "reference_answer": "A Desperate Escape test is required for each model. Each result of 1 or 2 destroys one model. A unit that Fell Back cannot shoot or charge that turn.",
+      "expected_route": "pdf",
+      "answerable": true,
+      "gold_pdf_evidence": [
+        {
+          "page": 11,
+          "anchor": "If it Falls Back, you must take a Desperate Escape test"
+        },
+        {
+          "page": 14,
+          "anchor": "For each roll of 1-2"
+        }
+      ],
+      "gold_sql_evidence": null,
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "ok",
+        "route": "pdf",
+        "resolved_question": "If a Battle-shocked unit Falls Back, what tests are made, what happens on 1–2, and can it shoot later that turn?",
+        "answer": "If a Battle-shocked unit Falls Back, you must take a Desperate Escape test for every model in that unit [P1, P3]. For each Desperate Escape test, you roll one D6, and on a roll of 1–2, one model from that unit is destroyed [P2]. Furthermore, a unit that Falls Back cannot shoot later that same turn (as units that Fall Back are not eligible to shoot) [P2, P3, P5].",
+        "citations": [
+          "P1",
+          "P2",
+          "P3",
+          "P5"
+        ],
+        "sources": [
+          {
+            "id": "P1",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0022",
+            "page_start": 11,
+            "page_end": 11,
+            "text": "#### 2. BATTLE-SHOCK\n\nIn this step, you must take a Battle-shock test for each of your units on the battlefield that is Below Half-strength (pg 12). To do so, roll 2D6: if the result is greater than or equal to the best Leadership characteristic in that unit, the test is passed; otherwise, the test is failed and, until the start of your next Command phase, that unit is Battle-shocked.\n\nWhile a unit is Battle-shocked:\n- The Objective Control characteristic of all of its models is 0.\n- If it Falls Back, you must take a Desperate Escape test for every model in that unit (pg 14).\n- Its controlling player cannot use Stratagems to affect that unit.\n\nOnce you have taken Battle-shock tests for all of your units that require them, your Command phase ends and you progress to your Movement phase.\n- Take a Battle-shock test for each unit from your army on the battlefield that is Below Half-strength.\n- Roll 2D6: if the result is greater than or equal to the unit's Leadership, the test is passed. Otherwise, the unit is Battle-shocked until the start of your next Command phase.\n- Battle-shocked units have an OC of 0 and their controlling player cannot use Stratagems to affect them.\n- Battle-shocked units must take Desperate Escape tests if they Fall Back.",
+            "score": 0.03252247488101534,
+            "method": "rrf"
+          },
+          {
+            "id": "P2",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0029",
+            "page_start": 14,
+            "page_end": 14,
+            "text": "Each time you take a Desperate Escape test for a model, roll one D6. For each roll of 1-2, one model from the unit that is Falling Back is destroyed (selected by you). The same model can only ever trigger one Desperate Escape test per phase.\n- Fall Back Move: Models move up to M\".\n- Units that Fall Back cannot shoot or declare a charge in the same turn.\n- Models can move over enemy models when Falling Back, but you must take Desperate Escape tests for them before they do so (excluding models that are Titanic or can Fly).\n- If a Battle-shocked unit is selected to Fall Back, take a Desperate Escape test for every model in that unit.\n- Desperate Escape Test: Roll one D6. On a 1-2, one model from that unit is destroyed.\n\n**Fall Back — illustrated example:**\n\n- **A:** The Sternguard Veterans are selected to make a Fall Back move, but to do so they must move through enemy models, so Desperate Escape tests are required.\n- **B:** The controlling player rolls one D6 for each model that moves through an enemy unit, resulting in a 1, 2, 4, 4 and 6. Two models are therefore destroyed.",
+            "score": 0.03252247488101534,
+            "method": "rrf"
+          },
+          {
+            "id": "P3",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0028",
+            "page_start": 14,
+            "page_end": 14,
+            "text": "#### FALL BACK MOVES\n\nWhen a unit Falls Back, each model in that unit can make a Fall Back move by moving a distance in inches less than or equal to its Move characteristic, and when doing so you can move it within Engagement Range of enemy models, provided it does not end that move within Engagement Range of any enemy models - if this is not possible, that unit cannot Fall Back.\n\nA unit cannot shoot or declare a charge in the same turn that it Fell Back.\n\n#### Desperate Escape Tests\n\nUnlike when making other types of move, models can move over enemy models when making a Fall Back move as if those enemy models were not there, but you must take a Desperate Escape test for each model that will do so (excluding models that are Titanic or can Fly) before any models in that unit are moved. In addition, if a unit is Battle-shocked when it is selected to Fall Back, you must take a Desperate Escape test for every model in that unit before any are moved.",
+            "score": 0.031746031746031744,
+            "method": "rrf"
+          },
+          {
+            "id": "P4",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0016",
+            "page_start": 9,
+            "page_end": 9,
+            "text": "### Hints and Tips DICE ROLLING\n\nIn a game of Warhammer 40,000 you and your opponent will be rolling, and in some cases re-rolling, lots of dice. It is good practice to always make sure your opponent knows what you are rolling dice for, and what abilities and rules are in effect that enable you to make any re-rolls.\n\nMany gamers roll their dice somewhere on the battlefield, but some roll their dice elsewhere, such as in a dice tray. Wherever you roll your dice, make sure you roll the dice where your opponent can see the results too. If a dice is rolled out of bounds (i.e. it rolls off your battlefield, out of your dice tray or ends up on the floor), it is very common to ignore the result of that dice and roll it again. Rolling an out-of-bounds dice again doesn't count as having re-rolled that dice.\n\nIf a dice does not lie flat on your battlefield after it has been thrown, it is called a cocked dice. Some players use a house rule that unless a dice is flat after it has been rolled, or unless you can balance another dice on top of a cocked dice without it sliding off, it must be rolled again. It is more common for players to roll the dice again only if they can't be sure of the result. In any case, rolling a cocked dice again doesn't count as having re-rolled that dice.",
+            "score": 0.029709507042253523,
+            "method": "rrf"
+          },
+          {
+            "id": "P5",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0042",
+            "page_start": 19,
+            "page_end": 19,
+            "text": "### Shooting Phase\n\nGuns thunder and shrapnel flies through the air. Bursts of muzzle flare and beams of las-fire illuminate the fog of war, and spent ammunition cartridges litter the battlefield.\n\nIn your Shooting phase, if you have one or more eligible units from your army on the battlefield, you can select those units, one at a time, and shoot with them. Each unit can only be selected to shoot once per phase. Once all of the units you selected have shot, progress to your Charge phase.\n\nA unit is eligible to shoot unless any of the following apply:\n- That unit Advanced this turn.\n- That unit Fell Back this turn.\n\n#### SELECT TARGETS\n\nEach time a unit shoots, before any attacks are resolved, you must select the enemy units that will be the targets for all of the ranged weapons you wish its models to make attacks with. Each time you select a target for a model's ranged weapon, you can only select an enemy unit as the target if at least one model in that unit is both within range of that weapon and visible to that attacking model (pg 8). An enemy model is within range of a weapon if the distance between it and the attacking model is equal to or less than that weapon's Range characteristic.",
+            "score": 0.02964426877470356,
+            "method": "rrf"
+          }
+        ],
+        "usage": {
+          "routing": {
+            "input_tokens": 1108,
+            "output_tokens": 150,
+            "total_tokens": 1258
+          },
+          "sql": null,
+          "answer": {
+            "input_tokens": 1941,
+            "output_tokens": 152,
+            "total_tokens": 2093
+          },
+          "total_tokens": 3351
+        },
+        "error": null
+      },
+      "diagnostics": {
+        "route_correct": true,
+        "required_citation_types_present": true,
+        "pdf_page_coverage_proxy": {
+          "required_pages": [
+            11,
+            14
+          ],
+          "found_pages": [
+            11,
+            14
+          ],
+          "fraction": 1.0
+        },
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": false
+        }
+      },
+      "elapsed_seconds": 29.91,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "P08",
+      "split": "held_out",
+      "category": "pdf",
+      "question": "If passengers disembark after their Transport made a Normal move, can they move again, shoot, or charge?",
+      "reference_answer": "They count as having made a Normal move. They cannot move further that phase or charge that turn, but may otherwise act normally, including shooting when eligible.",
+      "expected_route": "pdf",
+      "answerable": true,
+      "gold_pdf_evidence": [
+        {
+          "page": 17,
+          "anchor": "count as having made a Normal move themselves"
+        }
+      ],
+      "gold_sql_evidence": null,
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "ok",
+        "route": "pdf",
+        "resolved_question": "If passengers disembark after their Transport made a Normal move, can they move again, shoot, or charge?",
+        "answer": "If passengers disembark after their Transport made a Normal move, they count as having made a Normal move themselves and cannot move further during that phase [P1]. They also cannot declare a charge in the same turn [P1, P2]. However, they can otherwise act normally in the remainder of the turn [P1], which includes shooting [P2].",
+        "citations": [
+          "P1",
+          "P2"
+        ],
+        "sources": [
+          {
+            "id": "P1",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0037",
+            "page_start": 17,
+            "page_end": 17,
+            "text": "#### DISEMBARK\n\nIf a unit from your army starts your Movement phase embarked within a Transport model, that unit can disembark in that phase.\n\nWhen a unit disembarks from a Transport model, set it up on the battlefield so that it is wholly within 3\" of that Transport model and not within Engagement Range of any enemy models. If, for any reason, a disembarking model cannot be set up, that model's unit cannot disembark.\n\nUnits that disembark from a Transport model that either Remained Stationary this phase or has not yet made a Normal, Advance or Fall Back move this phase can then act normally (make a Normal move, Advance, shoot, declare a charge, fight, etc.) in the remainder of the turn. Such a disembarking unit cannot choose to Remain Stationary.\n\nUnits that disembark from a Transport model that made a Normal move this phase count as having made a Normal move themselves; they cannot move further during this phase. Such a unit also cannot declare a charge in the same turn, but can otherwise act normally in the remainder of the turn.",
+            "score": 0.03252247488101534,
+            "method": "rrf"
+          },
+          {
+            "id": "P2",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0038",
+            "page_start": 17,
+            "page_end": 18,
+            "text": "Units cannot disembark from a Transport model that either Advanced or Fell Back this turn.\n- Units that start your Movement phase embarked within a Transport can disembark this phase, provided their Transport has not Advanced or Fallen Back.\n- If a unit disembarks before its Transport moves, it can act normally.\n- If a unit disembarks after its Transport moves, it cannot move or charge this turn, but can otherwise act normally.\n- Disembarking units must be set up wholly within 3\" of their Transport and not within Engagement Range of any enemy models (or the unit cannot disembark).\n- Units that disembark this turn cannot Remain Stationary.\n\n#### DESTROYED TRANSPORTS\n\nIf a Transport model is destroyed, any units embarked within that Transport model must immediately disembark (see opposite) before that Transport model is removed from the battlefield.",
+            "score": 0.03131881575727918,
+            "method": "rrf"
+          },
+          {
+            "id": "P3",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0034",
+            "page_start": 17,
+            "page_end": 17,
+            "text": "#### TRANSPORTS\n\nSome units can carry others across the battlefield, providing their passengers with greater speed and protection as they are ferried to the front lines or towards vital objectives.\n\nSome models have the Transport keyword. The following rules describe how units can embark within and disembark from such models, and how they are used to move these passengers across the battlefield.\n\n#### TRANSPORT CAPACITY\n\nAll Transport models have a transport capacity listed on their datasheet. This determines the type and maximum number of friendly models that can embark within them.\n\nUnits can start the battle embarked within a Transport model instead of being set up separately - declare which units are embarked within a Transport model before you set it up.",
+            "score": 0.03128054740957967,
+            "method": "rrf"
+          },
+          {
+            "id": "P4",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0036",
+            "page_start": 17,
+            "page_end": 17,
+            "text": "#### EMBARK\n\nIf a unit makes a Normal, Advance or Fall Back move, and every model in that unit ends that move within 3\" of a friendly Transport model, they can embark within it. A unit cannot embark if it has already disembarked from a Transport model in the same phase. Remove the unit from the battlefield and place it to one side - it is now embarked within that Transport model. Unless otherwise stated, units cannot do anything or be affected in any way while they are embarked.\n- A unit can embark within a friendly Transport if all of its models end a Normal, Advance or Fall Back move within 3\" of that Transport.\n- A unit cannot embark and disembark in the same phase.",
+            "score": 0.029957522915269395,
+            "method": "rrf"
+          },
+          {
+            "id": "P5",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0039",
+            "page_start": 18,
+            "page_end": 18,
+            "text": "Units that disembark from a destroyed Transport model are not affected by that model's Deadly Demise ability (pg 23). Instead, you must roll one D6 for each disembarking model. For each roll of 1, that disembarking model's unit suffers 1 mortal wound (pg 23). In addition, if a unit disembarks from a destroyed Transport model:\n- Until the start of its controlling player's next Command phase, that unit is Battle-shocked.\n- Until the end of the turn, that unit counts as having made a Normal move this turn, and cannot declare a charge this turn (pg 29).\n- If a Transport is destroyed, any embarked units must disembark.\n- Roll one D6 for each model that disembarks: for each 1, that model's unit suffers 1 mortal wound.\n- Until the start of its controlling player's next Command phase, the disembarking unit is Battle-shocked.\n- Until the end of the turn, the disembarking unit counts as having made a Normal move, and cannot declare a charge.",
+            "score": 0.029877369007803793,
+            "method": "rrf"
+          }
+        ],
+        "usage": {
+          "routing": {
+            "input_tokens": 1099,
+            "output_tokens": 117,
+            "total_tokens": 1216
+          },
+          "sql": null,
+          "answer": {
+            "input_tokens": 1500,
+            "output_tokens": 113,
+            "total_tokens": 1613
+          },
+          "total_tokens": 2829
+        },
+        "error": null
+      },
+      "diagnostics": {
+        "route_correct": true,
+        "required_citation_types_present": true,
+        "pdf_page_coverage_proxy": {
+          "required_pages": [
+            17
+          ],
+          "found_pages": [
+            17
+          ],
+          "fraction": 1.0
+        },
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": true
+        }
+      },
+      "elapsed_seconds": 25.11,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "S02",
+      "split": "held_out",
+      "category": "sql",
+      "question": "How many Wounds does a Brutalis Dreadnought have, and what is its armour Save?",
+      "reference_answer": "Brutalis Dreadnought: 12 Wounds and a 2+ Save.",
+      "expected_route": "sql",
+      "answerable": true,
+      "gold_pdf_evidence": [],
+      "gold_sql_evidence": {
+        "reference_sql": "SELECT d.name, m.w AS wounds, m.sv AS save FROM datasheets d JOIN datasheets_models m ON m.DatasheetId=d.Id WHERE d.name = :name",
+        "parameters": {
+          "name": "Brutalis Dreadnought"
+        },
+        "verified_rows": [
+          {
+            "name": "Brutalis Dreadnought",
+            "wounds": "12",
+            "save": "2+"
+          }
+        ]
+      },
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "ok",
+        "route": "sql",
+        "resolved_question": "How many Wounds does a Brutalis Dreadnought have, and what is its armour Save?",
+        "answer": "A Brutalis Dreadnought has 12 Wounds and an armour Save of 2+ [S1].",
+        "citations": [
+          "S1"
+        ],
+        "sources": [
+          {
+            "id": "S1",
+            "type": "sql",
+            "status": "ok",
+            "sql": "SELECT d.name AS unit_name, m.w AS wounds, m.sv AS save FROM datasheets d JOIN datasheets_models m ON m.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
+            "parameters": {
+              "unit_name": "%Brutalis Dreadnought%"
+            },
+            "tables": [
+              "datasheets",
+              "datasheets_models"
+            ],
+            "columns": [
+              "unit_name",
+              "wounds",
+              "save"
+            ],
+            "rows": [
+              {
+                "unit_name": "Brutalis Dreadnought",
+                "wounds": "12",
+                "save": "2+"
+              }
+            ],
+            "row_count": 1,
+            "truncated": false
+          }
+        ],
+        "usage": {
+          "routing": {
+            "input_tokens": 1097,
+            "output_tokens": 119,
+            "total_tokens": 1216
+          },
+          "sql": {
+            "input_tokens": 1258,
+            "output_tokens": 125,
+            "total_tokens": 1383
+          },
+          "answer": {
+            "input_tokens": 446,
+            "output_tokens": 58,
+            "total_tokens": 504
+          },
+          "total_tokens": 3103
+        },
+        "error": null
+      },
+      "diagnostics": {
+        "route_correct": true,
+        "required_citation_types_present": true,
+        "pdf_page_coverage_proxy": null,
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": true
+        }
+      },
+      "elapsed_seconds": 41.53,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "S03",
+      "split": "held_out",
+      "category": "sql",
+      "question": "Name the two ranged weapons listed for Necron Warriors and give their ranges.",
+      "reference_answer": "Gauss flayer: 24 inches. Gauss reaper: 12 inches.",
+      "expected_route": "sql",
+      "answerable": true,
+      "gold_pdf_evidence": [],
+      "gold_sql_evidence": {
+        "reference_sql": "SELECT w.name, w.range FROM datasheets d JOIN datasheets_wargear w ON w.DatasheetId=d.Id WHERE d.name = :name AND w.type = 'Ranged' ORDER BY w.name",
+        "parameters": {
+          "name": "Necron Warriors"
+        },
+        "verified_rows": [
+          {
+            "name": "Gauss flayer",
+            "range": "24"
+          },
+          {
+            "name": "Gauss reaper",
+            "range": "12"
+          }
+        ]
+      },
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "ok",
+        "route": "sql",
+        "resolved_question": "Name the two ranged weapons listed for Necron Warriors and give their ranges.",
+        "answer": "The two ranged weapons listed for Necron Warriors are the Gauss flayer with a range of 24 and the Gauss reaper with a range of 12 [S1].",
+        "citations": [
+          "S1"
+        ],
+        "sources": [
+          {
+            "id": "S1",
+            "type": "sql",
+            "status": "ok",
+            "sql": "SELECT dw.name AS weapon_name, dw.range AS weapon_range FROM datasheets d JOIN datasheets_wargear dw ON dw.DatasheetId = d.Id WHERE d.name LIKE :unit_name AND (dw.type = :weapon_type_1 OR dw.type = :weapon_type_2)",
+            "parameters": {
+              "unit_name": "%Necron Warriors%",
+              "weapon_type_1": "Ranged",
+              "weapon_type_2": "Ranged Weapons"
+            },
+            "tables": [
+              "datasheets",
+              "datasheets_wargear"
+            ],
+            "columns": [
+              "weapon_name",
+              "weapon_range"
+            ],
+            "rows": [
+              {
+                "weapon_name": "Gauss flayer",
+                "weapon_range": "24"
+              },
+              {
+                "weapon_name": "Gauss reaper",
+                "weapon_range": "12"
+              }
+            ],
+            "row_count": 2,
+            "truncated": false
+          }
+        ],
+        "usage": {
+          "routing": {
+            "input_tokens": 1092,
+            "output_tokens": 93,
+            "total_tokens": 1185
+          },
+          "sql": {
+            "input_tokens": 1257,
+            "output_tokens": 183,
+            "total_tokens": 1440
+          },
+          "answer": {
+            "input_tokens": 475,
+            "output_tokens": 70,
+            "total_tokens": 545
+          },
+          "total_tokens": 3170
+        },
+        "error": null
+      },
+      "diagnostics": {
+        "route_correct": true,
+        "required_citation_types_present": true,
+        "pdf_page_coverage_proxy": null,
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": true
+        }
+      },
+      "elapsed_seconds": 41.66,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "S05",
+      "split": "held_out",
+      "category": "sql",
+      "question": "For Ork Boyz, which model profiles are present, and what is the Toughness of each?",
+      "reference_answer": "Boyz include BOSS NOB and BOY profiles. Both have Toughness 5.",
+      "expected_route": "sql",
+      "answerable": true,
+      "gold_pdf_evidence": [],
+      "gold_sql_evidence": {
+        "reference_sql": "SELECT m.name, m.t AS toughness FROM datasheets d JOIN datasheets_models m ON m.DatasheetId=d.Id WHERE d.name = :name ORDER BY m.name",
+        "parameters": {
+          "name": "Boyz"
+        },
+        "verified_rows": [
+          {
+            "name": "BOSS NOB",
+            "toughness": "5"
+          },
+          {
+            "name": "BOY",
+            "toughness": "5"
+          }
+        ]
+      },
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "insufficient_evidence",
+        "route": "sql",
+        "resolved_question": "For Ork Boyz, which model profiles are present, and what is the Toughness of each?",
+        "answer": "The SQLite query returned no matching records. This does not necessarily mean the requested information does not exist.",
+        "citations": [],
+        "sources": [
+          {
+            "id": "S1",
+            "type": "sql",
+            "status": "empty",
+            "sql": "SELECT d.name AS unit_name, m.name AS model_name, m.t AS toughness FROM datasheets d JOIN datasheets_models m ON m.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
+            "parameters": {
+              "unit_name": "%Ork Boyz%"
+            },
+            "tables": [
+              "datasheets",
+              "datasheets_models"
+            ],
+            "columns": [
+              "unit_name",
+              "model_name",
+              "toughness"
+            ],
+            "rows": [],
+            "row_count": 0,
+            "truncated": false
+          }
+        ],
+        "usage": {
+          "routing": {
+            "input_tokens": 1097,
+            "output_tokens": 107,
+            "total_tokens": 1204
+          },
+          "sql": {
+            "input_tokens": 1258,
+            "output_tokens": 110,
+            "total_tokens": 1368
+          },
+          "answer": null,
+          "total_tokens": 2572
+        },
+        "error": null
+      },
+      "diagnostics": {
+        "route_correct": true,
+        "required_citation_types_present": false,
+        "pdf_page_coverage_proxy": null,
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": true
+        }
+      },
+      "elapsed_seconds": 38.37,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "M03",
+      "split": "held_out",
+      "category": "mixed",
+      "question": "What Wound Roll does a Strength 5 attack need against a Brutalis Dreadnought?",
+      "reference_answer": "6+. Brutalis Dreadnought has Toughness 10, and Strength 5 is half of Toughness.",
+      "expected_route": "mixed",
+      "answerable": true,
+      "gold_pdf_evidence": [
+        {
+          "page": 21,
+          "anchor": "Strength is HALF (or less than half)"
+        }
+      ],
+      "gold_sql_evidence": {
+        "reference_sql": "SELECT m.t AS toughness FROM datasheets d JOIN datasheets_models m ON m.DatasheetId=d.Id WHERE d.name = :name",
+        "parameters": {
+          "name": "Brutalis Dreadnought"
+        },
+        "verified_rows": [
+          {
+            "toughness": "10"
+          }
+        ]
+      },
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "ok",
+        "route": "mixed",
+        "resolved_question": "What Wound Roll does a Strength 5 attack need against a Brutalis Dreadnought?",
+        "answer": "Based on the provided database, a Brutalis Dreadnought has a Toughness characteristic of 10 [S1]. According to the Core Rules, the result required for a Wound roll is determined by comparing the attack's Strength with the target's Toughness [P1]. With an attack Strength of 5 and a target Toughness of 10, the Strength is less than half the Toughness, which requires a Wound Roll result of a 6+ [P1].",
+        "citations": [
+          "P1",
+          "S1"
+        ],
+        "sources": [
+          {
+            "id": "P1",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0050",
+            "page_start": 21,
+            "page_end": 22,
+            "text": "#### 2. WOUND ROLL\n\nEach time an attack scores a hit against a target unit, make a Wound roll for that attack by rolling one D6 to see if that attack successfully wounds the target unit. The result required is determined by comparing the attack's Strength (S) characteristic with the target's Toughness (T) characteristic, as shown below.\n\n| Attack's Strength vs target's Toughness | D6 result required |\n|---|---|\n| Strength is TWICE (or more than twice) the Toughness. | 2+ |\n| Strength is GREATER than the Toughness. | 3+ |\n| Strength is EQUAL to the Toughness. | 4+ |\n| Strength is LESS than the Toughness. | 5+ |\n| Strength is HALF (or less than half) the Toughness. | 6+ |\n\n**Making attacks — sequence (source diagram):** 1. Hit Roll. 2. Wound Roll. 3. Allocate Attack. 4. Saving Throw. 5. Inflict Damage.\n\nIf the result of the Wound roll is greater than or equal to the required number shown in the table opposite, then that Wound roll is successful and scores one wound against the target unit. Otherwise, the attack fails and the attack sequence ends.",
+            "score": 0.03278688524590164,
+            "method": "rrf"
+          },
+          {
+            "id": "P2",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0072",
+            "page_start": 28,
+            "page_end": 28,
+            "text": "Example: A unit of five models make five attacks with ranged weapons with the [HAZARDOUS] ability. After the unit has finished shooting, its controlling player rolls five D6. One of the results is a 1, and as no models in the unit are Characters, Monsters or Vehicles, one of those models is destroyed.\n- After a unit shoots or fights, roll one Hazardous test (one D6) for each Hazardous weapon used. For each 1, one model equipped with a Hazardous weapon is destroyed (Characters, Monsters and Vehicles suffer 3 mortal wounds instead).\n\n#### DEVASTATING WOUNDS\n\nSome weapons can inflict strikes of such power that they make a mockery of armour and can cleave through several foes.\n\nWeapons with [DEVASTATING WOUNDS] in their profile are known as Devastating Wounds weapons. Each time an attack is made with such a weapon, a Critical Wound inflicts a number of mortal wounds on the target equal to the Damage characteristic of that weapon and the attack sequence ends.\n\nExample: An attack made with a Devastating Wounds weapon with a Damage characteristic of 2 scores a Critical Wound. Instead of allocating the attack and making saving throws normally, the target suffers 2 mortal wounds.\n- A Critical Wound inflicts mortal wounds equal to the weapon's Damage characteristic, instead of any normal damage.",
+            "score": 0.03128054740957967,
+            "method": "rrf"
+          },
+          {
+            "id": "P3",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0061",
+            "page_start": 24,
+            "page_end": 24,
+            "text": "3. The Strength characteristic of those attacks is 5, which is equal to the Toughness of a Terminator, so rolls of 4+ are required to successfully wound the target. Of those seven rolls, five successfully wound.\n\n4. As all the attacks have a Damage characteristic of 1, and as the saving throws required for the Terminators are all the same, the Space Marines player can continue to use the fast dice rolling method and make all of those saving throws at the same time, even though strictly you should allocate attacks beforehand.\n\n5 The attacks all have an Armour Penetration characteristic of -1, so in this instance, even though the Terminators have an invulnerable saving throw, their normal Save characteristic will afford them a better chance of survival. The saving throws rolled result in a 1, 2, 4, 5 and 5, meaning that two are failed.\n\n6 The Space Marines player now has to allocate those two attacks, one at a time. One Terminator model has already lost two wounds earlier in the battle, so they must allocate attacks to that model first. This means that model loses its last remaining wound (Terminator models have a Wounds characteristic of 3), and is destroyed. The last attack is allocated to a different model, and so that model suffers one wound.",
+            "score": 0.031024531024531024,
+            "method": "rrf"
+          },
+          {
+            "id": "P4",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0060",
+            "page_start": 24,
+            "page_end": 24,
+            "text": "If the attacks being allocated to a target inflict random damage, you cannot use the fast dice rolling approach exactly as stated above - you will need to roll the dice one at a time. Consider several attacks with a Damage characteristic of D3 being allocated to a target containing models with two wounds each. As excess damage is lost each time a model is destroyed, the order in which the attacks are allocated and resolved becomes important. If the results of those D3s were 1, then 2, then 3, the attacks would result in a total of two destroyed models, but applying them in the order 3, then 2, then 1 would result in two models being destroyed and a third being damaged with only one wound remaining. As such, the rolls should be made one at a time.\n\n1 A unit of 20 Termagants targets a Terminators unit with their Fleshborers. As these weapons all have the same profile, the controlling player chooses to use the fast dice rolling method.\n\n2 Each has an Attacks characteristic of 1, so the controlling player rolls twenty D6. Seven of the results are greater than or equal to the Fleshborers' Ballistic Skill of 4+, so seven hits are scored, and seven Wound rolls are then made.",
+            "score": 0.029418126757516764,
+            "method": "rrf"
+          },
+          {
+            "id": "P5",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0092",
+            "page_start": 38,
+            "page_end": 38,
+            "text": "#### 1. Datasheet Name\n\nHere you will find the name of the unit.\n\n#### 2. Profiles\n\nThese contain the following characteristics that tell you how mighty the models in the unit are:\n\nMove (M): This is the speed at which a model moves across the battlefield. If a model has a Move of '-' it is unable to move at all.\n\nToughness (T): This reflects the model's resilience against physical harm.\n\nSave (Sv): This indicates the protection a model's armour gives them.\n\nWounds (W): Wounds represent how much damage a model can sustain before it succumbs to its injuries. If a model's Wounds characteristic is reduced to 0, that model is destroyed.\n\nLeadership (Ld): This reveals how courageous, determined or self-controlled a model is. The lower this number, the better a model's Leadership is.\n\nObjective Control (OC): This shows how effectively a model can exert control over an objective on the battlefield.",
+            "score": 0.02900988017658188,
+            "method": "rrf"
+          },
+          {
+            "id": "S1",
+            "type": "sql",
+            "status": "ok",
+            "sql": "SELECT d.name AS unit_name, m.t AS toughness FROM datasheets d JOIN datasheets_models m ON m.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
+            "parameters": {
+              "unit_name": "%Brutalis Dreadnought%"
+            },
+            "tables": [
+              "datasheets",
+              "datasheets_models"
+            ],
+            "columns": [
+              "unit_name",
+              "toughness"
+            ],
+            "rows": [
+              {
+                "unit_name": "Brutalis Dreadnought",
+                "toughness": "10"
+              }
+            ],
+            "row_count": 1,
+            "truncated": false
+          }
+        ],
+        "usage": {
+          "routing": {
+            "input_tokens": 1095,
+            "output_tokens": 127,
+            "total_tokens": 1222
+          },
+          "sql": {
+            "input_tokens": 1256,
+            "output_tokens": 122,
+            "total_tokens": 1378
+          },
+          "answer": {
+            "input_tokens": 2017,
+            "output_tokens": 140,
+            "total_tokens": 2157
+          },
+          "total_tokens": 4757
+        },
+        "error": null
+      },
+      "diagnostics": {
+        "route_correct": true,
+        "required_citation_types_present": true,
+        "pdf_page_coverage_proxy": {
+          "required_pages": [
+            21
+          ],
+          "found_pages": [
+            21
+          ],
+          "fraction": 1.0
+        },
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": true
+        }
+      },
+      "elapsed_seconds": 41.8,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "M04",
+      "split": "held_out",
+      "category": "mixed",
+      "question": "What Wound Roll does a Strength 7 attack need against Necron Warriors?",
+      "reference_answer": "3+. Necron Warriors have Toughness 4. Strength 7 is greater than 4 but less than twice 4.",
+      "expected_route": "mixed",
+      "answerable": true,
+      "gold_pdf_evidence": [
+        {
+          "page": 21,
+          "anchor": "Strength is GREATER than the Toughness"
+        }
+      ],
+      "gold_sql_evidence": {
+        "reference_sql": "SELECT m.t AS toughness FROM datasheets d JOIN datasheets_models m ON m.DatasheetId=d.Id WHERE d.name = :name",
+        "parameters": {
+          "name": "Necron Warriors"
+        },
+        "verified_rows": [
+          {
+            "toughness": "4"
+          }
+        ]
+      },
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "ok",
+        "route": "mixed",
+        "resolved_question": "What Wound Roll does a Strength 7 attack need against Necron Warriors?",
+        "answer": "A Strength 7 attack needs a 2+ Wound roll against Necron Warriors. According to the database, Necron Warriors have a Toughness characteristic of 4 [S1]. Comparing the attack's Strength (7) to the target's Toughness (4), the Strength is greater than twice the Toughness (since 7 is greater than or equal to 4 x 2 = 8? Wait, 7 is not twice 4, but let's check the table: Strength 7 vs Toughness 4 means Strength is greater than Toughness, but is it twice? 4 x 2 = 8, so 7 is not twice 4. However, 7 is greater than 4, so according to the Wound roll table where Strength is GREATER than the Toughness, a 3+ is required). Let's re-verify: Strength is 7, Toughness is 4. 7 > 4, but 7 < 8. Therefore, the Strength is greater than the Toughness, which requires a 3+ [P1].",
+        "citations": [
+          "P1",
+          "S1"
+        ],
+        "sources": [
+          {
+            "id": "P1",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0050",
+            "page_start": 21,
+            "page_end": 22,
+            "text": "#### 2. WOUND ROLL\n\nEach time an attack scores a hit against a target unit, make a Wound roll for that attack by rolling one D6 to see if that attack successfully wounds the target unit. The result required is determined by comparing the attack's Strength (S) characteristic with the target's Toughness (T) characteristic, as shown below.\n\n| Attack's Strength vs target's Toughness | D6 result required |\n|---|---|\n| Strength is TWICE (or more than twice) the Toughness. | 2+ |\n| Strength is GREATER than the Toughness. | 3+ |\n| Strength is EQUAL to the Toughness. | 4+ |\n| Strength is LESS than the Toughness. | 5+ |\n| Strength is HALF (or less than half) the Toughness. | 6+ |\n\n**Making attacks — sequence (source diagram):** 1. Hit Roll. 2. Wound Roll. 3. Allocate Attack. 4. Saving Throw. 5. Inflict Damage.\n\nIf the result of the Wound roll is greater than or equal to the required number shown in the table opposite, then that Wound roll is successful and scores one wound against the target unit. Otherwise, the attack fails and the attack sequence ends.",
+            "score": 0.03278688524590164,
+            "method": "rrf"
+          },
+          {
+            "id": "P2",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0072",
+            "page_start": 28,
+            "page_end": 28,
+            "text": "Example: A unit of five models make five attacks with ranged weapons with the [HAZARDOUS] ability. After the unit has finished shooting, its controlling player rolls five D6. One of the results is a 1, and as no models in the unit are Characters, Monsters or Vehicles, one of those models is destroyed.\n- After a unit shoots or fights, roll one Hazardous test (one D6) for each Hazardous weapon used. For each 1, one model equipped with a Hazardous weapon is destroyed (Characters, Monsters and Vehicles suffer 3 mortal wounds instead).\n\n#### DEVASTATING WOUNDS\n\nSome weapons can inflict strikes of such power that they make a mockery of armour and can cleave through several foes.\n\nWeapons with [DEVASTATING WOUNDS] in their profile are known as Devastating Wounds weapons. Each time an attack is made with such a weapon, a Critical Wound inflicts a number of mortal wounds on the target equal to the Damage characteristic of that weapon and the attack sequence ends.\n\nExample: An attack made with a Devastating Wounds weapon with a Damage characteristic of 2 scores a Critical Wound. Instead of allocating the attack and making saving throws normally, the target suffers 2 mortal wounds.\n- A Critical Wound inflicts mortal wounds equal to the weapon's Damage characteristic, instead of any normal damage.",
+            "score": 0.03128054740957967,
+            "method": "rrf"
+          },
+          {
+            "id": "P3",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0061",
+            "page_start": 24,
+            "page_end": 24,
+            "text": "3. The Strength characteristic of those attacks is 5, which is equal to the Toughness of a Terminator, so rolls of 4+ are required to successfully wound the target. Of those seven rolls, five successfully wound.\n\n4. As all the attacks have a Damage characteristic of 1, and as the saving throws required for the Terminators are all the same, the Space Marines player can continue to use the fast dice rolling method and make all of those saving throws at the same time, even though strictly you should allocate attacks beforehand.\n\n5 The attacks all have an Armour Penetration characteristic of -1, so in this instance, even though the Terminators have an invulnerable saving throw, their normal Save characteristic will afford them a better chance of survival. The saving throws rolled result in a 1, 2, 4, 5 and 5, meaning that two are failed.\n\n6 The Space Marines player now has to allocate those two attacks, one at a time. One Terminator model has already lost two wounds earlier in the battle, so they must allocate attacks to that model first. This means that model loses its last remaining wound (Terminator models have a Wounds characteristic of 3), and is destroyed. The last attack is allocated to a different model, and so that model suffers one wound.",
+            "score": 0.031024531024531024,
+            "method": "rrf"
+          },
+          {
+            "id": "P4",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0060",
+            "page_start": 24,
+            "page_end": 24,
+            "text": "If the attacks being allocated to a target inflict random damage, you cannot use the fast dice rolling approach exactly as stated above - you will need to roll the dice one at a time. Consider several attacks with a Damage characteristic of D3 being allocated to a target containing models with two wounds each. As excess damage is lost each time a model is destroyed, the order in which the attacks are allocated and resolved becomes important. If the results of those D3s were 1, then 2, then 3, the attacks would result in a total of two destroyed models, but applying them in the order 3, then 2, then 1 would result in two models being destroyed and a third being damaged with only one wound remaining. As such, the rolls should be made one at a time.\n\n1 A unit of 20 Termagants targets a Terminators unit with their Fleshborers. As these weapons all have the same profile, the controlling player chooses to use the fast dice rolling method.\n\n2 Each has an Attacks characteristic of 1, so the controlling player rolls twenty D6. Seven of the results are greater than or equal to the Fleshborers' Ballistic Skill of 4+, so seven hits are scored, and seven Wound rolls are then made.",
+            "score": 0.029418126757516764,
+            "method": "rrf"
+          },
+          {
+            "id": "P5",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0092",
+            "page_start": 38,
+            "page_end": 38,
+            "text": "#### 1. Datasheet Name\n\nHere you will find the name of the unit.\n\n#### 2. Profiles\n\nThese contain the following characteristics that tell you how mighty the models in the unit are:\n\nMove (M): This is the speed at which a model moves across the battlefield. If a model has a Move of '-' it is unable to move at all.\n\nToughness (T): This reflects the model's resilience against physical harm.\n\nSave (Sv): This indicates the protection a model's armour gives them.\n\nWounds (W): Wounds represent how much damage a model can sustain before it succumbs to its injuries. If a model's Wounds characteristic is reduced to 0, that model is destroyed.\n\nLeadership (Ld): This reveals how courageous, determined or self-controlled a model is. The lower this number, the better a model's Leadership is.\n\nObjective Control (OC): This shows how effectively a model can exert control over an objective on the battlefield.",
+            "score": 0.02900988017658188,
+            "method": "rrf"
+          },
+          {
+            "id": "S1",
+            "type": "sql",
+            "status": "ok",
+            "sql": "SELECT d.name AS unit_name, m.t AS toughness FROM datasheets d JOIN datasheets_models m ON m.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
+            "parameters": {
+              "unit_name": "%Necron Warriors%"
+            },
+            "tables": [
+              "datasheets",
+              "datasheets_models"
+            ],
+            "columns": [
+              "unit_name",
+              "toughness"
+            ],
+            "rows": [
+              {
+                "unit_name": "Necron Warriors",
+                "toughness": "4"
+              }
+            ],
+            "row_count": 1,
+            "truncated": false
+          }
+        ],
+        "usage": {
+          "routing": {
+            "input_tokens": 1092,
+            "output_tokens": 117,
+            "total_tokens": 1209
+          },
+          "sql": {
+            "input_tokens": 1253,
+            "output_tokens": 114,
+            "total_tokens": 1367
+          },
+          "answer": {
+            "input_tokens": 2010,
+            "output_tokens": 267,
+            "total_tokens": 2277
+          },
+          "total_tokens": 4853
+        },
+        "error": null
+      },
+      "diagnostics": {
+        "route_correct": true,
+        "required_citation_types_present": true,
+        "pdf_page_coverage_proxy": {
+          "required_pages": [
+            21
+          ],
+          "found_pages": [
+            21
+          ],
+          "fraction": 1.0
+        },
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": true
+        }
+      },
+      "elapsed_seconds": 40.28,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "M07",
+      "split": "held_out",
+      "category": "mixed",
+      "question": "Can an Astra Militarum Leman Russ Battle Tank shoot its ranged weapons while within Engagement Range of an enemy, and what Hit-roll modifier applies?",
+      "reference_answer": "Yes. Leman Russ Battle Tank has the Vehicle keyword. Vehicles can shoot while engaged, normally with -1 to Hit except for Pistol attacks.",
+      "expected_route": "mixed",
+      "answerable": true,
+      "gold_pdf_evidence": [
+        {
+          "page": 20,
+          "anchor": "Monster and Vehicle units are eligible to shoot"
+        }
+      ],
+      "gold_sql_evidence": {
+        "reference_sql": "SELECT DISTINCT k.keyword FROM datasheets d JOIN datasheets_keywords k ON k.DatasheetId=d.Id WHERE d.name = :name AND d.factionId = :faction AND lower(k.keyword) = :keyword",
+        "parameters": {
+          "name": "Leman Russ Battle Tank",
+          "faction": "AM",
+          "keyword": "vehicle"
+        },
+        "verified_rows": [
+          {
+            "keyword": "Vehicle"
+          }
+        ]
+      },
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "ok",
+        "route": "mixed",
+        "resolved_question": "Can an Astra Militarum Leman Russ Battle Tank shoot its ranged weapons while within Engagement Range of an enemy, and what Hit-roll modifier applies?",
+        "answer": "Yes, an Astra Militarum Leman Russ Battle Tank can shoot its ranged weapons while within Engagement Range of an enemy unit, because it is a Vehicle [P2, P3, S1]. Under the Big Guns Never Tire rules, Monster and Vehicle units are eligible to shoot in their controlling player's Shooting phase even while within Engagement Range of one or more enemy units, and can target those enemy units with their ranged weapons [P2, P3]. Each time a Monster or Vehicle model makes a ranged attack, if its unit was within Engagement Range of one or more enemy units when selecting its targets, you must subtract 1 from that attack's Hit roll (unless the attack is made with a Pistol) [P2, P3].\n\nSources: [P2], [P3], [S1]",
+        "citations": [
+          "P2",
+          "P3",
+          "S1"
+        ],
+        "sources": [
+          {
+            "id": "P1",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0046",
+            "page_start": 20,
+            "page_end": 20,
+            "text": "#### Locked in Combat\n\nA unit is not eligible to shoot while it is within Engagement Range of one or more enemy units.\n\nWhile an enemy unit is within Engagement Rage of one or more units from your army, you cannot select that enemy unit as a target of ranged weapons.\n\nMonster and Vehicle units are exceptions to these rules, as described in the Big Guns Never Tire section (see right).\n- Units cannot shoot while within Engagement Range of enemy units.\n- Units cannot shoot at targets within Engagement Range of friendly units.\n\n#### STEALTH\n\nSome warriors are masters of disguise and concealment.\n\nIf every model in a unit has this ability, then each time a ranged attack is made against it, subtract 1 from that attack's Hit roll.",
+            "score": 0.03252247488101534,
+            "method": "rrf"
+          },
+          {
+            "id": "P2",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0047",
+            "page_start": 20,
+            "page_end": 20,
+            "text": "#### BIG GUNS NEVER TIRE\n\nMonsters and war engines can dispense death from afar even as they trample the masses before them.\n\nMonster and Vehicle units are eligible to shoot in their controlling player's Shooting phase even while they are within Engagement Range of one or more enemy units. Ranged weapons equipped by Monster and Vehicle units can target one or more of the enemy units they are within Engagement Range of, even if other friendly units are also within Engagement Range of the same enemy unit. Each time a Monster or Vehicle model makes a ranged attack, if its unit was within Engagement Range of one or more enemy units when it selected its targets, unless that attack is made with a Pistol (pg 25), subtract 1 from that attack's Hit roll.\n\nYou can select an enemy Monster or Vehicle unit within Engagement Range of one or more units from your army as a target of ranged weapons. Each time a model from your army makes a ranged attack against such a target, unless that attack is made with a Pistol, subtract 1 from that attack's Hit roll.",
+            "score": 0.03252247488101534,
+            "method": "rrf"
+          },
+          {
+            "id": "P3",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0048",
+            "page_start": 20,
+            "page_end": 20,
+            "text": "Designer's Note: A unit that is within Engagement Range of an enemy Monster or Vehicle unit is still not eligible to shoot, and so cannot make ranged attacks against that Monster or Vehicle unit (unless that unit is eligible to shoot even while within Engagement Range of enemy units, e.g. it is itself a Monster or Vehicle unit, or its models are equipped with Pistols). Other units from your army that are eligible to shoot can, however, target and shoot that enemy Monster or Vehicle unit.\n- Monsters and Vehicles can shoot, and be shot at, even while they are within Engagement Range of enemy units. Each time a ranged attack is made by or against such a unit, subtract 1 from that attack's Hit roll (unless shooting with a Pistol).",
+            "score": 0.03149801587301587,
+            "method": "rrf"
+          },
+          {
+            "id": "P4",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0044",
+            "page_start": 19,
+            "page_end": 20,
+            "text": "#### LONE OPERATIVE\n\nAssassins and other covert agents are difficult to track and pinpoint in the swirling maelstrom of battle.\n\nUnless part of an Attached unit (see Leader, page 39), this unit can only be selected as the target of a ranged attack if the attacking model is within 12\".\n\n**Shooting sequence (source diagram):** 1. Select eligible unit. 2. Select targets. 3. Make ranged attacks. 4. Repeat for next eligible unit.\n\n#### MAKE RANGED ATTACKS\n\nThe shooting unit's models now make attacks using their ranged weapons. Each time a model shoots with a ranged weapon, it will make a number of attacks equal to the Attacks (A) characteristic in that weapon's profile. You make one Hit roll for each attack being made (see Making Attacks, pages 21-23).\n\nIf you selected more than one target for your unit to shoot at, you must resolve all of the attacks against one target before moving on to the next target. If your unit is shooting more than one ranged weapon at a target, and those weapons have different profiles, then after you have resolved attacks with one of those weapons you must, if any other weapons with the same profile are also being shot at that unit, resolve those attacks before resolving any other attacks against the target.",
+            "score": 0.031009615384615385,
+            "method": "rrf"
+          },
+          {
+            "id": "P5",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0064",
+            "page_start": 25,
+            "page_end": 25,
+            "text": "#### IGNORES COVER\n\nSome weapons are designed to root enemy formations out of entrenched positions.\n\nWeapons with [IGNORES COVER] in their profile are known as Ignores Cover weapons. Each time an attack is made with such a weapon, the target cannot have the Benefit of Cover against that attack (pg 44).\n\n#### TWIN-LINKED\n\nDual weapons are often grafted to the same targeting system for greater lethality.\n\nWeapons with [TWIN-LINKED] in their profile are known as Twin-linked weapons. Each time an attack is made with such a weapon, you can re-roll that attack's Wound roll.\n\n#### PISTOL\n\nPistols can be wielded even at point-blank range.\n\nWeapons with [PISTOL] in their profile are known as Pistols. If a unit contains any models equipped with Pistols, that unit is eligible to shoot in its controlling player's Shooting phase even while it is within Engagement Range of one or more enemy units. When such a unit is selected to shoot, it can only resolve attacks using its Pistols and can only target one of the enemy units it is within Engagement Range of. In such circumstances, a Pistol can target an enemy unit even if other friendly units are within Engagement Range of the same enemy unit.",
+            "score": 0.029411764705882353,
+            "method": "rrf"
+          },
+          {
+            "id": "S1",
+            "type": "sql",
+            "status": "ok",
+            "sql": "SELECT d.name AS unit_name, k.keyword AS keyword, w.name AS wargear_name, w.range AS wargear_range, w.type AS wargear_type, w.a AS wargear_attacks, w.bsWs AS wargear_bs_ws, w.s AS wargear_strength, w.ap AS wargear_ap, w.d AS wargear_damage FROM datasheets d JOIN factions f ON f.Id = d.factionId LEFT JOIN datasheets_keywords k ON k.DatasheetId = d.Id LEFT JOIN datasheets_wargear w ON w.DatasheetId = d.Id WHERE d.name LIKE :unit_name AND f.name LIKE :faction_name",
+            "parameters": {
+              "unit_name": "%Leman Russ Battle Tank%",
+              "faction_name": "%Astra Militarum%"
+            },
+            "tables": [
+              "datasheets",
+              "datasheets_keywords",
+              "datasheets_wargear",
+              "factions"
+            ],
+            "columns": [
+              "unit_name",
+              "keyword",
+              "wargear_name",
+              "wargear_range",
+              "wargear_type",
+              "wargear_attacks",
+              "wargear_bs_ws",
+              "wargear_strength",
+              "wargear_ap",
+              "wargear_damage"
+            ],
+            "rows": [
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Astra Militarum",
+                "wargear_name": "Armoured tracks",
+                "wargear_range": "Melee",
+                "wargear_type": "Melee",
+                "wargear_attacks": "6",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "7",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Astra Militarum",
+                "wargear_name": "Heavy bolter",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "5",
+                "wargear_ap": "-1",
+                "wargear_damage": "2"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Astra Militarum",
+                "wargear_name": "Heavy flamer",
+                "wargear_range": "12",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D6",
+                "wargear_bs_ws": "N/A",
+                "wargear_strength": "5",
+                "wargear_ap": "-1",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Astra Militarum",
+                "wargear_name": "Heavy stubber",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "4",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Astra Militarum",
+                "wargear_name": "Hunter-killer missile",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "1",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "14",
+                "wargear_ap": "-3",
+                "wargear_damage": "D6"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Astra Militarum",
+                "wargear_name": "Lascannon",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "1",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "12",
+                "wargear_ap": "-3",
+                "wargear_damage": "D6+1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Astra Militarum",
+                "wargear_name": "Leman Russ battle cannon",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D6+3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "10",
+                "wargear_ap": "-1",
+                "wargear_damage": "3"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Astra Militarum",
+                "wargear_name": "Multi-melta",
+                "wargear_range": "18",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "2",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "9",
+                "wargear_ap": "-4",
+                "wargear_damage": "D6"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Astra Militarum",
+                "wargear_name": "Plasma cannon â standard",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "7",
+                "wargear_ap": "-2",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Astra Militarum",
+                "wargear_name": "Plasma cannon â supercharge",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "8",
+                "wargear_ap": "-3",
+                "wargear_damage": "2"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Astra Militarum",
+                "wargear_name": "Storm bolter",
+                "wargear_range": "24",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "2",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "4",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Frame",
+                "wargear_name": "Armoured tracks",
+                "wargear_range": "Melee",
+                "wargear_type": "Melee",
+                "wargear_attacks": "6",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "7",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Frame",
+                "wargear_name": "Heavy bolter",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "5",
+                "wargear_ap": "-1",
+                "wargear_damage": "2"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Frame",
+                "wargear_name": "Heavy flamer",
+                "wargear_range": "12",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D6",
+                "wargear_bs_ws": "N/A",
+                "wargear_strength": "5",
+                "wargear_ap": "-1",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Frame",
+                "wargear_name": "Heavy stubber",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "4",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Frame",
+                "wargear_name": "Hunter-killer missile",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "1",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "14",
+                "wargear_ap": "-3",
+                "wargear_damage": "D6"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Frame",
+                "wargear_name": "Lascannon",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "1",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "12",
+                "wargear_ap": "-3",
+                "wargear_damage": "D6+1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Frame",
+                "wargear_name": "Leman Russ battle cannon",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D6+3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "10",
+                "wargear_ap": "-1",
+                "wargear_damage": "3"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Frame",
+                "wargear_name": "Multi-melta",
+                "wargear_range": "18",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "2",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "9",
+                "wargear_ap": "-4",
+                "wargear_damage": "D6"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Frame",
+                "wargear_name": "Plasma cannon â standard",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "7",
+                "wargear_ap": "-2",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Frame",
+                "wargear_name": "Plasma cannon â supercharge",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "8",
+                "wargear_ap": "-3",
+                "wargear_damage": "2"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Frame",
+                "wargear_name": "Storm bolter",
+                "wargear_range": "24",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "2",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "4",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Imperium",
+                "wargear_name": "Armoured tracks",
+                "wargear_range": "Melee",
+                "wargear_type": "Melee",
+                "wargear_attacks": "6",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "7",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Imperium",
+                "wargear_name": "Heavy bolter",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "5",
+                "wargear_ap": "-1",
+                "wargear_damage": "2"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Imperium",
+                "wargear_name": "Heavy flamer",
+                "wargear_range": "12",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D6",
+                "wargear_bs_ws": "N/A",
+                "wargear_strength": "5",
+                "wargear_ap": "-1",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Imperium",
+                "wargear_name": "Heavy stubber",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "4",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Imperium",
+                "wargear_name": "Hunter-killer missile",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "1",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "14",
+                "wargear_ap": "-3",
+                "wargear_damage": "D6"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Imperium",
+                "wargear_name": "Lascannon",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "1",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "12",
+                "wargear_ap": "-3",
+                "wargear_damage": "D6+1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Imperium",
+                "wargear_name": "Leman Russ battle cannon",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D6+3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "10",
+                "wargear_ap": "-1",
+                "wargear_damage": "3"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Imperium",
+                "wargear_name": "Multi-melta",
+                "wargear_range": "18",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "2",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "9",
+                "wargear_ap": "-4",
+                "wargear_damage": "D6"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Imperium",
+                "wargear_name": "Plasma cannon â standard",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "7",
+                "wargear_ap": "-2",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Imperium",
+                "wargear_name": "Plasma cannon â supercharge",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "8",
+                "wargear_ap": "-3",
+                "wargear_damage": "2"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Imperium",
+                "wargear_name": "Storm bolter",
+                "wargear_range": "24",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "2",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "4",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Leman Russ Battle Tank",
+                "wargear_name": "Armoured tracks",
+                "wargear_range": "Melee",
+                "wargear_type": "Melee",
+                "wargear_attacks": "6",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "7",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Leman Russ Battle Tank",
+                "wargear_name": "Heavy bolter",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "5",
+                "wargear_ap": "-1",
+                "wargear_damage": "2"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Leman Russ Battle Tank",
+                "wargear_name": "Heavy flamer",
+                "wargear_range": "12",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D6",
+                "wargear_bs_ws": "N/A",
+                "wargear_strength": "5",
+                "wargear_ap": "-1",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Leman Russ Battle Tank",
+                "wargear_name": "Heavy stubber",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "4",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Leman Russ Battle Tank",
+                "wargear_name": "Hunter-killer missile",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "1",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "14",
+                "wargear_ap": "-3",
+                "wargear_damage": "D6"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Leman Russ Battle Tank",
+                "wargear_name": "Lascannon",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "1",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "12",
+                "wargear_ap": "-3",
+                "wargear_damage": "D6+1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Leman Russ Battle Tank",
+                "wargear_name": "Leman Russ battle cannon",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D6+3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "10",
+                "wargear_ap": "-1",
+                "wargear_damage": "3"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Leman Russ Battle Tank",
+                "wargear_name": "Multi-melta",
+                "wargear_range": "18",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "2",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "9",
+                "wargear_ap": "-4",
+                "wargear_damage": "D6"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Leman Russ Battle Tank",
+                "wargear_name": "Plasma cannon â standard",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "7",
+                "wargear_ap": "-2",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Leman Russ Battle Tank",
+                "wargear_name": "Plasma cannon â supercharge",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "8",
+                "wargear_ap": "-3",
+                "wargear_damage": "2"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Leman Russ Battle Tank",
+                "wargear_name": "Storm bolter",
+                "wargear_range": "24",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "2",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "4",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Smoke",
+                "wargear_name": "Armoured tracks",
+                "wargear_range": "Melee",
+                "wargear_type": "Melee",
+                "wargear_attacks": "6",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "7",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Smoke",
+                "wargear_name": "Heavy bolter",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "5",
+                "wargear_ap": "-1",
+                "wargear_damage": "2"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Smoke",
+                "wargear_name": "Heavy flamer",
+                "wargear_range": "12",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D6",
+                "wargear_bs_ws": "N/A",
+                "wargear_strength": "5",
+                "wargear_ap": "-1",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Smoke",
+                "wargear_name": "Heavy stubber",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "4",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Smoke",
+                "wargear_name": "Hunter-killer missile",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "1",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "14",
+                "wargear_ap": "-3",
+                "wargear_damage": "D6"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Smoke",
+                "wargear_name": "Lascannon",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "1",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "12",
+                "wargear_ap": "-3",
+                "wargear_damage": "D6+1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Smoke",
+                "wargear_name": "Leman Russ battle cannon",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D6+3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "10",
+                "wargear_ap": "-1",
+                "wargear_damage": "3"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Smoke",
+                "wargear_name": "Multi-melta",
+                "wargear_range": "18",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "2",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "9",
+                "wargear_ap": "-4",
+                "wargear_damage": "D6"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Smoke",
+                "wargear_name": "Plasma cannon â standard",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "7",
+                "wargear_ap": "-2",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Smoke",
+                "wargear_name": "Plasma cannon â supercharge",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "8",
+                "wargear_ap": "-3",
+                "wargear_damage": "2"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Smoke",
+                "wargear_name": "Storm bolter",
+                "wargear_range": "24",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "2",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "4",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Squadron",
+                "wargear_name": "Armoured tracks",
+                "wargear_range": "Melee",
+                "wargear_type": "Melee",
+                "wargear_attacks": "6",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "7",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Squadron",
+                "wargear_name": "Heavy bolter",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "5",
+                "wargear_ap": "-1",
+                "wargear_damage": "2"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Squadron",
+                "wargear_name": "Heavy flamer",
+                "wargear_range": "12",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D6",
+                "wargear_bs_ws": "N/A",
+                "wargear_strength": "5",
+                "wargear_ap": "-1",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Squadron",
+                "wargear_name": "Heavy stubber",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "4",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Squadron",
+                "wargear_name": "Hunter-killer missile",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "1",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "14",
+                "wargear_ap": "-3",
+                "wargear_damage": "D6"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Squadron",
+                "wargear_name": "Lascannon",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "1",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "12",
+                "wargear_ap": "-3",
+                "wargear_damage": "D6+1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Squadron",
+                "wargear_name": "Leman Russ battle cannon",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D6+3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "10",
+                "wargear_ap": "-1",
+                "wargear_damage": "3"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Squadron",
+                "wargear_name": "Multi-melta",
+                "wargear_range": "18",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "2",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "9",
+                "wargear_ap": "-4",
+                "wargear_damage": "D6"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Squadron",
+                "wargear_name": "Plasma cannon â standard",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "7",
+                "wargear_ap": "-2",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Squadron",
+                "wargear_name": "Plasma cannon â supercharge",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "8",
+                "wargear_ap": "-3",
+                "wargear_damage": "2"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Squadron",
+                "wargear_name": "Storm bolter",
+                "wargear_range": "24",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "2",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "4",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Vehicle",
+                "wargear_name": "Armoured tracks",
+                "wargear_range": "Melee",
+                "wargear_type": "Melee",
+                "wargear_attacks": "6",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "7",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Vehicle",
+                "wargear_name": "Heavy bolter",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "5",
+                "wargear_ap": "-1",
+                "wargear_damage": "2"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Vehicle",
+                "wargear_name": "Heavy flamer",
+                "wargear_range": "12",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D6",
+                "wargear_bs_ws": "N/A",
+                "wargear_strength": "5",
+                "wargear_ap": "-1",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Vehicle",
+                "wargear_name": "Heavy stubber",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "4",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Vehicle",
+                "wargear_name": "Hunter-killer missile",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "1",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "14",
+                "wargear_ap": "-3",
+                "wargear_damage": "D6"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Vehicle",
+                "wargear_name": "Lascannon",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "1",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "12",
+                "wargear_ap": "-3",
+                "wargear_damage": "D6+1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Vehicle",
+                "wargear_name": "Leman Russ battle cannon",
+                "wargear_range": "48",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D6+3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "10",
+                "wargear_ap": "-1",
+                "wargear_damage": "3"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Vehicle",
+                "wargear_name": "Multi-melta",
+                "wargear_range": "18",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "2",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "9",
+                "wargear_ap": "-4",
+                "wargear_damage": "D6"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Vehicle",
+                "wargear_name": "Plasma cannon â standard",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "7",
+                "wargear_ap": "-2",
+                "wargear_damage": "1"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Vehicle",
+                "wargear_name": "Plasma cannon â supercharge",
+                "wargear_range": "36",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "D3",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "8",
+                "wargear_ap": "-3",
+                "wargear_damage": "2"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "keyword": "Vehicle",
+                "wargear_name": "Storm bolter",
+                "wargear_range": "24",
+                "wargear_type": "Ranged",
+                "wargear_attacks": "2",
+                "wargear_bs_ws": "4",
+                "wargear_strength": "4",
+                "wargear_ap": "0",
+                "wargear_damage": "1"
+              }
+            ],
+            "row_count": 77,
+            "truncated": false
+          }
+        ],
+        "usage": {
+          "routing": {
+            "input_tokens": 1107,
+            "output_tokens": 164,
+            "total_tokens": 1271
+          },
+          "sql": {
+            "input_tokens": 1258,
+            "output_tokens": 254,
+            "total_tokens": 1512
+          },
+          "answer": {
+            "input_tokens": 4202,
+            "output_tokens": 198,
+            "total_tokens": 4400
+          },
+          "total_tokens": 7183
+        },
+        "error": null
+      },
+      "diagnostics": {
+        "route_correct": true,
+        "required_citation_types_present": true,
+        "pdf_page_coverage_proxy": {
+          "required_pages": [
+            20
+          ],
+          "found_pages": [
+            20
+          ],
+          "fraction": 1.0
+        },
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": true
+        }
+      },
+      "elapsed_seconds": 37.08,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "M08",
+      "split": "held_out",
+      "category": "mixed",
+      "question": "Does a Space Marines Intercessor Squad have the keyword required for the GRENADE Stratagem, and how does that Stratagem deal mortal wounds?",
+      "reference_answer": "Yes. The Intercessor Squad has Grenades. If the other conditions are met, select a visible enemy within 8 inches and roll six D6, inflicting one mortal wound per result of 4+.",
+      "expected_route": "mixed",
+      "answerable": true,
+      "gold_pdf_evidence": [
+        {
+          "page": 42,
+          "anchor": "TARGET: One Grenades unit"
+        }
+      ],
+      "gold_sql_evidence": {
+        "reference_sql": "SELECT k.keyword FROM datasheets d JOIN datasheets_keywords k ON k.DatasheetId=d.Id WHERE d.name = :name AND d.factionId = :faction AND lower(k.keyword) = :keyword",
+        "parameters": {
+          "name": "Intercessor Squad",
+          "faction": "SM",
+          "keyword": "grenades"
+        },
+        "verified_rows": [
+          {
+            "keyword": "Grenades"
+          }
+        ]
+      },
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "ok",
+        "route": "mixed",
+        "resolved_question": "Does a Space Marines Intercessor Squad have the keyword required for the GRENADE Stratagem, and how does that Stratagem deal mortal wounds?",
+        "answer": "Yes, a Space Marines Intercessor Squad has the \"Grenades\" keyword required for the GRENADE Stratagem [S1]. To deal mortal wounds using the GRENADE Stratagem, during your Shooting phase, you select a Grenades unit from your army that is not within Engagement Range of any enemy units and has not been selected to shoot this phase [P1]. You then select one enemy unit that is not within Engagement Range of any units from your army and is within 8\" of and visible to your Grenades unit, and you roll six D6: for each 4+, that enemy unit suffers 1 mortal wound [P1].",
+        "citations": [
+          "P1",
+          "S1"
+        ],
+        "sources": [
+          {
+            "id": "P1",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0105",
+            "page_start": 42,
+            "page_end": 42,
+            "text": "### GRENADE (1CP)\n\nCORE - WARGEAR STRATAGEM\n\nPriming their hand-held projectiles, these warriors draw back and hurl death into the enemy's midst.\n\nWHEN: Your Shooting phase.\n\nTARGET: One Grenades unit from your army that is not within Engagement Range of any enemy units and has not been selected to shoot this phase.\n\nEFFECT: Select one enemy unit that is not within Engagement Range of any units from your army and is within 8\" of and visible to your Grenades unit. Roll six D6: for each 4+, that enemy unit suffers 1 mortal wound.\n\n### TANK SHOCK (1CP)\n\nCORE - STRATEGIC PLOY STRATAGEM\n\nRamming the foe with a speeding vehicle may be an unsubtle tactic, but it is a murderously effective one.\n\nWHEN: Your Charge phase.\n\nTARGET: One Vehicle unit from your army.\n\nEFFECT: Until the end of the phase, after your unit ends a Charge move, select one enemy unit within Engagement Range of it, then select one melee weapon your unit is equipped with. Roll a number of D6 equal to that weapon's Strength characteristic. If that Strength characteristic is greater than that enemy unit's Toughness characteristic, roll two additional D6. For each 5+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds).",
+            "score": 0.03278688524590164,
+            "method": "rrf"
+          },
+          {
+            "id": "P2",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0072",
+            "page_start": 28,
+            "page_end": 28,
+            "text": "Example: A unit of five models make five attacks with ranged weapons with the [HAZARDOUS] ability. After the unit has finished shooting, its controlling player rolls five D6. One of the results is a 1, and as no models in the unit are Characters, Monsters or Vehicles, one of those models is destroyed.\n- After a unit shoots or fights, roll one Hazardous test (one D6) for each Hazardous weapon used. For each 1, one model equipped with a Hazardous weapon is destroyed (Characters, Monsters and Vehicles suffer 3 mortal wounds instead).\n\n#### DEVASTATING WOUNDS\n\nSome weapons can inflict strikes of such power that they make a mockery of armour and can cleave through several foes.\n\nWeapons with [DEVASTATING WOUNDS] in their profile are known as Devastating Wounds weapons. Each time an attack is made with such a weapon, a Critical Wound inflicts a number of mortal wounds on the target equal to the Damage characteristic of that weapon and the attack sequence ends.\n\nExample: An attack made with a Devastating Wounds weapon with a Damage characteristic of 2 scores a Critical Wound. Instead of allocating the attack and making saving throws normally, the target suffers 2 mortal wounds.\n- A Critical Wound inflicts mortal wounds equal to the weapon's Damage characteristic, instead of any normal damage.",
+            "score": 0.0315136476426799,
+            "method": "rrf"
+          },
+          {
+            "id": "P3",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0054",
+            "page_start": 23,
+            "page_end": 23,
+            "text": "#### MORTAL WOUNDS\n\nSome attacks are so powerful that no armour or force field can withstand their fury.\n\nSome attacks inflict mortal wounds. Each mortal wound inflicts one point of damage on the target unit, and they are always applied one at a time. Do not make a Wound roll or saving throw (including invulnerable saving throws) against a mortal wound - just allocate it as you would any other attack and inflict damage to a model in the target unit as described on the right.\n\nUnlike damage inflicted by normal attacks, excess damage from mortal wounds is not lost if the damage can be allocated to another model. Instead, keep allocating damage to another model in the target unit until either all the damage has been allocated or the target unit is destroyed.",
+            "score": 0.03149801587301587,
+            "method": "rrf"
+          },
+          {
+            "id": "P4",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0055",
+            "page_start": 23,
+            "page_end": 23,
+            "text": "If, when a unit is selected to shoot or fight, one or more of its attacks can inflict mortal wounds on the target, resolve any normal damage inflicted by the attacking unit's attacks on that target before inflicting any mortal wounds on that target. If an attack inflicts mortal wounds in addition to any normal damage, but the normal damage is subsequently saved, the target unit still suffers those mortal wounds, as described above.\n- Each mortal wound inflicted on a unit causes one model in that unit to lose one wound.\n- No saving throws can be made against mortal wounds.\n- Mortal wounds inflicted by attacks always apply after any normal damage, even if that damage was saved.",
+            "score": 0.029850746268656716,
+            "method": "rrf"
+          },
+          {
+            "id": "P5",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0071",
+            "page_start": 27,
+            "page_end": 28,
+            "text": "#### Weapon Designations — illustrated reference\n\nThe source page is an illustration labelled **IMPERIAL REF: Weapon Designations**, **FILE: 0-∆XE-15622100**, identifying the following weapons:\n\n- Heavy bolter\n- Force weapon\n- Plasma gun\n- Plasma pistol\n- Sniper rifle\n- Boltgun\n- Astartes shotgun\n- Astartes chainsword\n- Assault cannon\n- Missile launcher\n- Lightning claw\n- Flamer\n- Meltagun\n\n*The weapon illustrations themselves are not reproduced in this text-only Markdown.*\n\n#### HAZARDOUS\n\nWeapons powered by unstable and dangerous energy sources pose a substantial risk to the wielder every time they are used.\n\nWeapons with [HAZARDOUS] in their profile are known as Hazardous weapons. Each time a unit is selected to shoot or fight, if one or more models attack with Hazardous weapons, then after that unit has resolved all of its attacks, you must take one Hazardous test for each Hazardous weapon that was just used by rolling one D6. For each roll of 1, that test is failed and one model in that unit equipped with a Hazardous weapon is destroyed (selected by the controlling player), unless that model is a Character, Monster or Vehicle, in which case it suffers 3 mortal wounds instead. Note that if you selected a Character model in an Attached unit, the mortal wounds suffered must be allocated to that model first, even if there is another model in that unit that has lost one or more wounds or has had attacks allocated to it this phase.",
+            "score": 0.028850145288501453,
+            "method": "rrf"
+          },
+          {
+            "id": "S1",
+            "type": "sql",
+            "status": "ok",
+            "sql": "SELECT dk.keyword, dk.isFactionKeyword FROM datasheets d JOIN datasheets_keywords dk ON dk.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
+            "parameters": {
+              "unit_name": "%Intercessor Squad%"
+            },
+            "tables": [
+              "datasheets",
+              "datasheets_keywords"
+            ],
+            "columns": [
+              "keyword",
+              "isFactionKeyword"
+            ],
+            "rows": [
+              {
+                "keyword": "Adeptus Astartes",
+                "isFactionKeyword": "true"
+              },
+              {
+                "keyword": "Battleline",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Grenades",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Imperium",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Infantry",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Intercessor Squad",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Tacticus",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Adeptus Astartes",
+                "isFactionKeyword": "true"
+              },
+              {
+                "keyword": "Battleline",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Gravis",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Grenades",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Heavy Intercessor Squad",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Imperium",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Infantry",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Adeptus Astartes",
+                "isFactionKeyword": "true"
+              },
+              {
+                "keyword": "Assault Intercessor Squad",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Battleline",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Grenades",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Imperium",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Infantry",
+                "isFactionKeyword": "false"
+              },
+              {
+                "keyword": "Tacticus",
+                "isFactionKeyword": "false"
+              }
+            ],
+            "row_count": 21,
+            "truncated": false
+          }
+        ],
+        "usage": {
+          "routing": {
+            "input_tokens": 1106,
+            "output_tokens": 136,
+            "total_tokens": 1242
+          },
+          "sql": {
+            "input_tokens": 1251,
+            "output_tokens": 109,
+            "total_tokens": 1360
+          },
+          "answer": {
+            "input_tokens": 2271,
+            "output_tokens": 173,
+            "total_tokens": 2444
+          },
+          "total_tokens": 5046
+        },
+        "error": null
+      },
+      "diagnostics": {
+        "route_correct": true,
+        "required_citation_types_present": true,
+        "pdf_page_coverage_proxy": {
+          "required_pages": [
+            42
+          ],
+          "found_pages": [
+            42
+          ],
+          "fraction": 1.0
+        },
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": true
+        }
+      },
+      "elapsed_seconds": 37.1,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "T02",
+      "split": "held_out",
+      "category": "multiturn",
+      "question": "What would a Strength 8 weapon need to wound it?",
+      "reference_answer": "2+. Intercessor Squad has Toughness 4, and Strength 8 is twice its Toughness.",
+      "expected_route": "mixed",
+      "answerable": true,
+      "gold_pdf_evidence": [
+        {
+          "page": 21,
+          "anchor": "Strength is TWICE (or more than twice)"
+        }
+      ],
+      "gold_sql_evidence": {
+        "reference_sql": "SELECT m.t AS toughness FROM datasheets d JOIN datasheets_models m ON m.DatasheetId=d.Id WHERE d.name = :name AND d.factionId = :faction",
+        "parameters": {
+          "name": "Intercessor Squad",
+          "faction": "SM"
+        },
+        "verified_rows": [
+          {
+            "toughness": "4"
+          }
+        ]
+      },
+      "history_seed_question": "What is the Toughness of a Space Marines Intercessor Squad?",
+      "seed_status": "ok",
+      "observed": {
+        "status": "ok",
+        "route": "mixed",
+        "resolved_question": "What result does a Strength 8 weapon need to wound a Space Marines Intercessor Squad?",
+        "answer": "Based on the database, a Space Marines Intercessor Squad has a Toughness of 4 [S1]. According to the core rules, when comparing a weapon's Strength to a target's Toughness, if the Strength is twice or more than twice the Toughness, a result of 2+ is required for the Wound roll [P1]. Since a Strength 8 weapon is twice the Toughness of 4 (8 being 2 x 4), a 2+ result is needed to wound [P1, S1].",
+        "citations": [
+          "P1",
+          "S1"
+        ],
+        "sources": [
+          {
+            "id": "P1",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0050",
+            "page_start": 21,
+            "page_end": 22,
+            "text": "#### 2. WOUND ROLL\n\nEach time an attack scores a hit against a target unit, make a Wound roll for that attack by rolling one D6 to see if that attack successfully wounds the target unit. The result required is determined by comparing the attack's Strength (S) characteristic with the target's Toughness (T) characteristic, as shown below.\n\n| Attack's Strength vs target's Toughness | D6 result required |\n|---|---|\n| Strength is TWICE (or more than twice) the Toughness. | 2+ |\n| Strength is GREATER than the Toughness. | 3+ |\n| Strength is EQUAL to the Toughness. | 4+ |\n| Strength is LESS than the Toughness. | 5+ |\n| Strength is HALF (or less than half) the Toughness. | 6+ |\n\n**Making attacks — sequence (source diagram):** 1. Hit Roll. 2. Wound Roll. 3. Allocate Attack. 4. Saving Throw. 5. Inflict Damage.\n\nIf the result of the Wound roll is greater than or equal to the required number shown in the table opposite, then that Wound roll is successful and scores one wound against the target unit. Otherwise, the attack fails and the attack sequence ends.",
+            "score": 0.03278688524590164,
+            "method": "rrf"
+          },
+          {
+            "id": "P2",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0072",
+            "page_start": 28,
+            "page_end": 28,
+            "text": "Example: A unit of five models make five attacks with ranged weapons with the [HAZARDOUS] ability. After the unit has finished shooting, its controlling player rolls five D6. One of the results is a 1, and as no models in the unit are Characters, Monsters or Vehicles, one of those models is destroyed.\n- After a unit shoots or fights, roll one Hazardous test (one D6) for each Hazardous weapon used. For each 1, one model equipped with a Hazardous weapon is destroyed (Characters, Monsters and Vehicles suffer 3 mortal wounds instead).\n\n#### DEVASTATING WOUNDS\n\nSome weapons can inflict strikes of such power that they make a mockery of armour and can cleave through several foes.\n\nWeapons with [DEVASTATING WOUNDS] in their profile are known as Devastating Wounds weapons. Each time an attack is made with such a weapon, a Critical Wound inflicts a number of mortal wounds on the target equal to the Damage characteristic of that weapon and the attack sequence ends.\n\nExample: An attack made with a Devastating Wounds weapon with a Damage characteristic of 2 scores a Critical Wound. Instead of allocating the attack and making saving throws normally, the target suffers 2 mortal wounds.\n- A Critical Wound inflicts mortal wounds equal to the weapon's Damage characteristic, instead of any normal damage.",
+            "score": 0.03128054740957967,
+            "method": "rrf"
+          },
+          {
+            "id": "P3",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0061",
+            "page_start": 24,
+            "page_end": 24,
+            "text": "3. The Strength characteristic of those attacks is 5, which is equal to the Toughness of a Terminator, so rolls of 4+ are required to successfully wound the target. Of those seven rolls, five successfully wound.\n\n4. As all the attacks have a Damage characteristic of 1, and as the saving throws required for the Terminators are all the same, the Space Marines player can continue to use the fast dice rolling method and make all of those saving throws at the same time, even though strictly you should allocate attacks beforehand.\n\n5 The attacks all have an Armour Penetration characteristic of -1, so in this instance, even though the Terminators have an invulnerable saving throw, their normal Save characteristic will afford them a better chance of survival. The saving throws rolled result in a 1, 2, 4, 5 and 5, meaning that two are failed.\n\n6 The Space Marines player now has to allocate those two attacks, one at a time. One Terminator model has already lost two wounds earlier in the battle, so they must allocate attacks to that model first. This means that model loses its last remaining wound (Terminator models have a Wounds characteristic of 3), and is destroyed. The last attack is allocated to a different model, and so that model suffers one wound.",
+            "score": 0.031024531024531024,
+            "method": "rrf"
+          },
+          {
+            "id": "P4",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0060",
+            "page_start": 24,
+            "page_end": 24,
+            "text": "If the attacks being allocated to a target inflict random damage, you cannot use the fast dice rolling approach exactly as stated above - you will need to roll the dice one at a time. Consider several attacks with a Damage characteristic of D3 being allocated to a target containing models with two wounds each. As excess damage is lost each time a model is destroyed, the order in which the attacks are allocated and resolved becomes important. If the results of those D3s were 1, then 2, then 3, the attacks would result in a total of two destroyed models, but applying them in the order 3, then 2, then 1 would result in two models being destroyed and a third being damaged with only one wound remaining. As such, the rolls should be made one at a time.\n\n1 A unit of 20 Termagants targets a Terminators unit with their Fleshborers. As these weapons all have the same profile, the controlling player chooses to use the fast dice rolling method.\n\n2 Each has an Attacks characteristic of 1, so the controlling player rolls twenty D6. Seven of the results are greater than or equal to the Fleshborers' Ballistic Skill of 4+, so seven hits are scored, and seven Wound rolls are then made.",
+            "score": 0.029418126757516764,
+            "method": "rrf"
+          },
+          {
+            "id": "P5",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0092",
+            "page_start": 38,
+            "page_end": 38,
+            "text": "#### 1. Datasheet Name\n\nHere you will find the name of the unit.\n\n#### 2. Profiles\n\nThese contain the following characteristics that tell you how mighty the models in the unit are:\n\nMove (M): This is the speed at which a model moves across the battlefield. If a model has a Move of '-' it is unable to move at all.\n\nToughness (T): This reflects the model's resilience against physical harm.\n\nSave (Sv): This indicates the protection a model's armour gives them.\n\nWounds (W): Wounds represent how much damage a model can sustain before it succumbs to its injuries. If a model's Wounds characteristic is reduced to 0, that model is destroyed.\n\nLeadership (Ld): This reveals how courageous, determined or self-controlled a model is. The lower this number, the better a model's Leadership is.\n\nObjective Control (OC): This shows how effectively a model can exert control over an objective on the battlefield.",
+            "score": 0.02900988017658188,
+            "method": "rrf"
+          },
+          {
+            "id": "S1",
+            "type": "sql",
+            "status": "ok",
+            "sql": "SELECT d.name AS unit_name, m.t AS toughness FROM datasheets d JOIN datasheets_models m ON m.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
+            "parameters": {
+              "unit_name": "%Intercessor Squad%"
+            },
+            "tables": [
+              "datasheets",
+              "datasheets_models"
+            ],
+            "columns": [
+              "unit_name",
+              "toughness"
+            ],
+            "rows": [
+              {
+                "unit_name": "Intercessor Squad",
+                "toughness": "4"
+              },
+              {
+                "unit_name": "Heavy Intercessor Squad",
+                "toughness": "6"
+              },
+              {
+                "unit_name": "Assault Intercessor Squad",
+                "toughness": "4"
+              }
+            ],
+            "row_count": 3,
+            "truncated": false
+          }
+        ],
+        "usage": {
+          "routing": {
+            "input_tokens": 1172,
+            "output_tokens": 124,
+            "total_tokens": 1296
+          },
+          "sql": {
+            "input_tokens": 1255,
+            "output_tokens": 113,
+            "total_tokens": 1368
+          },
+          "answer": {
+            "input_tokens": 2054,
+            "output_tokens": 151,
+            "total_tokens": 2205
+          },
+          "total_tokens": 4869
+        },
+        "error": null
+      },
+      "diagnostics": {
+        "route_correct": true,
+        "required_citation_types_present": true,
+        "pdf_page_coverage_proxy": {
+          "required_pages": [
+            21
+          ],
+          "found_pages": [
+            21
+          ],
+          "fraction": 1.0
+        },
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": true
+        }
+      },
+      "elapsed_seconds": 74.03,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "U02",
+      "split": "held_out",
+      "category": "unanswerable",
+      "question": "What is the current retail price in euros of an Intercessor Squad box?",
+      "reference_answer": "Not answerable from the available sources, which do not contain current retail prices.",
+      "expected_route": null,
+      "answerable": false,
+      "gold_pdf_evidence": [],
+      "gold_sql_evidence": null,
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "insufficient_evidence",
+        "route": "sql",
+        "resolved_question": "What is the current retail price in euros of an Intercessor Squad box?",
+        "answer": "The required facts could not be retrieved from the SQLite database.",
+        "citations": [],
+        "sources": [],
+        "usage": {
+          "routing": {
+            "input_tokens": 1092,
+            "output_tokens": 89,
+            "total_tokens": 1181
+          },
+          "sql": {
+            "input_tokens": 1257,
+            "output_tokens": 42,
+            "total_tokens": 1299
+          },
+          "answer": null,
+          "total_tokens": 2480
+        },
+        "error": null
+      },
+      "diagnostics": {
+        "route_correct": null,
+        "required_citation_types_present": null,
+        "pdf_page_coverage_proxy": null,
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": true
+        }
+      },
+      "elapsed_seconds": 23.49,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "U03",
+      "split": "held_out",
+      "category": "unanswerable",
+      "question": "How many Warhammer 40,000 matches have I personally won this year?",
+      "reference_answer": "Not answerable from the provided sources, which contain no personal match history.",
+      "expected_route": null,
+      "answerable": false,
+      "gold_pdf_evidence": [],
+      "gold_sql_evidence": null,
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "error",
+        "route": null,
+        "resolved_question": null,
+        "answer": null,
+        "citations": [],
+        "sources": [],
+        "usage": {
+          "routing": {
+            "input_tokens": 1095,
+            "output_tokens": 102,
+            "total_tokens": 1197
+          },
+          "sql": null,
+          "answer": null,
+          "total_tokens": 1197
+        },
+        "error": {
+          "code": "INVALID_ROUTER_OUTPUT",
+          "message": "Gemini returned an invalid routing response.",
+          "source": "rag_router"
+        }
+      },
+      "diagnostics": {
+        "route_correct": null,
+        "required_citation_types_present": null,
+        "pdf_page_coverage_proxy": null,
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": true
+        }
+      },
+      "elapsed_seconds": 13.63,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    }
+  ]
+}

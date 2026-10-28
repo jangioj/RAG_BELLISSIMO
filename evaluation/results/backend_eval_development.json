@@ -1,13 +1,13 @@
 {
   "benchmark_version": "1.0",
-  "evaluated_at_utc": "2026-10-28T16:28:11.026016+00:00",
+  "evaluated_at_utc": "2026-10-28T17:00:54.463601+00:00",
   "split": "development",
   "metrics": {
     "tested": 17,
     "status_ok": 13,
-    "route_correct": 14,
+    "route_correct": 17,
     "route_labeled": 17,
-    "routing_accuracy": 0.8235294117647058,
+    "routing_accuracy": 1.0,
     "factual_correctness": null,
     "faithfulness": null,
     "note": "Routing accuracy is automatic. Answer correctness and faithfulness have not yet been evaluated."
@@ -34,7 +34,7 @@
         "status": "ok",
         "route": "pdf",
         "resolved_question": "What is the rule for the GRENADE Stratagem: who can use it, at what distance, and how are mortal wounds determined?",
-        "answer": "According to the GRENADE Stratagem rule, it can be used during your Shooting phase [P1]. The unit that can use it is one Grenades unit from your army that is not within Engagement Range of any enemy units and has not been selected to shoot this phase [P1]. The distance requirement is that the targeted enemy unit must be within 8\" of and visible to your Grenades unit, and not within Engagement Range of any units from your army [P1]. Mortal wounds are determined by rolling six D6: for each result of 4+, that enemy unit suffers 1 mortal wound [P1].",
+        "answer": "According to the GRENADE Stratagem rule, it can be used during your Shooting phase [P1]. The unit that can use it is one Grenades unit from your army that is not within Engagement Range of any enemy units and has not been selected to shoot this phase [P1]. The distance requirement is that the targeted enemy unit must be within 8\" of and visible to your Grenades unit, and not within Engagement Range of any units from your army [P1]. To determine mortal wounds, you roll six D6: for each result of 4+, that enemy unit suffers 1 mortal wound [P1].",
         "citations": [
           "P1"
         ],
@@ -97,17 +97,17 @@
         ],
         "usage": {
           "routing": {
-            "input_tokens": 964,
-            "output_tokens": 127,
-            "total_tokens": 1091
+            "input_tokens": 1105,
+            "output_tokens": 123,
+            "total_tokens": 1228
           },
           "sql": null,
           "answer": {
             "input_tokens": 1839,
-            "output_tokens": 161,
-            "total_tokens": 2000
+            "output_tokens": 162,
+            "total_tokens": 2001
           },
-          "total_tokens": 3091
+          "total_tokens": 3229
         },
         "error": null
       },
@@ -128,7 +128,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 39.99,
+      "elapsed_seconds": 45.79,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -161,9 +161,10 @@
         "status": "ok",
         "route": "pdf",
         "resolved_question": "How are Stratagems paid for and limited per phase, and can one normally affect a Battle-shocked unit?",
-        "answer": "Stratagems are paid for by reducing your Command Point (CP) total by the amount listed on the specific Stratagem [P1]. If you do not have enough CP, you cannot use it [P1]. Regarding limits per phase, you can use the same Stratagem multiple times during a battle, but you cannot use the exact same Stratagem more than once in the same phase [P1]. No, a player cannot normally use Stratagems to affect a unit while it is Battle-shocked [P3].",
+        "answer": "Stratagems are paid for by spending Command Points (CP) equal to the amount listed on the specific Stratagem [P1, P2]. They are limited per phase because you cannot use the same Stratagem more than once in the same phase [P2]. A player cannot normally use Stratagems to affect a Battle-shocked unit [P3].",
         "citations": [
           "P1",
+          "P2",
           "P3"
         ],
         "sources": [
@@ -171,22 +172,22 @@
             "id": "P1",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0101",
-            "page_start": 41,
-            "page_end": 41,
-            "text": "## Stratagems\n\nCommand points can be spent during the battle to use Stratagems. All players can use the Core Stratagems presented here. Additional Stratagems can be found in Codexes and other publications.\n\nWhen you use a Stratagem, reduce your CP total by the amount listed on that Stratagem. If you do not have enough CP for a specific Stratagem, you cannot use it. You can use the same Stratagem multiple times during a battle, but you cannot use the same Stratagem more than once in the same phase.\n- To use a Stratagem you must pay the CP specified.\n- The same Stratagem cannot be used more than once in the same phase.",
-            "score": 0.03278688524590164,
+            "chunk_id": "structured_0021",
+            "page_start": 11,
+            "page_end": 11,
+            "text": "### Command Phase\n\nCommanders gauge the flow of the battle, consolidating their objectives before making alterations to their battle plans and devising new tactics and strategies with which to defeat the foe.\n\n#### 1. COMMAND\n\nAt the start of your Command phase, before doing anything else, both players gain 1CP. Command points are a strategic resource that you can spend during the battle to use Stratagems. You can find out more about Stratagems on pages 41-42.\n\nThen, if you have any other rules that need to be resolved in the Command phase, you do so now before progressing to the Battle-shock step.\n- Both players gain 1CP.\n- Resolve any other rules that occur in the Command phase.",
+            "score": 0.03252247488101534,
             "method": "rrf"
           },
           {
             "id": "P2",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0021",
-            "page_start": 11,
-            "page_end": 11,
-            "text": "### Command Phase\n\nCommanders gauge the flow of the battle, consolidating their objectives before making alterations to their battle plans and devising new tactics and strategies with which to defeat the foe.\n\n#### 1. COMMAND\n\nAt the start of your Command phase, before doing anything else, both players gain 1CP. Command points are a strategic resource that you can spend during the battle to use Stratagems. You can find out more about Stratagems on pages 41-42.\n\nThen, if you have any other rules that need to be resolved in the Command phase, you do so now before progressing to the Battle-shock step.\n- Both players gain 1CP.\n- Resolve any other rules that occur in the Command phase.",
-            "score": 0.03225806451612903,
+            "chunk_id": "structured_0101",
+            "page_start": 41,
+            "page_end": 41,
+            "text": "## Stratagems\n\nCommand points can be spent during the battle to use Stratagems. All players can use the Core Stratagems presented here. Additional Stratagems can be found in Codexes and other publications.\n\nWhen you use a Stratagem, reduce your CP total by the amount listed on that Stratagem. If you do not have enough CP for a specific Stratagem, you cannot use it. You can use the same Stratagem multiple times during a battle, but you cannot use the same Stratagem more than once in the same phase.\n- To use a Stratagem you must pay the CP specified.\n- The same Stratagem cannot be used more than once in the same phase.",
+            "score": 0.03252247488101534,
             "method": "rrf"
           },
           {
@@ -197,7 +198,7 @@
             "page_start": 11,
             "page_end": 11,
             "text": "#### 2. BATTLE-SHOCK\n\nIn this step, you must take a Battle-shock test for each of your units on the battlefield that is Below Half-strength (pg 12). To do so, roll 2D6: if the result is greater than or equal to the best Leadership characteristic in that unit, the test is passed; otherwise, the test is failed and, until the start of your next Command phase, that unit is Battle-shocked.\n\nWhile a unit is Battle-shocked:\n- The Objective Control characteristic of all of its models is 0.\n- If it Falls Back, you must take a Desperate Escape test for every model in that unit (pg 14).\n- Its controlling player cannot use Stratagems to affect that unit.\n\nOnce you have taken Battle-shock tests for all of your units that require them, your Command phase ends and you progress to your Movement phase.\n- Take a Battle-shock test for each unit from your army on the battlefield that is Below Half-strength.\n- Roll 2D6: if the result is greater than or equal to the unit's Leadership, the test is passed. Otherwise, the unit is Battle-shocked until the start of your next Command phase.\n- Battle-shocked units have an OC of 0 and their controlling player cannot use Stratagems to affect them.\n- Battle-shocked units must take Desperate Escape tests if they Fall Back.",
-            "score": 0.03149801587301587,
+            "score": 0.031009615384615385,
             "method": "rrf"
           },
           {
@@ -208,34 +209,34 @@
             "page_start": 11,
             "page_end": 12,
             "text": "Your Command phase is split into two steps. In the first, both players gain 1 Command point (CP) and you resolve any other Command phase rules; in the second, you test to see if any of your units are Battle-shocked.\n\n#### COMMAND\n\n#### BATTLE-SHOCK\n\n#### GAINING COMMAND POINTS\n\nOutside of the CP players gain at the start of the Command phase, each player can only gain a total of 1CP per battle round, regardless of the source.\n\n#### STARTING STRENGTH\n\nThe number of models a unit contains when it is added to your army is known as its Starting Strength.\n\n#### BELOW HALF-STRENGTH\n\nSome rules will refer to a unit being Below Half-strength.\n- If a unit has a Starting Strength of 1, then it is said to be Below Half-strength while its remaining number of wounds is less than half of its Wounds characteristic.\n- For any other unit, while the number of models in that unit is less than half of its Starting Strength, that unit is said to be Below Half-strength.",
-            "score": 0.030303030303030304,
+            "score": 0.030536130536130537,
             "method": "rrf"
           },
           {
             "id": "P5",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0102",
-            "page_start": 41,
-            "page_end": 41,
-            "text": "### STRATAGEMS KEY\n\n### EITHER PLAYER'S TURN\n\n### YOUR TURN\n\n### OPPONENT'S TURN\n\n### STRATAGEM CATEGORIES\n\nEach Stratagem belongs to one of four categories, as described below. There are some rules (especially in Crusade games) that interact with Stratagems of a particular category.\n\nBATTLE TACTIC: These Stratagems bolster a unit's efficacy in battle, boosting their attacks or defensive capabilities at a critical moment.\n\nEPIC DEED: These Stratagems are used by individual models or units to perform mighty feats of heroism.\n\nSTRATEGIC PLOY: These Stratagems enable units to gain new strategic insights, granting them a small but valuable window of opportunity.\n\nWARGEAR: These Stratagems represent the effects of using specialised items of equipment in battle.",
-            "score": 0.030117753623188408,
+            "chunk_id": "structured_0106",
+            "page_start": 42,
+            "page_end": 42,
+            "text": "### RAPID INGRESS (1CP)\n\nCORE - STRATEGIC PLOY STRATAGEM\n\nBe it cunning strategy, potent technology or supernatural ritual, there are many means by which a commander may hasten their warriors' onset.\n\nWHEN: End of your opponent's Movement phase.\n\nTARGET: One unit from your army that is in Reserves.\n\nEFFECT: Your unit can arrive on the battlefield as if it were the Reinforcements step of your Movement phase.\n\nRESTRICTIONS: You cannot use this Stratagem to enable a unit to arrive on the battlefield during a battle round it would not normally be able to do so in.\n\n### FIRE OVERWATCH (1CP)\n\nCORE - STRATEGIC PLOY STRATAGEM\n\nA hail of wildfire can drive back advancing foes.\n\nWHEN: Your opponent's Movement or Charge phase, just after an enemy unit is set up or when an enemy unit starts or ends a Normal, Advance, Fall Back or Charge move.\n\nTARGET: One unit from your army that is within 24\" of that enemy unit and that would be eligible to shoot if it were your Shooting phase.\n\nEFFECT: Your unit can shoot that enemy unit as if it were your Shooting phase.\n\nRESTRICTIONS: Until the end of the phase, each time a model in your unit makes a ranged attack, an unmodified Hit roll of 6 is required to score a hit, irrespective of the attacking weapon's Ballistic Skill or any modifiers. You can only use this Stratagem once per turn.",
+            "score": 0.03036576949620428,
             "method": "rrf"
           }
         ],
         "usage": {
           "routing": {
-            "input_tokens": 960,
-            "output_tokens": 137,
-            "total_tokens": 1097
+            "input_tokens": 1101,
+            "output_tokens": 141,
+            "total_tokens": 1242
           },
           "sql": null,
           "answer": {
-            "input_tokens": 1616,
-            "output_tokens": 147,
-            "total_tokens": 1763
+            "input_tokens": 1762,
+            "output_tokens": 120,
+            "total_tokens": 1882
           },
-          "total_tokens": 2860
+          "total_tokens": 3124
         },
         "error": null
       },
@@ -255,10 +256,10 @@
         },
         "citation_identifiers": {
           "identifiers_exist": true,
-          "inline_matches_reported": true
+          "inline_matches_reported": false
         }
       },
-      "elapsed_seconds": 42.4,
+      "elapsed_seconds": 28.34,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -288,12 +289,12 @@
       "history_seed_question": null,
       "seed_status": null,
       "observed": {
-        "status": "ok",
+        "status": "insufficient_evidence",
         "route": "pdf",
         "resolved_question": "In the Only War mission, how is an objective controlled and when/how many Victory points can be scored from objectives?",
-        "answer": "In the Only War mission, the primary objective is 'Capture and Control', which is a progressive objective [P1]. Starting from the second battle round, at the end of each player's Command phase, the player whose turn it is scores 1 Victory point (VP) for each objective marker they control, up to a maximum of 3VP per turn [P1]. To control an objective marker, a player must first move models within range of it [P5]. A model is within range of an objective marker if it is within 3\" horizontally and 5\" vertically of it [P5]. At the start of the battle, each objective marker is contested and not controlled by either player [P5]. However, the specific, detailed rules of how control is finalized beyond being within range are noted as being found on page 58 [P1].",
+        "answer": "The provided evidence states that the Only War mission description mentions securing strategic sites [P5], and notes that details of how to control objective markers can be found on page 58 [P2]. However, the specific rules detailing how an objective is controlled are not included in the provided text chunks. Regarding Victory points, the evidence mentions scoring Victory points in relation to a 'Capture and Control — Progressive Objective' where starting from the second battle round, at the end of each player's Command phase, the player whose turn it is scores 1 Victory point (VP) for each objective marker they control (to a maximum of 3VP per turn) [P2], but the full rules text for the Only War mission's specific scoring mechanics is incomplete in the provided evidence.",
         "citations": [
-          "P1",
+          "P2",
           "P5"
         ],
         "sources": [
@@ -301,71 +302,71 @@
             "id": "P1",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0145",
-            "page_start": 59,
-            "page_end": 59,
-            "text": "#### 1. Muster Armies\n\nFirst, players will need to muster armies based on the battle size they have selected, as described on pages 55–56. This mission is designed for Incursion, Strike Force and Onslaught battle sizes.\n\n#### 2. Mission Objectives\n\n**Capture and Control — Progressive Objective.**\n\nStarting from the second battle round, at the end of each player's Command phase, the player whose turn it is scores 1 Victory point (VP) for each objective marker they control (to a maximum of 3VP per turn). Details of how to control objective markers can be found on page 58.\n\n#### 3. Create the Battlefield\n\nPlayers now create the battlefield and set up terrain features using the guidelines on pages 49–52. The minimum size of your battlefield depends on the battle size you have selected, as shown in the table below.\n\n| Battle size | Minimum battlefield size |\n|---|---|\n| Incursion / Strike Force | 44\" × 60\" |\n| Onslaught | 44\" × 90\" |\n\nPlayers must then alternate setting up objective markers on the battlefield, starting with whichever player wins a roll-off, until a total of four have been placed. Objective markers cannot be placed within 6\" of any battlefield edge, or within 9\" of any other objective markers.",
-            "score": 0.03131881575727918,
+            "chunk_id": "structured_0138",
+            "page_start": 57,
+            "page_end": 57,
+            "text": "### 2. Read Mission Objectives\n\nEach mission will state what its primary objectives are, and may also include one or more special rules. These cover unique situations, or abilities that can be used in the battle.\n\n### 3. Create The Battlefield\n\nEach mission will include details of the size of the battlefield that you will need. Each mission will also instruct you if any terrain features or objective markers must be set up, and will provide details of where to set them up. Otherwise, it is assumed you are using the guidelines on pages 49-52 to create your battlefield. If you are using a battlefield that is a different size or shape to those guidelines, you will need to adjust distances, and the location of deployment zones, objective markers and terrain features, in an appropriate way.",
+            "score": 0.031754032258064516,
             "method": "rrf"
           },
           {
             "id": "P2",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0138",
-            "page_start": 57,
-            "page_end": 57,
-            "text": "### 2. Read Mission Objectives\n\nEach mission will state what its primary objectives are, and may also include one or more special rules. These cover unique situations, or abilities that can be used in the battle.\n\n### 3. Create The Battlefield\n\nEach mission will include details of the size of the battlefield that you will need. Each mission will also instruct you if any terrain features or objective markers must be set up, and will provide details of where to set them up. Otherwise, it is assumed you are using the guidelines on pages 49-52 to create your battlefield. If you are using a battlefield that is a different size or shape to those guidelines, you will need to adjust distances, and the location of deployment zones, objective markers and terrain features, in an appropriate way.",
-            "score": 0.03125763125763126,
+            "chunk_id": "structured_0145",
+            "page_start": 59,
+            "page_end": 59,
+            "text": "#### 1. Muster Armies\n\nFirst, players will need to muster armies based on the battle size they have selected, as described on pages 55–56. This mission is designed for Incursion, Strike Force and Onslaught battle sizes.\n\n#### 2. Mission Objectives\n\n**Capture and Control — Progressive Objective.**\n\nStarting from the second battle round, at the end of each player's Command phase, the player whose turn it is scores 1 Victory point (VP) for each objective marker they control (to a maximum of 3VP per turn). Details of how to control objective markers can be found on page 58.\n\n#### 3. Create the Battlefield\n\nPlayers now create the battlefield and set up terrain features using the guidelines on pages 49–52. The minimum size of your battlefield depends on the battle size you have selected, as shown in the table below.\n\n| Battle size | Minimum battlefield size |\n|---|---|\n| Incursion / Strike Force | 44\" × 60\" |\n| Onslaught | 44\" × 90\" |\n\nPlayers must then alternate setting up objective markers on the battlefield, starting with whichever player wins a roll-off, until a total of four have been placed. Objective markers cannot be placed within 6\" of any battlefield edge, or within 9\" of any other objective markers.",
+            "score": 0.031544957774465976,
             "method": "rrf"
           },
           {
             "id": "P3",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0137",
+            "chunk_id": "structured_0140",
             "page_start": 57,
             "page_end": 57,
-            "text": "## Missions\n\nBefore you can wage war in a game of Warhammer 40,000, you must first select a mission. The Core Rules include a single mission - Only War - that is ideal to get the action started quickly. Others can be found elsewhere in this or other books, or you could play a mission of your own creation. If you and your opponent can't agree which mission to play, you must roll off, and the winner decides.\n\n### 1. Muster Armies\n\nPlayers muster their armies based on their selected battle size, as described on pages 55-56. Each mission will guide players on what size of battle they can play, and may include further rules that could affect how players pick their armies.",
-            "score": 0.030776515151515152,
+            "text": "### 7. Determine First Turn\n\nEach mission will tell you how to determine which player has the first turn.\n\n### 8. Resolve Pre-Battle Rules\n\nPlayers alternate resolving any pre-battle rules units from their armies have, starting with the player who will take the first turn.\n\n### 9. Begin The Battle\n\nThe first battle round begins. Players continue to complete battle rounds until the battle ends.\n\n### 10. End The Battle\n\nEach mission will tell you when the battle ends. This will typically be after a set number of battle rounds have been completed, or when one player has achieved a certain victory condition.\n\n### 11. Determine Victor\n\nEach mission will tell you what you need to do in order to win the game. If neither player manages to achieve a victory then the game is considered to be a draw.",
+            "score": 0.03149801587301587,
             "method": "rrf"
           },
           {
             "id": "P4",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0144",
-            "page_start": 58,
-            "page_end": 59,
-            "text": "### Mission Map Key\n\n- **Attacker's Deployment Zone:** The Attacker must set up their army within this area.\n- **Defender's Deployment Zone:** The Defender must set up their army within this area.\n- **No Man's Land:** The region of the battlefield that is not within either player's deployment zone is known as No Man's Land.\n- **Objective Markers:** The locations of objective markers on the battlefield are typically shown on the deployment map of the mission being played, and are represented by an icon.\n- **Attacker's Battlefield Edge**, **Defender's Battlefield Edge**, and **Centre of Battlefield** are illustrated map landmarks.\n\n### Only War — Mission\n\nThe time has come to prove your worth as the greatest commander in the galaxy! All that stands between you and ultimate glory is an opposing force bent upon your destruction. Destroy the enemy army and secure strategic sites littered across the battlefield while stopping your foe from doing likewise.",
-            "score": 0.030621785881252923,
+            "chunk_id": "structured_0137",
+            "page_start": 57,
+            "page_end": 57,
+            "text": "## Missions\n\nBefore you can wage war in a game of Warhammer 40,000, you must first select a mission. The Core Rules include a single mission - Only War - that is ideal to get the action started quickly. Others can be found elsewhere in this or other books, or you could play a mission of your own creation. If you and your opponent can't agree which mission to play, you must roll off, and the winner decides.\n\n### 1. Muster Armies\n\nPlayers muster their armies based on their selected battle size, as described on pages 55-56. Each mission will guide players on what size of battle they can play, and may include further rules that could affect how players pick their armies.",
+            "score": 0.031024531024531024,
             "method": "rrf"
           },
           {
             "id": "P5",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0141",
+            "chunk_id": "structured_0144",
             "page_start": 58,
-            "page_end": 58,
-            "text": "### Objective Markers\n\nObjective markers represent objects of tactical or strategic import that both sides are attempting to secure, such as valuable artefacts, vital supplies or communications nodes. If a mission uses objective markers, it will state where they are located on the battlefield. These can be represented using any suitable marker, but we recommend using round markers that are 40mm in diameter.\n\nWhen setting objective markers up on the battlefield, place them so they are centred on the point specified by the mission. When measuring distances to and from objective markers, measure to and from the closest part of them. Models can move over objective markers as if they were not there, but they cannot end a move on top of an objective marker.\n\nAt the start of the battle, each objective marker on the battlefield is said to be contested, and so is not controlled by either player. To control an objective marker, a player will first need to move models within range of it. A model is within range of an objective marker if it is within 3\" horizontally and 5\" vertically of that objective marker.",
-            "score": 0.029631255487269532,
+            "page_end": 59,
+            "text": "### Mission Map Key\n\n- **Attacker's Deployment Zone:** The Attacker must set up their army within this area.\n- **Defender's Deployment Zone:** The Defender must set up their army within this area.\n- **No Man's Land:** The region of the battlefield that is not within either player's deployment zone is known as No Man's Land.\n- **Objective Markers:** The locations of objective markers on the battlefield are typically shown on the deployment map of the mission being played, and are represented by an icon.\n- **Attacker's Battlefield Edge**, **Defender's Battlefield Edge**, and **Centre of Battlefield** are illustrated map landmarks.\n\n### Only War — Mission\n\nThe time has come to prove your worth as the greatest commander in the galaxy! All that stands between you and ultimate glory is an opposing force bent upon your destruction. Destroy the enemy army and secure strategic sites littered across the battlefield while stopping your foe from doing likewise.",
+            "score": 0.030834914611005692,
             "method": "rrf"
           }
         ],
         "usage": {
           "routing": {
-            "input_tokens": 960,
-            "output_tokens": 112,
-            "total_tokens": 1072
+            "input_tokens": 1101,
+            "output_tokens": 109,
+            "total_tokens": 1210
           },
           "sql": null,
           "answer": {
-            "input_tokens": 1620,
-            "output_tokens": 217,
-            "total_tokens": 1837
+            "input_tokens": 1592,
+            "output_tokens": 197,
+            "total_tokens": 1789
           },
-          "total_tokens": 2909
+          "total_tokens": 2999
         },
         "error": null
       },
@@ -388,7 +389,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 31.04,
+      "elapsed_seconds": 27.37,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -421,7 +422,7 @@
         "status": "insufficient_evidence",
         "route": "pdf",
         "resolved_question": "My unit Advanced this turn and has an Assault weapon. Can it shoot, which weapons can it use, and may it charge?",
-        "answer": "Yes, if your unit Advanced this turn and contains models equipped with Assault weapons, it is still eligible to shoot in the Shooting phase [P1]. When selected to shoot, you can only resolve attacks using Assault weapons its models are equipped with [P1]. Regarding whether it may charge, the provided evidence does not contain information about whether a unit that Advanced can charge.",
+        "answer": "Yes, a unit that Advanced this turn and contains models equipped with Assault weapons is still eligible to shoot in the Shooting phase [P1]. When selected to shoot, you can only resolve attacks using Assault weapons its models are equipped with [P1]. However, the provided evidence does not contain information about whether a unit that Advanced may charge, so that part of the question cannot be answered.",
         "citations": [
           "P1"
         ],
@@ -434,18 +435,18 @@
             "page_start": 25,
             "page_end": 25,
             "text": "### Weapon Abilities\n\nSome weapons have additional abilities in their profiles. Often these are unique to those weapons and are written out in full, but others are common to many weapons, and may only be referenced by name on a weapon's profile. Some notable examples of these common abilities are defined here; further weapon abilities may be found in other locations such as Codexes.\n\n#### ASSAULT\n\nAssault weapons fire so indiscriminately that they can be shot from the hip as warriors dash forward.\n\nWeapons with [ASSAULT] in their profile are known as Assault weapons. If a unit that Advanced this turn contains any models equipped with Assault weapons, it is still eligible to shoot in this turn's Shooting phase. When such a unit is selected to shoot, you can only resolve attacks using Assault weapons its models are equipped with.\n- Can be shot even if the bearer's unit Advanced.",
-            "score": 0.03278688524590164,
+            "score": 0.03252247488101534,
             "method": "rrf"
           },
           {
             "id": "P2",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0042",
-            "page_start": 19,
-            "page_end": 19,
-            "text": "### Shooting Phase\n\nGuns thunder and shrapnel flies through the air. Bursts of muzzle flare and beams of las-fire illuminate the fog of war, and spent ammunition cartridges litter the battlefield.\n\nIn your Shooting phase, if you have one or more eligible units from your army on the battlefield, you can select those units, one at a time, and shoot with them. Each unit can only be selected to shoot once per phase. Once all of the units you selected have shot, progress to your Charge phase.\n\nA unit is eligible to shoot unless any of the following apply:\n- That unit Advanced this turn.\n- That unit Fell Back this turn.\n\n#### SELECT TARGETS\n\nEach time a unit shoots, before any attacks are resolved, you must select the enemy units that will be the targets for all of the ranged weapons you wish its models to make attacks with. Each time you select a target for a model's ranged weapon, you can only select an enemy unit as the target if at least one model in that unit is both within range of that weapon and visible to that attacking model (pg 8). An enemy model is within range of a weapon if the distance between it and the attacking model is equal to or less than that weapon's Range characteristic.",
-            "score": 0.029827662395050816,
+            "chunk_id": "structured_0077",
+            "page_start": 29,
+            "page_end": 29,
+            "text": "If any of these conditions cannot be met, the charge fails and no models in the charging unit move this phase. Otherwise, the charge is successful and the models in the charging unit make a Charge move - move each model a distance in inches up to the result of the Charge roll. When doing so, each model in the charging unit must end its Charge move closer to one of the units selected as a target of its charge. If you can also move a charging model so that it ends its Charge move in base-to-base contact with one or more enemy models while still enabling the charging unit to end its move satisfying all of the conditions above, you must do so. The controlling player chooses the order in which to move their models.\n- Charge Roll: 2D6\".\n- Targets of a charge must be within 12\" but do not need to be visible. ■ If the distance rolled is insufficient to move within Engagement Range of all targets while maintaining Unit Coherency, the charge fails.\n- Cannot move within Engagement Range of any unit that was not a target of the charge.\n- If the charge is successful, each model makes a Charge move less than or equal to the Charge roll, and must move into base-to-base contact with an enemy model if possible.",
+            "score": 0.029877369007803793,
             "method": "rrf"
           },
           {
@@ -456,45 +457,45 @@
             "page_start": 42,
             "page_end": 42,
             "text": "### RAPID INGRESS (1CP)\n\nCORE - STRATEGIC PLOY STRATAGEM\n\nBe it cunning strategy, potent technology or supernatural ritual, there are many means by which a commander may hasten their warriors' onset.\n\nWHEN: End of your opponent's Movement phase.\n\nTARGET: One unit from your army that is in Reserves.\n\nEFFECT: Your unit can arrive on the battlefield as if it were the Reinforcements step of your Movement phase.\n\nRESTRICTIONS: You cannot use this Stratagem to enable a unit to arrive on the battlefield during a battle round it would not normally be able to do so in.\n\n### FIRE OVERWATCH (1CP)\n\nCORE - STRATEGIC PLOY STRATAGEM\n\nA hail of wildfire can drive back advancing foes.\n\nWHEN: Your opponent's Movement or Charge phase, just after an enemy unit is set up or when an enemy unit starts or ends a Normal, Advance, Fall Back or Charge move.\n\nTARGET: One unit from your army that is within 24\" of that enemy unit and that would be eligible to shoot if it were your Shooting phase.\n\nEFFECT: Your unit can shoot that enemy unit as if it were your Shooting phase.\n\nRESTRICTIONS: Until the end of the phase, each time a model in your unit makes a ranged attack, an unmodified Hit roll of 6 is required to score a hit, irrespective of the attacking weapon's Ballistic Skill or any modifiers. You can only use this Stratagem once per turn.",
-            "score": 0.02964254577157803,
+            "score": 0.02946236559139785,
             "method": "rrf"
           },
           {
             "id": "P4",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0081",
-            "page_start": 32,
-            "page_end": 32,
-            "text": "Note that after an enemy unit has fought and finished its Consolidation move (pg 35), it might be that previously ineligible units are now eligible - these units can then be selected to fight during the Remaining Combats step.\n\n#### 1. FIGHTS FIRST\n\nIn this step, all eligible units with the Fights First ability fight (pg 33-36). Remember that this will include units that made a Charge move this turn and that have a Charge bonus (pg 29).\n\n#### FIGHTS FIRST\n\nSome warriors attack with blinding speed, landing their blows before their foes can react.\n\nUnits with this ability that are eligible to fight do so in the Fights First step, provided every model in the unit has this ability.",
-            "score": 0.029631255487269532,
+            "chunk_id": "structured_0042",
+            "page_start": 19,
+            "page_end": 19,
+            "text": "### Shooting Phase\n\nGuns thunder and shrapnel flies through the air. Bursts of muzzle flare and beams of las-fire illuminate the fog of war, and spent ammunition cartridges litter the battlefield.\n\nIn your Shooting phase, if you have one or more eligible units from your army on the battlefield, you can select those units, one at a time, and shoot with them. Each unit can only be selected to shoot once per phase. Once all of the units you selected have shot, progress to your Charge phase.\n\nA unit is eligible to shoot unless any of the following apply:\n- That unit Advanced this turn.\n- That unit Fell Back this turn.\n\n#### SELECT TARGETS\n\nEach time a unit shoots, before any attacks are resolved, you must select the enemy units that will be the targets for all of the ranged weapons you wish its models to make attacks with. Each time you select a target for a model's ranged weapon, you can only select an enemy unit as the target if at least one model in that unit is both within range of that weapon and visible to that attacking model (pg 8). An enemy model is within range of a weapon if the distance between it and the attacking model is equal to or less than that weapon's Range characteristic.",
+            "score": 0.0293236301369863,
             "method": "rrf"
           },
           {
             "id": "P5",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0087",
-            "page_start": 35,
-            "page_end": 35,
-            "text": "remain within Engagement Range of the attacking model's unit (because of models being destroyed as the result of other attacks made by the attacking model's unit, for example).\n- Resolve all attacks against one unit before moving onto the next.\n- Resolve all attacks with the same weapon profile before resolving any made with a different weapon profile.\n- All attacks declared against a target unit are resolved, even if no models in that unit remain within Engagement Range.\n\n#### 3. CONSOLIDATE\n\nAfter a unit has finished making all of its melee attacks, it Consolidates. Each time a unit Consolidates, you can move each model in that unit that is not already in base-to-base contact with an enemy model up to 3\" - this is a Consolidation move. For a Consolidation to be possible, a unit must be able to end these moves within Engagement Range of one or more enemy units and in Unit Coherency. If these conditions cannot be met, then each model in that unit can instead make a Consolidation move towards the closest objective marker, but only if, after doing so, that unit is within range of that objective marker and in Unit Coherency. If these conditions also cannot be met, no models in the unit can make Consolidation moves this phase and that unit's fight ends.",
-            "score": 0.027222222222222224,
+            "chunk_id": "structured_0076",
+            "page_start": 29,
+            "page_end": 29,
+            "text": "#### CHARGING WITH A UNIT\n\nOnce you have selected an eligible unit to declare a charge, you must select one or more enemy units within 12\" of it as the targets of that charge. The targets of a charge do not need to be visible to the charging unit.\n\nYou then make a Charge roll for the charging unit by rolling 2D6. The result is the maximum number of inches each model in that unit can be moved if a Charge move is possible. For a Charge move to be possible, the Charge roll must be sufficient to enable the charging unit to end that move:\n- Within Engagement Range of every unit that you selected as a target of the charge.\n- Without moving within Engagement Range of any enemy units that were not a target of the charge.\n- In Unit Coherency.",
+            "score": 0.02889344262295082,
             "method": "rrf"
           }
         ],
         "usage": {
           "routing": {
-            "input_tokens": 962,
-            "output_tokens": 139,
-            "total_tokens": 1101
+            "input_tokens": 1103,
+            "output_tokens": 112,
+            "total_tokens": 1215
           },
           "sql": null,
           "answer": {
-            "input_tokens": 1800,
-            "output_tokens": 107,
-            "total_tokens": 1907
+            "input_tokens": 1793,
+            "output_tokens": 111,
+            "total_tokens": 1904
           },
-          "total_tokens": 3008
+          "total_tokens": 3119
         },
         "error": null
       },
@@ -516,7 +517,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 29.42,
+      "elapsed_seconds": 48.9,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -545,80 +546,80 @@
         "status": "ok",
         "route": "pdf",
         "resolved_question": "Does a model with a 3+ Save gain the Benefit of Cover against an AP 0 ranged attack?",
-        "answer": "No, a model with a Save characteristic of 3+ or better cannot have the Benefit of Cover against attacks with an Armour Penetration (AP) characteristic of 0 [P2].",
+        "answer": "No, models with a Save characteristic of 3+ or better cannot have the Benefit of Cover against attacks with an Armour Penetration characteristic of 0 [P1].",
         "citations": [
-          "P2"
+          "P1"
         ],
         "sources": [
           {
             "id": "P1",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0052",
-            "page_start": 22,
-            "page_end": 22,
-            "text": "#### 4. SAVING THROW\n\nThe player controlling the target unit then makes one saving throw. By default, this will be an armour saving throw using their model's Save (Sv) characteristic, but some models have invulnerable saves that can be used instead (see right). To make an armour saving throw, roll one D6, then modify the result by the Armour Penetration (AP) characteristic of the attack. For example, if the attack has an AP of -1, then 1 is subtracted from the saving throw.\n\nIf the result is greater than or equal to the Save characteristic of the model the attack was allocated to, then that saving throw is successful and the attack sequence ends. Otherwise, that saving throw fails and that model suffers damage (pg 23).\n\nAn unmodified saving throw of 1 always fails. A saving throw can never be improved by more than +1.\n- Saving Throw: Roll one D6 and modify by the attack's AP. If the result is less than the Save of the model being rolled for, the saving throw is failed and that model suffers damage. Otherwise, that attack is saved.\n- An unmodified saving throw of 1 always fails.\n- A saving throw can never be improved by more than +1.",
-            "score": 0.032266458495966696,
+            "chunk_id": "structured_0114",
+            "page_start": 44,
+            "page_end": 44,
+            "text": "### BENEFIT OF COVER\n\nShattered ruins and twisted wreckage afford much-needed shelter from enemy salvoes. Even heavily armoured warriors unfazed by small arms fire are thankful for such cover when foes bring their biggest guns to bear.\n\nModels can sometimes gain a measure of protection from terrain features. The rules on pages 45-48 detail the conditions under which a terrain feature confers the Benefit of Cover on a model.\n\nEach time a ranged attack is allocated to a model that has the Benefit of Cover, add 1 to the saving throw made for that attack (excluding invulnerable saving throws). Models with a Save characteristic of 3+ or better cannot have the Benefit of Cover against attacks with an Armour Penetration characteristic of 0. Multiple instances of the Benefit of Cover are not cumulative - a model cannot benefit from this rule more than once at any one time.\n- Benefit of Cover: Add 1 to armour saving throws against ranged attacks.\n- Does not apply to models with a Save of 3+ or better against attacks with an AP of 0.\n- Multiple instances are not cumulative.",
+            "score": 0.03278688524590164,
             "method": "rrf"
           },
           {
             "id": "P2",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0114",
-            "page_start": 44,
-            "page_end": 44,
-            "text": "### BENEFIT OF COVER\n\nShattered ruins and twisted wreckage afford much-needed shelter from enemy salvoes. Even heavily armoured warriors unfazed by small arms fire are thankful for such cover when foes bring their biggest guns to bear.\n\nModels can sometimes gain a measure of protection from terrain features. The rules on pages 45-48 detail the conditions under which a terrain feature confers the Benefit of Cover on a model.\n\nEach time a ranged attack is allocated to a model that has the Benefit of Cover, add 1 to the saving throw made for that attack (excluding invulnerable saving throws). Models with a Save characteristic of 3+ or better cannot have the Benefit of Cover against attacks with an Armour Penetration characteristic of 0. Multiple instances of the Benefit of Cover are not cumulative - a model cannot benefit from this rule more than once at any one time.\n- Benefit of Cover: Add 1 to armour saving throws against ranged attacks.\n- Does not apply to models with a Save of 3+ or better against attacks with an AP of 0.\n- Multiple instances are not cumulative.",
-            "score": 0.032266458495966696,
+            "chunk_id": "structured_0067",
+            "page_start": 26,
+            "page_end": 26,
+            "text": "Example: An enemy unit is targeted by an attacking model equipped with a weapon with the [INDIRECT FIRE] ability. No models in the target unit are visible to the attacking model, so when resolving the attacks made with that weapon, subtract 1 from that attack's Hit roll and each time an attack is allocated to a model in the target unit, it has the Benefit of Cover against that attack.\n- Can target and make attacks against units that are not visible to the attacking unit.\n- If no models are visible in a target unit when it is selected, then when making an attack against that target with an Indirect Fire weapon, subtract 1 from that attack's Hit roll and the target has the Benefit of Cover against that attack.",
+            "score": 0.03200204813108039,
             "method": "rrf"
           },
           {
             "id": "P3",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0053",
-            "page_start": 22,
-            "page_end": 22,
-            "text": "#### INVULNERABLE SAVES\n\nWhether shielded by force fields, enveloped in mystical energies or simply possessed of preternatural senses and lightning-fast reflexes, some warriors are protected by more than mere physical armour.\n\nSome models have an invulnerable save listed on their datasheet. Each time an attack is allocated to a model with an invulnerable save, the controlling player must choose to use either that model's Save characteristic or its invulnerable save, but not both. If a model has more than one invulnerable save, it can only use one of them - choose which it will use.\n\nUnlike armour saving throws (which use a model's Save characteristic), invulnerable saving throws are never modified by an attack's Armour Penetration characteristic, but otherwise follow the normal rules for saving throws.\n- Invulnerable Save: Never modified by an attack's AP. ■ The controlling player can choose to use either a model's invulnerable save or its Save characteristic.",
-            "score": 0.031754032258064516,
+            "chunk_id": "structured_0116",
+            "page_start": 45,
+            "page_end": 45,
+            "text": "### VISIBILITY\n\nNormal visibility rules apply.\n\n### ENGAGEMENT RANGE\n\n- In the Charge phase, if an enemy unit is within 1\" of this terrain feature, a charging unit on the opposite side of this terrain feature can still make a Charge move against that enemy unit provided it ends that Charge move as close as possible to this terrain feature and within 2\" of that enemy unit.\n- In the Fight phase, units are eligible to fight - and models can make attacks - if their target is on the opposite side of this terrain feature and within 2\" of them.\n\n### BENEFIT OF COVER\n\nEach time a ranged attack is allocated to an Infantry model that is wholly within 3\" of this terrain feature, if that model is not fully visible to every model in the attacking unit because of this terrain feature, that model has the Benefit of Cover against that attack.\n\nKEYWORDS: Obstacle, Barricade",
+            "score": 0.03200204813108039,
             "method": "rrf"
           },
           {
             "id": "P4",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0116",
-            "page_start": 45,
-            "page_end": 45,
-            "text": "### VISIBILITY\n\nNormal visibility rules apply.\n\n### ENGAGEMENT RANGE\n\n- In the Charge phase, if an enemy unit is within 1\" of this terrain feature, a charging unit on the opposite side of this terrain feature can still make a Charge move against that enemy unit provided it ends that Charge move as close as possible to this terrain feature and within 2\" of that enemy unit.\n- In the Fight phase, units are eligible to fight - and models can make attacks - if their target is on the opposite side of this terrain feature and within 2\" of them.\n\n### BENEFIT OF COVER\n\nEach time a ranged attack is allocated to an Infantry model that is wholly within 3\" of this terrain feature, if that model is not fully visible to every model in the attacking unit because of this terrain feature, that model has the Benefit of Cover against that attack.\n\nKEYWORDS: Obstacle, Barricade",
-            "score": 0.03076923076923077,
+            "chunk_id": "structured_0064",
+            "page_start": 25,
+            "page_end": 25,
+            "text": "#### IGNORES COVER\n\nSome weapons are designed to root enemy formations out of entrenched positions.\n\nWeapons with [IGNORES COVER] in their profile are known as Ignores Cover weapons. Each time an attack is made with such a weapon, the target cannot have the Benefit of Cover against that attack (pg 44).\n\n#### TWIN-LINKED\n\nDual weapons are often grafted to the same targeting system for greater lethality.\n\nWeapons with [TWIN-LINKED] in their profile are known as Twin-linked weapons. Each time an attack is made with such a weapon, you can re-roll that attack's Wound roll.\n\n#### PISTOL\n\nPistols can be wielded even at point-blank range.\n\nWeapons with [PISTOL] in their profile are known as Pistols. If a unit contains any models equipped with Pistols, that unit is eligible to shoot in its controlling player's Shooting phase even while it is within Engagement Range of one or more enemy units. When such a unit is selected to shoot, it can only resolve attacks using its Pistols and can only target one of the enemy units it is within Engagement Range of. In such circumstances, a Pistol can target an enemy unit even if other friendly units are within Engagement Range of the same enemy unit.",
+            "score": 0.030536130536130537,
             "method": "rrf"
           },
           {
             "id": "P5",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0067",
-            "page_start": 26,
-            "page_end": 26,
-            "text": "Example: An enemy unit is targeted by an attacking model equipped with a weapon with the [INDIRECT FIRE] ability. No models in the target unit are visible to the attacking model, so when resolving the attacks made with that weapon, subtract 1 from that attack's Hit roll and each time an attack is allocated to a model in the target unit, it has the Benefit of Cover against that attack.\n- Can target and make attacks against units that are not visible to the attacking unit.\n- If no models are visible in a target unit when it is selected, then when making an attack against that target with an Indirect Fire weapon, subtract 1 from that attack's Hit roll and the target has the Benefit of Cover against that attack.",
-            "score": 0.030303030303030304,
+            "chunk_id": "structured_0118",
+            "page_start": 46,
+            "page_end": 46,
+            "text": "### MOVEMENT\n\nThese terrain features are raised areas that models can be set up on top of or end a move on top of, provided the model's base does not overhang the terrain feature (if the model does not have a base, no part of that model that would be in contact with the battlefield at ground level can overhang that terrain feature). In addition, other terrain features can be set up on top of a Hill terrain feature, provided no part of those terrain features overhangs that Hill terrain feature.\n\n### VISIBILITY\n\nNormal visibility rules apply.\n\n### BENEFIT OF COVER\n\nEach time a ranged attack is allocated to a model, if that model is not fully visible to every model in the attacking unit because of this terrain feature, that model has the Benefit of Cover against that attack.\n\nKEYWORDS: Hill",
+            "score": 0.03007688828584351,
             "method": "rrf"
           }
         ],
         "usage": {
           "routing": {
-            "input_tokens": 958,
-            "output_tokens": 114,
-            "total_tokens": 1072
+            "input_tokens": 1099,
+            "output_tokens": 119,
+            "total_tokens": 1218
           },
           "sql": null,
           "answer": {
-            "input_tokens": 1609,
-            "output_tokens": 72,
-            "total_tokens": 1681
+            "input_tokens": 1607,
+            "output_tokens": 68,
+            "total_tokens": 1675
           },
-          "total_tokens": 2753
+          "total_tokens": 2893
         },
         "error": null
       },
@@ -639,7 +640,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 40.86,
+      "elapsed_seconds": 43.2,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -675,7 +676,7 @@
         "status": "ok",
         "route": "sql",
         "resolved_question": "What is the Toughness of a Space Marines Intercessor Squad?",
-        "answer": "The database returns multiple units matching Intercessor Squad. Their Toughness values are as follows: Intercessor Squad has a Toughness of 4 [S1], Heavy Intercessor Squad has a Toughness of 6 [S1], and Assault Intercessor Squad has a Toughness of 4 [S1].",
+        "answer": "The Toughness of a Space Marines Intercessor Squad is 4 [S1].",
         "citations": [
           "S1"
         ],
@@ -716,21 +717,21 @@
         ],
         "usage": {
           "routing": {
-            "input_tokens": 949,
-            "output_tokens": 80,
-            "total_tokens": 1029
+            "input_tokens": 1090,
+            "output_tokens": 85,
+            "total_tokens": 1175
           },
           "sql": {
-            "input_tokens": 1255,
-            "output_tokens": 102,
-            "total_tokens": 1357
+            "input_tokens": 1256,
+            "output_tokens": 116,
+            "total_tokens": 1372
           },
           "answer": {
             "input_tokens": 460,
-            "output_tokens": 97,
-            "total_tokens": 557
+            "output_tokens": 51,
+            "total_tokens": 511
           },
-          "total_tokens": 2943
+          "total_tokens": 3058
         },
         "error": null
       },
@@ -743,7 +744,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 46.34,
+      "elapsed_seconds": 55.24,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -819,21 +820,21 @@
         ],
         "usage": {
           "routing": {
-            "input_tokens": 948,
-            "output_tokens": 86,
-            "total_tokens": 1034
+            "input_tokens": 1089,
+            "output_tokens": 90,
+            "total_tokens": 1179
           },
           "sql": {
             "input_tokens": 1254,
-            "output_tokens": 103,
-            "total_tokens": 1357
+            "output_tokens": 119,
+            "total_tokens": 1373
           },
           "answer": {
             "input_tokens": 465,
             "output_tokens": 50,
             "total_tokens": 515
           },
-          "total_tokens": 2906
+          "total_tokens": 3067
         },
         "error": null
       },
@@ -846,7 +847,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 49.44,
+      "elapsed_seconds": 41.05,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -896,7 +897,7 @@
         "status": "ok",
         "route": "sql",
         "resolved_question": "What are the ranged and melee profiles of Abaddon's Talon of Horus, including range, attacks, Strength, AP and Damage?",
-        "answer": "Abaddon's Talon of Horus has two profiles for Abaddon The Despoiler [S1]. The ranged profile has a range of 24\", 4 attacks, a Ballistic Skill/Weapon Skill of 2, Strength 5, AP -1, and Damage 2 [S1]. The melee profile has a range of Melee, 14 attacks, a Ballistic Skill/Weapon Skill of 2, Strength 7, AP -3, and Damage 1 [S1].",
+        "answer": "Abaddon's Talon of Horus has two profiles according to the database: \n1. Ranged profile: Range 24\", Attacks 4, BS/WS 2, Strength 5, AP -1, and Damage 2 [S1].\n2. Melee profile: Range Melee, Attacks 14, BS/WS 2, Strength 7, AP -3, and Damage 1 [S1].",
         "citations": [
           "S1"
         ],
@@ -905,7 +906,7 @@
             "id": "S1",
             "type": "sql",
             "status": "ok",
-            "sql": "SELECT d.name AS unit_name, w.name AS wargear_name, w.range, w.type, w.a, w.bsWs, w.s, w.ap, w.d FROM datasheets d JOIN datasheets_wargear w ON w.DatasheetId = d.Id WHERE d.name LIKE :unit_name AND w.name LIKE :wargear_name",
+            "sql": "SELECT d.name AS unit_name, w.name AS wargear_name, w.range, w.type AS weapon_type, w.a AS attacks, w.bsWs AS bs_ws, w.s AS strength, w.ap, w.d AS damage FROM datasheets d JOIN datasheets_wargear w ON w.DatasheetId = d.Id WHERE d.name LIKE :unit_name AND w.name LIKE :wargear_name",
             "parameters": {
               "unit_name": "%Abaddon%",
               "wargear_name": "%Talon of Horus%"
@@ -918,35 +919,35 @@
               "unit_name",
               "wargear_name",
               "range",
-              "type",
-              "a",
-              "bsWs",
-              "s",
+              "weapon_type",
+              "attacks",
+              "bs_ws",
+              "strength",
               "ap",
-              "d"
+              "damage"
             ],
             "rows": [
               {
                 "unit_name": "Abaddon The Despoiler",
                 "wargear_name": "Talon of Horus",
                 "range": "24",
-                "type": "Ranged",
-                "a": "4",
-                "bsWs": "2",
-                "s": "5",
+                "weapon_type": "Ranged",
+                "attacks": "4",
+                "bs_ws": "2",
+                "strength": "5",
                 "ap": "-1",
-                "d": "2"
+                "damage": "2"
               },
               {
                 "unit_name": "Abaddon The Despoiler",
                 "wargear_name": "Talon of Horus",
                 "range": "Melee",
-                "type": "Melee",
-                "a": "14",
-                "bsWs": "2",
-                "s": "7",
+                "weapon_type": "Melee",
+                "attacks": "14",
+                "bs_ws": "2",
+                "strength": "7",
                 "ap": "-3",
-                "d": "1"
+                "damage": "1"
               }
             ],
             "row_count": 2,
@@ -955,21 +956,21 @@
         ],
         "usage": {
           "routing": {
-            "input_tokens": 963,
-            "output_tokens": 127,
-            "total_tokens": 1090
+            "input_tokens": 1104,
+            "output_tokens": 115,
+            "total_tokens": 1219
           },
           "sql": {
-            "input_tokens": 1272,
-            "output_tokens": 175,
-            "total_tokens": 1447
+            "input_tokens": 1270,
+            "output_tokens": 189,
+            "total_tokens": 1459
           },
           "answer": {
-            "input_tokens": 636,
-            "output_tokens": 139,
-            "total_tokens": 775
+            "input_tokens": 659,
+            "output_tokens": 127,
+            "total_tokens": 786
           },
-          "total_tokens": 3312
+          "total_tokens": 3464
         },
         "error": null
       },
@@ -982,7 +983,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 48.79,
+      "elapsed_seconds": 54.69,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -1028,7 +1029,7 @@
             "id": "S1",
             "type": "sql",
             "status": "ok",
-            "sql": "SELECT dk.keyword, dk.model, dk.isFactionKeyword FROM datasheets d JOIN datasheets_keywords dk ON dk.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
+            "sql": "SELECT d.name AS unit_name, dk.keyword AS keyword, dk.model AS model, dk.isFactionKeyword AS is_faction_keyword FROM datasheets d JOIN datasheets_keywords dk ON dk.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
             "parameters": {
               "unit_name": "%Roboute Guilliman%"
             },
@@ -1037,55 +1038,65 @@
               "datasheets_keywords"
             ],
             "columns": [
+              "unit_name",
               "keyword",
               "model",
-              "isFactionKeyword"
+              "is_faction_keyword"
             ],
             "rows": [
               {
+                "unit_name": "Roboute Guilliman",
                 "keyword": "Adeptus Astartes",
                 "model": "",
-                "isFactionKeyword": "true"
+                "is_faction_keyword": "true"
               },
               {
+                "unit_name": "Roboute Guilliman",
                 "keyword": "Character",
                 "model": "",
-                "isFactionKeyword": "false"
+                "is_faction_keyword": "false"
               },
               {
+                "unit_name": "Roboute Guilliman",
                 "keyword": "Epic Hero",
                 "model": "",
-                "isFactionKeyword": "false"
+                "is_faction_keyword": "false"
               },
               {
+                "unit_name": "Roboute Guilliman",
                 "keyword": "Imperium",
                 "model": "",
-                "isFactionKeyword": "false"
+                "is_faction_keyword": "false"
               },
               {
+                "unit_name": "Roboute Guilliman",
                 "keyword": "Mobile",
                 "model": "",
-                "isFactionKeyword": "false"
+                "is_faction_keyword": "false"
               },
               {
+                "unit_name": "Roboute Guilliman",
                 "keyword": "Monster",
                 "model": "",
-                "isFactionKeyword": "false"
+                "is_faction_keyword": "false"
               },
               {
+                "unit_name": "Roboute Guilliman",
                 "keyword": "Primarch",
                 "model": "",
-                "isFactionKeyword": "false"
+                "is_faction_keyword": "false"
               },
               {
+                "unit_name": "Roboute Guilliman",
                 "keyword": "Roboute Guilliman",
                 "model": "",
-                "isFactionKeyword": "false"
+                "is_faction_keyword": "false"
               },
               {
+                "unit_name": "Roboute Guilliman",
                 "keyword": "Ultramarines",
                 "model": "",
-                "isFactionKeyword": "true"
+                "is_faction_keyword": "true"
               }
             ],
             "row_count": 9,
@@ -1094,21 +1105,21 @@
         ],
         "usage": {
           "routing": {
-            "input_tokens": 950,
-            "output_tokens": 89,
-            "total_tokens": 1039
+            "input_tokens": 1091,
+            "output_tokens": 88,
+            "total_tokens": 1179
           },
           "sql": {
             "input_tokens": 1251,
-            "output_tokens": 121,
-            "total_tokens": 1372
+            "output_tokens": 132,
+            "total_tokens": 1383
           },
           "answer": {
-            "input_tokens": 604,
+            "input_tokens": 746,
             "output_tokens": 53,
-            "total_tokens": 657
+            "total_tokens": 799
           },
-          "total_tokens": 3068
+          "total_tokens": 3361
         },
         "error": null
       },
@@ -1121,7 +1132,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 54.88,
+      "elapsed_seconds": 58.03,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -1168,15 +1179,13 @@
             "id": "S1",
             "type": "sql",
             "status": "ok",
-            "sql": "SELECT d.name AS unit_name, dm.m AS movement, dm.t AS toughness, dm.w AS wounds FROM datasheets d JOIN datasheets_models dm ON dm.DatasheetId = d.Id JOIN factions f ON f.Id = d.factionId WHERE d.name LIKE :unit_name AND f.name LIKE :faction_name",
+            "sql": "SELECT d.name AS unit_name, m.m AS movement, m.t AS toughness, m.w AS wounds FROM datasheets d JOIN datasheets_models m ON m.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
             "parameters": {
-              "unit_name": "%Leman Russ Battle Tank%",
-              "faction_name": "%Astra Militarum%"
+              "unit_name": "%Leman Russ Battle Tank%"
             },
             "tables": [
               "datasheets",
-              "datasheets_models",
-              "factions"
+              "datasheets_models"
             ],
             "columns": [
               "unit_name",
@@ -1190,29 +1199,35 @@
                 "movement": "10\"",
                 "toughness": "11",
                 "wounds": "13"
+              },
+              {
+                "unit_name": "Leman Russ Battle Tank",
+                "movement": "10\"",
+                "toughness": "11",
+                "wounds": "13"
               }
             ],
-            "row_count": 1,
+            "row_count": 2,
             "truncated": false
           }
         ],
         "usage": {
           "routing": {
-            "input_tokens": 957,
-            "output_tokens": 125,
-            "total_tokens": 1082
+            "input_tokens": 1098,
+            "output_tokens": 98,
+            "total_tokens": 1196
           },
           "sql": {
-            "input_tokens": 1268,
-            "output_tokens": 190,
-            "total_tokens": 1458
+            "input_tokens": 1263,
+            "output_tokens": 133,
+            "total_tokens": 1396
           },
           "answer": {
-            "input_tokens": 491,
+            "input_tokens": 505,
             "output_tokens": 69,
-            "total_tokens": 560
+            "total_tokens": 574
           },
-          "total_tokens": 3100
+          "total_tokens": 3166
         },
         "error": null
       },
@@ -1225,7 +1240,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 51.2,
+      "elapsed_seconds": 46.52,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -1264,7 +1279,7 @@
         "status": "ok",
         "route": "mixed",
         "resolved_question": "What Wound Roll does a Strength 10 weapon need against Abaddon The Despoiler?",
-        "answer": "Abaddon The Despoiler has a Toughness characteristic of 5 [S1]. According to the Wound Roll rules, when a weapon's Strength is twice or more than twice the target's Toughness, a 2+ D6 result is required [P1]. Since the weapon's Strength is 10, which is twice Abaddon's Toughness of 5, a Wound roll of 2+ is needed.",
+        "answer": "Abaddon The Despoiler has a Toughness characteristic of 5 [S1]. According to the Core Rules, when comparing a weapon's Strength to a target's Toughness, if the attack's Strength is twice or more than twice the target's Toughness, a 2+ D6 result is required for a successful Wound roll [P1]. Since the weapon has a Strength of 10 and Abaddon The Despoiler has a Toughness of 5, the Strength is twice the Toughness (10 >= 5 * 2), meaning a Wound Roll of 2+ is needed [P1, S1].",
         "citations": [
           "P1",
           "S1"
@@ -1353,21 +1368,21 @@
         ],
         "usage": {
           "routing": {
-            "input_tokens": 955,
-            "output_tokens": 126,
-            "total_tokens": 1081
+            "input_tokens": 1096,
+            "output_tokens": 118,
+            "total_tokens": 1214
           },
           "sql": {
             "input_tokens": 1256,
-            "output_tokens": 121,
-            "total_tokens": 1377
+            "output_tokens": 122,
+            "total_tokens": 1378
           },
           "answer": {
             "input_tokens": 2017,
-            "output_tokens": 130,
-            "total_tokens": 2147
+            "output_tokens": 175,
+            "total_tokens": 2192
           },
-          "total_tokens": 4605
+          "total_tokens": 4784
         },
         "error": null
       },
@@ -1388,7 +1403,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 25.91,
+      "elapsed_seconds": 43.71,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -1428,7 +1443,7 @@
         "status": "ok",
         "route": "mixed",
         "resolved_question": "What Wound Roll does a Strength 3 attack need against a Space Marines Intercessor Squad?",
-        "answer": "A Strength 3 attack against a Space Marines Intercessor Squad (which has a Toughness of 4 [S1]) requires a Wound roll result of 5+. According to the core rules, when the attack's Strength (3) is less than the target's Toughness (4), a 5+ D6 result is required [P1].",
+        "answer": "A Strength 3 attack needs a 5+ Wound Roll against a Space Marines Intercessor Squad. According to the database, models in an Intercessor Squad have a Toughness (T) characteristic of 4 [S1]. Comparing the attack's Strength (3) to the target's Toughness (4), the Strength is less than the Toughness, which requires a 5+ result on the D6 according to the Wound roll table in the Core Rules [P1].",
         "citations": [
           "P1",
           "S1"
@@ -1525,21 +1540,21 @@
         ],
         "usage": {
           "routing": {
-            "input_tokens": 954,
-            "output_tokens": 114,
-            "total_tokens": 1068
+            "input_tokens": 1095,
+            "output_tokens": 124,
+            "total_tokens": 1219
           },
           "sql": {
             "input_tokens": 1256,
-            "output_tokens": 102,
-            "total_tokens": 1358
+            "output_tokens": 113,
+            "total_tokens": 1369
           },
           "answer": {
             "input_tokens": 2054,
-            "output_tokens": 114,
-            "total_tokens": 2168
+            "output_tokens": 139,
+            "total_tokens": 2193
           },
-          "total_tokens": 4594
+          "total_tokens": 4781
         },
         "error": null
       },
@@ -1560,7 +1575,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 49.12,
+      "elapsed_seconds": 44.79,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -1598,12 +1613,12 @@
       "seed_status": null,
       "observed": {
         "status": "insufficient_evidence",
-        "route": "pdf",
+        "route": "mixed",
         "resolved_question": "Three Space Marines Intercessor models are in range of an objective. If the enemy has total Objective Control 5, who controls it?",
-        "answer": "The provided evidence is insufficient to determine who controls the objective. While the rules for determining Level of Control and objective control are given [P1], and the definition of the Objective Control (OC) characteristic is explained [P2], the evidence does not state the specific Objective Control characteristic value for a Space Marines Intercessor model.",
+        "answer": "Based on the provided evidence, the database does not contain the specific Objective Control (OC) characteristic for standard Space Marines Intercessor models (the database only lists Assault Intercessors With Jump Packs [S1]). Because the OC characteristic for Intercessors is missing from the evidence, it is impossible to calculate their total Level of Control to compare against the enemy's Objective Control of 5 [P1]. Therefore, the question cannot be answered.",
         "citations": [
           "P1",
-          "P2"
+          "S1"
         ],
         "sources": [
           {
@@ -1625,62 +1640,94 @@
             "page_start": 38,
             "page_end": 38,
             "text": "#### 1. Datasheet Name\n\nHere you will find the name of the unit.\n\n#### 2. Profiles\n\nThese contain the following characteristics that tell you how mighty the models in the unit are:\n\nMove (M): This is the speed at which a model moves across the battlefield. If a model has a Move of '-' it is unable to move at all.\n\nToughness (T): This reflects the model's resilience against physical harm.\n\nSave (Sv): This indicates the protection a model's armour gives them.\n\nWounds (W): Wounds represent how much damage a model can sustain before it succumbs to its injuries. If a model's Wounds characteristic is reduced to 0, that model is destroyed.\n\nLeadership (Ld): This reveals how courageous, determined or self-controlled a model is. The lower this number, the better a model's Leadership is.\n\nObjective Control (OC): This shows how effectively a model can exert control over an objective on the battlefield.",
-            "score": 0.0315136476426799,
+            "score": 0.03200204813108039,
             "method": "rrf"
           },
           {
             "id": "P3",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0022",
-            "page_start": 11,
-            "page_end": 11,
-            "text": "#### 2. BATTLE-SHOCK\n\nIn this step, you must take a Battle-shock test for each of your units on the battlefield that is Below Half-strength (pg 12). To do so, roll 2D6: if the result is greater than or equal to the best Leadership characteristic in that unit, the test is passed; otherwise, the test is failed and, until the start of your next Command phase, that unit is Battle-shocked.\n\nWhile a unit is Battle-shocked:\n- The Objective Control characteristic of all of its models is 0.\n- If it Falls Back, you must take a Desperate Escape test for every model in that unit (pg 14).\n- Its controlling player cannot use Stratagems to affect that unit.\n\nOnce you have taken Battle-shock tests for all of your units that require them, your Command phase ends and you progress to your Movement phase.\n- Take a Battle-shock test for each unit from your army on the battlefield that is Below Half-strength.\n- Roll 2D6: if the result is greater than or equal to the unit's Leadership, the test is passed. Otherwise, the unit is Battle-shocked until the start of your next Command phase.\n- Battle-shocked units have an OC of 0 and their controlling player cannot use Stratagems to affect them.\n- Battle-shocked units must take Desperate Escape tests if they Fall Back.",
-            "score": 0.029857397504456328,
+            "chunk_id": "structured_0141",
+            "page_start": 58,
+            "page_end": 58,
+            "text": "### Objective Markers\n\nObjective markers represent objects of tactical or strategic import that both sides are attempting to secure, such as valuable artefacts, vital supplies or communications nodes. If a mission uses objective markers, it will state where they are located on the battlefield. These can be represented using any suitable marker, but we recommend using round markers that are 40mm in diameter.\n\nWhen setting objective markers up on the battlefield, place them so they are centred on the point specified by the mission. When measuring distances to and from objective markers, measure to and from the closest part of them. Models can move over objective markers as if they were not there, but they cannot end a move on top of an objective marker.\n\nAt the start of the battle, each objective marker on the battlefield is said to be contested, and so is not controlled by either player. To control an objective marker, a player will first need to move models within range of it. A model is within range of an objective marker if it is within 3\" horizontally and 5\" vertically of that objective marker.",
+            "score": 0.031754032258064516,
             "method": "rrf"
           },
           {
             "id": "P4",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0087",
-            "page_start": 35,
-            "page_end": 35,
-            "text": "remain within Engagement Range of the attacking model's unit (because of models being destroyed as the result of other attacks made by the attacking model's unit, for example).\n- Resolve all attacks against one unit before moving onto the next.\n- Resolve all attacks with the same weapon profile before resolving any made with a different weapon profile.\n- All attacks declared against a target unit are resolved, even if no models in that unit remain within Engagement Range.\n\n#### 3. CONSOLIDATE\n\nAfter a unit has finished making all of its melee attacks, it Consolidates. Each time a unit Consolidates, you can move each model in that unit that is not already in base-to-base contact with an enemy model up to 3\" - this is a Consolidation move. For a Consolidation to be possible, a unit must be able to end these moves within Engagement Range of one or more enemy units and in Unit Coherency. If these conditions cannot be met, then each model in that unit can instead make a Consolidation move towards the closest objective marker, but only if, after doing so, that unit is within range of that objective marker and in Unit Coherency. If these conditions also cannot be met, no models in the unit can make Consolidation moves this phase and that unit's fight ends.",
-            "score": 0.029418126757516764,
+            "chunk_id": "structured_0145",
+            "page_start": 59,
+            "page_end": 59,
+            "text": "#### 1. Muster Armies\n\nFirst, players will need to muster armies based on the battle size they have selected, as described on pages 55–56. This mission is designed for Incursion, Strike Force and Onslaught battle sizes.\n\n#### 2. Mission Objectives\n\n**Capture and Control — Progressive Objective.**\n\nStarting from the second battle round, at the end of each player's Command phase, the player whose turn it is scores 1 Victory point (VP) for each objective marker they control (to a maximum of 3VP per turn). Details of how to control objective markers can be found on page 58.\n\n#### 3. Create the Battlefield\n\nPlayers now create the battlefield and set up terrain features using the guidelines on pages 49–52. The minimum size of your battlefield depends on the battle size you have selected, as shown in the table below.\n\n| Battle size | Minimum battlefield size |\n|---|---|\n| Incursion / Strike Force | 44\" × 60\" |\n| Onslaught | 44\" × 90\" |\n\nPlayers must then alternate setting up objective markers on the battlefield, starting with whichever player wins a roll-off, until a total of four have been placed. Objective markers cannot be placed within 6\" of any battlefield edge, or within 9\" of any other objective markers.",
+            "score": 0.03125763125763126,
             "method": "rrf"
           },
           {
             "id": "P5",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0088",
-            "page_start": 35,
-            "page_end": 35,
-            "text": "If a unit can end its Consolidation within Engagement Range of one or more enemy units, then each time one of its models makes a Consolidation move, it must end that move closer to the closest enemy model. If it can also end that move in base-to-base contact with one or more enemy models while still satisfying all of the conditions above, it must do so. The controlling player chooses the order in which to move their models.\n- Consolidation Move: Up to 3\".\n- Every model that moves must end closer to the closest enemy model, and in base-to-base contact with an enemy model if possible. The unit must end in Unit Coherency and within Engagement Range of at least one enemy unit if possible.\n- If the above is not possible, each model can move towards the closest objective marker, but this must result in the unit being within range of it and in Unit Coherency.\n- If the above is also not possible, no models can Consolidate.",
-            "score": 0.029138513513513514,
+            "chunk_id": "structured_0022",
+            "page_start": 11,
+            "page_end": 11,
+            "text": "#### 2. BATTLE-SHOCK\n\nIn this step, you must take a Battle-shock test for each of your units on the battlefield that is Below Half-strength (pg 12). To do so, roll 2D6: if the result is greater than or equal to the best Leadership characteristic in that unit, the test is passed; otherwise, the test is failed and, until the start of your next Command phase, that unit is Battle-shocked.\n\nWhile a unit is Battle-shocked:\n- The Objective Control characteristic of all of its models is 0.\n- If it Falls Back, you must take a Desperate Escape test for every model in that unit (pg 14).\n- Its controlling player cannot use Stratagems to affect that unit.\n\nOnce you have taken Battle-shock tests for all of your units that require them, your Command phase ends and you progress to your Movement phase.\n- Take a Battle-shock test for each unit from your army on the battlefield that is Below Half-strength.\n- Roll 2D6: if the result is greater than or equal to the unit's Leadership, the test is passed. Otherwise, the unit is Battle-shocked until the start of your next Command phase.\n- Battle-shocked units have an OC of 0 and their controlling player cannot use Stratagems to affect them.\n- Battle-shocked units must take Desperate Escape tests if they Fall Back.",
+            "score": 0.02919863597612958,
             "method": "rrf"
+          },
+          {
+            "id": "S1",
+            "type": "sql",
+            "status": "ok",
+            "sql": "SELECT d.name AS unit_name, m.name AS model_name, m.oc AS objective_control FROM datasheets d JOIN datasheets_models m ON m.DatasheetId = d.Id WHERE d.name LIKE :unit_name AND m.name LIKE :model_name",
+            "parameters": {
+              "unit_name": "%Intercessors%",
+              "model_name": "%Intercessor%"
+            },
+            "tables": [
+              "datasheets",
+              "datasheets_models"
+            ],
+            "columns": [
+              "unit_name",
+              "model_name",
+              "objective_control"
+            ],
+            "rows": [
+              {
+                "unit_name": "Assault Intercessors With Jump Packs",
+                "model_name": "Assault Intercessors With Jump Packs",
+                "objective_control": "1"
+              }
+            ],
+            "row_count": 1,
+            "truncated": false
           }
         ],
         "usage": {
           "routing": {
-            "input_tokens": 963,
-            "output_tokens": 102,
-            "total_tokens": 1065
+            "input_tokens": 1104,
+            "output_tokens": 128,
+            "total_tokens": 1232
           },
-          "sql": null,
+          "sql": {
+            "input_tokens": 1256,
+            "output_tokens": 145,
+            "total_tokens": 1401
+          },
           "answer": {
-            "input_tokens": 1771,
-            "output_tokens": 104,
-            "total_tokens": 1875
+            "input_tokens": 1991,
+            "output_tokens": 129,
+            "total_tokens": 2120
           },
-          "total_tokens": 2940
+          "total_tokens": 4753
         },
         "error": null
       },
       "diagnostics": {
-        "route_correct": false,
-        "required_citation_types_present": false,
+        "route_correct": true,
+        "required_citation_types_present": true,
         "pdf_page_coverage_proxy": {
           "required_pages": [
             58
@@ -1695,7 +1742,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 26.03,
+      "elapsed_seconds": 41.74,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -1737,11 +1784,12 @@
       "seed_status": null,
       "observed": {
         "status": "ok",
-        "route": "pdf",
+        "route": "mixed",
         "resolved_question": "An Intercessor Squad is Battle-shocked. Does its normal Objective Control of 2 per model still count when holding an objective?",
-        "answer": "No, while a unit is Battle-shocked, the Objective Control characteristic of all of its models is 0 [P1]. Therefore, the Intercessor Squad's normal Objective Control does not count while it is Battle-shocked [P1].",
+        "answer": "No, the normal Objective Control characteristic of 2 per model does not count while the Intercessor Squad is Battle-shocked [S1, P1]. According to the rules for Battle-shock, while a unit is Battle-shocked, the Objective Control characteristic of all its models becomes 0 [P1].",
         "citations": [
-          "P1"
+          "P1",
+          "S1"
         ],
         "sources": [
           {
@@ -1763,62 +1811,99 @@
             "page_start": 38,
             "page_end": 38,
             "text": "#### 1. Datasheet Name\n\nHere you will find the name of the unit.\n\n#### 2. Profiles\n\nThese contain the following characteristics that tell you how mighty the models in the unit are:\n\nMove (M): This is the speed at which a model moves across the battlefield. If a model has a Move of '-' it is unable to move at all.\n\nToughness (T): This reflects the model's resilience against physical harm.\n\nSave (Sv): This indicates the protection a model's armour gives them.\n\nWounds (W): Wounds represent how much damage a model can sustain before it succumbs to its injuries. If a model's Wounds characteristic is reduced to 0, that model is destroyed.\n\nLeadership (Ld): This reveals how courageous, determined or self-controlled a model is. The lower this number, the better a model's Leadership is.\n\nObjective Control (OC): This shows how effectively a model can exert control over an objective on the battlefield.",
-            "score": 0.031009615384615385,
+            "score": 0.03149801587301587,
             "method": "rrf"
           },
           {
             "id": "P3",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0145",
-            "page_start": 59,
-            "page_end": 59,
-            "text": "#### 1. Muster Armies\n\nFirst, players will need to muster armies based on the battle size they have selected, as described on pages 55–56. This mission is designed for Incursion, Strike Force and Onslaught battle sizes.\n\n#### 2. Mission Objectives\n\n**Capture and Control — Progressive Objective.**\n\nStarting from the second battle round, at the end of each player's Command phase, the player whose turn it is scores 1 Victory point (VP) for each objective marker they control (to a maximum of 3VP per turn). Details of how to control objective markers can be found on page 58.\n\n#### 3. Create the Battlefield\n\nPlayers now create the battlefield and set up terrain features using the guidelines on pages 49–52. The minimum size of your battlefield depends on the battle size you have selected, as shown in the table below.\n\n| Battle size | Minimum battlefield size |\n|---|---|\n| Incursion / Strike Force | 44\" × 60\" |\n| Onslaught | 44\" × 90\" |\n\nPlayers must then alternate setting up objective markers on the battlefield, starting with whichever player wins a roll-off, until a total of four have been placed. Objective markers cannot be placed within 6\" of any battlefield edge, or within 9\" of any other objective markers.",
-            "score": 0.029571646010002173,
+            "chunk_id": "structured_0039",
+            "page_start": 18,
+            "page_end": 18,
+            "text": "Units that disembark from a destroyed Transport model are not affected by that model's Deadly Demise ability (pg 23). Instead, you must roll one D6 for each disembarking model. For each roll of 1, that disembarking model's unit suffers 1 mortal wound (pg 23). In addition, if a unit disembarks from a destroyed Transport model:\n- Until the start of its controlling player's next Command phase, that unit is Battle-shocked.\n- Until the end of the turn, that unit counts as having made a Normal move this turn, and cannot declare a charge this turn (pg 29).\n- If a Transport is destroyed, any embarked units must disembark.\n- Roll one D6 for each model that disembarks: for each 1, that model's unit suffers 1 mortal wound.\n- Until the start of its controlling player's next Command phase, the disembarking unit is Battle-shocked.\n- Until the end of the turn, the disembarking unit counts as having made a Normal move, and cannot declare a charge.",
+            "score": 0.029957522915269395,
             "method": "rrf"
           },
           {
             "id": "P4",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0023",
-            "page_start": 11,
-            "page_end": 12,
-            "text": "Your Command phase is split into two steps. In the first, both players gain 1 Command point (CP) and you resolve any other Command phase rules; in the second, you test to see if any of your units are Battle-shocked.\n\n#### COMMAND\n\n#### BATTLE-SHOCK\n\n#### GAINING COMMAND POINTS\n\nOutside of the CP players gain at the start of the Command phase, each player can only gain a total of 1CP per battle round, regardless of the source.\n\n#### STARTING STRENGTH\n\nThe number of models a unit contains when it is added to your army is known as its Starting Strength.\n\n#### BELOW HALF-STRENGTH\n\nSome rules will refer to a unit being Below Half-strength.\n- If a unit has a Starting Strength of 1, then it is said to be Below Half-strength while its remaining number of wounds is less than half of its Wounds characteristic.\n- For any other unit, while the number of models in that unit is less than half of its Starting Strength, that unit is said to be Below Half-strength.",
-            "score": 0.027443609022556388,
+            "chunk_id": "structured_0104",
+            "page_start": 41,
+            "page_end": 42,
+            "text": "### EPIC CHALLENGE (1CP)\n\nCORE - EPIC DEED STRATAGEM\n\nThe legends of the 41st Millennium are replete with deadly duels between mighty champions.\n\nWHEN: Fight phase, when a Character unit from your army that is within Engagement Range of one or more Attached units is selected to fight.\n\nTARGET: One Character model in your unit.\n\nEFFECT: Until the end of the phase, all melee attacks made by that model have the [PRECISION] ability (pg 26).\n\n### INSANE BRAVERY (1CP)\n\nCORE - EPIC DEED STRATAGEM\n\nIndifferent to their own survival, these warriors hold their ground against seemingly impossible odds.\n\nWHEN: Battle-shock step of your Command phase, just after you have failed a Battle-shock test taken for a unit from your army (pg 11).\n\nTARGET: The unit from your army that Battle-shock test was just taken for (even though your Battle-shocked units cannot normally be affected by your Stratagems).\n\nEFFECT: Your unit is treated as having passed that test instead, and is not Battle-shocked as a result.",
+            "score": 0.02946236559139785,
             "method": "rrf"
           },
           {
             "id": "P5",
             "type": "pdf",
             "source": "Core Rules.pdf",
-            "chunk_id": "structured_0100",
-            "page_start": 39,
-            "page_end": 39,
-            "text": "While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are destroyed (pg 12), it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack sucessfully wounds an Attached unit, that attack cannot be allocated to a Character model in that unit, even if that Character model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to Character models in that unit.\n- Before the battle, Character units with the Leader ability can be attached to one of their Bodyguard units to form an Attached unit.\n- Attached units can only contain one Leader.\n- Attacks cannot be allocated to Character models in Attached units.",
-            "score": 0.026171741361614778,
+            "chunk_id": "structured_0023",
+            "page_start": 11,
+            "page_end": 12,
+            "text": "Your Command phase is split into two steps. In the first, both players gain 1 Command point (CP) and you resolve any other Command phase rules; in the second, you test to see if any of your units are Battle-shocked.\n\n#### COMMAND\n\n#### BATTLE-SHOCK\n\n#### GAINING COMMAND POINTS\n\nOutside of the CP players gain at the start of the Command phase, each player can only gain a total of 1CP per battle round, regardless of the source.\n\n#### STARTING STRENGTH\n\nThe number of models a unit contains when it is added to your army is known as its Starting Strength.\n\n#### BELOW HALF-STRENGTH\n\nSome rules will refer to a unit being Below Half-strength.\n- If a unit has a Starting Strength of 1, then it is said to be Below Half-strength while its remaining number of wounds is less than half of its Wounds characteristic.\n- For any other unit, while the number of models in that unit is less than half of its Starting Strength, that unit is said to be Below Half-strength.",
+            "score": 0.028484848484848488,
             "method": "rrf"
+          },
+          {
+            "id": "S1",
+            "type": "sql",
+            "status": "ok",
+            "sql": "SELECT d.name AS unit_name, m.oc AS objective_control FROM datasheets d JOIN datasheets_models m ON m.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
+            "parameters": {
+              "unit_name": "%Intercessor Squad%"
+            },
+            "tables": [
+              "datasheets",
+              "datasheets_models"
+            ],
+            "columns": [
+              "unit_name",
+              "objective_control"
+            ],
+            "rows": [
+              {
+                "unit_name": "Intercessor Squad",
+                "objective_control": "2"
+              },
+              {
+                "unit_name": "Heavy Intercessor Squad",
+                "objective_control": "2"
+              },
+              {
+                "unit_name": "Assault Intercessor Squad",
+                "objective_control": "2"
+              }
+            ],
+            "row_count": 3,
+            "truncated": false
           }
         ],
         "usage": {
           "routing": {
-            "input_tokens": 963,
-            "output_tokens": 141,
-            "total_tokens": 1104
+            "input_tokens": 1104,
+            "output_tokens": 138,
+            "total_tokens": 1242
           },
-          "sql": null,
+          "sql": {
+            "input_tokens": 1254,
+            "output_tokens": 103,
+            "total_tokens": 1357
+          },
           "answer": {
-            "input_tokens": 1882,
-            "output_tokens": 86,
-            "total_tokens": 1968
+            "input_tokens": 2013,
+            "output_tokens": 106,
+            "total_tokens": 2119
           },
-          "total_tokens": 3072
+          "total_tokens": 4718
         },
         "error": null
       },
       "diagnostics": {
-        "route_correct": false,
-        "required_citation_types_present": false,
+        "route_correct": true,
+        "required_citation_types_present": true,
         "pdf_page_coverage_proxy": {
           "required_pages": [
             11,
@@ -1831,10 +1916,10 @@
         },
         "citation_identifiers": {
           "identifiers_exist": true,
-          "inline_matches_reported": true
+          "inline_matches_reported": false
         }
       },
-      "elapsed_seconds": 23.38,
+      "elapsed_seconds": 37.14,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -1877,7 +1962,7 @@
         "status": "ok",
         "route": "sql",
         "resolved_question": "What weapons does Abaddon have?",
-        "answer": "Based on the provided records, Abaddon The Despoiler is equipped with the following weapons: Drachâ€™nyen (Melee range, Melee type, 8 attacks, 2 BS/WS, strength 14, -4 AP, 3 damage) [S1], the Talon of Horus in a Ranged profile (24 range, Ranged type, 4 attacks, 2 BS/WS, strength 5, -1 AP, 2 damage) [S1], and the Talon of Horus in a Melee profile (Melee range, Melee type, 14 attacks, 2 BS/WS, strength 7, -3 AP, 1 damage) [S1].",
+        "answer": "Abaddon has the following weapons: Drachâ€™nyen (Melee) and the Talon of Horus, which has both a Ranged and a Melee profile [S1].",
         "citations": [
           "S1"
         ],
@@ -1886,7 +1971,7 @@
             "id": "S1",
             "type": "sql",
             "status": "ok",
-            "sql": "SELECT d.name AS unit_name, w.name AS weapon_name, w.range AS weapon_range, w.type AS weapon_type, w.a AS weapon_attacks, w.bsWs AS weapon_bs_ws, w.s AS weapon_strength, w.ap AS weapon_ap, w.d AS weapon_damage FROM datasheets d JOIN datasheets_wargear w ON w.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
+            "sql": "SELECT d.name AS unit_name, w.name AS weapon_name, w.range, w.type, w.a AS attacks, w.bsWs AS bs_ws, w.s AS strength, w.ap AS armor_penetration, w.d AS damage FROM datasheets d JOIN datasheets_wargear w ON w.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
             "parameters": {
               "unit_name": "%Abaddon%"
             },
@@ -1897,47 +1982,47 @@
             "columns": [
               "unit_name",
               "weapon_name",
-              "weapon_range",
-              "weapon_type",
-              "weapon_attacks",
-              "weapon_bs_ws",
-              "weapon_strength",
-              "weapon_ap",
-              "weapon_damage"
+              "range",
+              "type",
+              "attacks",
+              "bs_ws",
+              "strength",
+              "armor_penetration",
+              "damage"
             ],
             "rows": [
               {
                 "unit_name": "Abaddon The Despoiler",
                 "weapon_name": "Drachânyen",
-                "weapon_range": "Melee",
-                "weapon_type": "Melee",
-                "weapon_attacks": "8",
-                "weapon_bs_ws": "2",
-                "weapon_strength": "14",
-                "weapon_ap": "-4",
-                "weapon_damage": "3"
+                "range": "Melee",
+                "type": "Melee",
+                "attacks": "8",
+                "bs_ws": "2",
+                "strength": "14",
+                "armor_penetration": "-4",
+                "damage": "3"
               },
               {
                 "unit_name": "Abaddon The Despoiler",
                 "weapon_name": "Talon of Horus",
-                "weapon_range": "24",
-                "weapon_type": "Ranged",
-                "weapon_attacks": "4",
-                "weapon_bs_ws": "2",
-                "weapon_strength": "5",
-                "weapon_ap": "-1",
-                "weapon_damage": "2"
+                "range": "24",
+                "type": "Ranged",
+                "attacks": "4",
+                "bs_ws": "2",
+                "strength": "5",
+                "armor_penetration": "-1",
+                "damage": "2"
               },
               {
                 "unit_name": "Abaddon The Despoiler",
                 "weapon_name": "Talon of Horus",
-                "weapon_range": "Melee",
-                "weapon_type": "Melee",
-                "weapon_attacks": "14",
-                "weapon_bs_ws": "2",
-                "weapon_strength": "7",
-                "weapon_ap": "-3",
-                "weapon_damage": "1"
+                "range": "Melee",
+                "type": "Melee",
+                "attacks": "14",
+                "bs_ws": "2",
+                "strength": "7",
+                "armor_penetration": "-3",
+                "damage": "1"
               }
             ],
             "row_count": 3,
@@ -1946,21 +2031,21 @@
         ],
         "usage": {
           "routing": {
-            "input_tokens": 990,
-            "output_tokens": 75,
-            "total_tokens": 1065
+            "input_tokens": 1135,
+            "output_tokens": 85,
+            "total_tokens": 1220
           },
           "sql": {
             "input_tokens": 1249,
-            "output_tokens": 163,
-            "total_tokens": 1412
+            "output_tokens": 158,
+            "total_tokens": 1407
           },
           "answer": {
-            "input_tokens": 763,
-            "output_tokens": 186,
-            "total_tokens": 949
+            "input_tokens": 704,
+            "output_tokens": 72,
+            "total_tokens": 776
           },
-          "total_tokens": 3426
+          "total_tokens": 3403
         },
         "error": null
       },
@@ -1973,7 +2058,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 84.18,
+      "elapsed_seconds": 96.38,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -2009,12 +2094,13 @@
       "history_seed_question": "What is the Objective Control characteristic of Necron Warriors?",
       "seed_status": "ok",
       "observed": {
-        "status": "insufficient_evidence",
-        "route": "pdf",
+        "status": "ok",
+        "route": "mixed",
         "resolved_question": "If four Necron Warriors are within range of an objective and the opponent has total OC 7, who controls it?",
-        "answer": "It cannot be determined from the evidence who controls the objective because the Objective Control (OC) characteristic of a single Necron Warrior is not provided in the text. To determine control, you must add together the OC characteristics of all models within range of the objective [P1] and compare them to the opponent's total OC of 7.",
+        "answer": "To determine who controls the objective, we must first calculate the Objective Control (OC) of the four Necron Warriors. According to the database, a Necron Warrior has an OC characteristic of 2 [S1]. Multiplying this by four models gives the Necron player a total Level of Control of 8. Because the opponent has a total OC of 7, the Necron player has a greater Level of Control (8 > 7). Therefore, the Necron player controls the objective [P1].",
         "citations": [
-          "P1"
+          "P1",
+          "S1"
         ],
         "sources": [
           {
@@ -2036,11 +2122,22 @@
             "page_start": 38,
             "page_end": 38,
             "text": "#### 1. Datasheet Name\n\nHere you will find the name of the unit.\n\n#### 2. Profiles\n\nThese contain the following characteristics that tell you how mighty the models in the unit are:\n\nMove (M): This is the speed at which a model moves across the battlefield. If a model has a Move of '-' it is unable to move at all.\n\nToughness (T): This reflects the model's resilience against physical harm.\n\nSave (Sv): This indicates the protection a model's armour gives them.\n\nWounds (W): Wounds represent how much damage a model can sustain before it succumbs to its injuries. If a model's Wounds characteristic is reduced to 0, that model is destroyed.\n\nLeadership (Ld): This reveals how courageous, determined or self-controlled a model is. The lower this number, the better a model's Leadership is.\n\nObjective Control (OC): This shows how effectively a model can exert control over an objective on the battlefield.",
-            "score": 0.031746031746031744,
+            "score": 0.03149801587301587,
             "method": "rrf"
           },
           {
             "id": "P3",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0141",
+            "page_start": 58,
+            "page_end": 58,
+            "text": "### Objective Markers\n\nObjective markers represent objects of tactical or strategic import that both sides are attempting to secure, such as valuable artefacts, vital supplies or communications nodes. If a mission uses objective markers, it will state where they are located on the battlefield. These can be represented using any suitable marker, but we recommend using round markers that are 40mm in diameter.\n\nWhen setting objective markers up on the battlefield, place them so they are centred on the point specified by the mission. When measuring distances to and from objective markers, measure to and from the closest part of them. Models can move over objective markers as if they were not there, but they cannot end a move on top of an objective marker.\n\nAt the start of the battle, each objective marker on the battlefield is said to be contested, and so is not controlled by either player. To control an objective marker, a player will first need to move models within range of it. A model is within range of an objective marker if it is within 3\" horizontally and 5\" vertically of that objective marker.",
+            "score": 0.03149801587301587,
+            "method": "rrf"
+          },
+          {
+            "id": "P4",
             "type": "pdf",
             "source": "Core Rules.pdf",
             "chunk_id": "structured_0022",
@@ -2051,17 +2148,6 @@
             "method": "rrf"
           },
           {
-            "id": "P4",
-            "type": "pdf",
-            "source": "Core Rules.pdf",
-            "chunk_id": "structured_0141",
-            "page_start": 58,
-            "page_end": 58,
-            "text": "### Objective Markers\n\nObjective markers represent objects of tactical or strategic import that both sides are attempting to secure, such as valuable artefacts, vital supplies or communications nodes. If a mission uses objective markers, it will state where they are located on the battlefield. These can be represented using any suitable marker, but we recommend using round markers that are 40mm in diameter.\n\nWhen setting objective markers up on the battlefield, place them so they are centred on the point specified by the mission. When measuring distances to and from objective markers, measure to and from the closest part of them. Models can move over objective markers as if they were not there, but they cannot end a move on top of an objective marker.\n\nAt the start of the battle, each objective marker on the battlefield is said to be contested, and so is not controlled by either player. To control an objective marker, a player will first need to move models within range of it. A model is within range of an objective marker if it is within 3\" horizontally and 5\" vertically of that objective marker.",
-            "score": 0.03125,
-            "method": "rrf"
-          },
-          {
             "id": "P5",
             "type": "pdf",
             "source": "Core Rules.pdf",
@@ -2069,29 +2155,58 @@
             "page_start": 59,
             "page_end": 59,
             "text": "#### 1. Muster Armies\n\nFirst, players will need to muster armies based on the battle size they have selected, as described on pages 55–56. This mission is designed for Incursion, Strike Force and Onslaught battle sizes.\n\n#### 2. Mission Objectives\n\n**Capture and Control — Progressive Objective.**\n\nStarting from the second battle round, at the end of each player's Command phase, the player whose turn it is scores 1 Victory point (VP) for each objective marker they control (to a maximum of 3VP per turn). Details of how to control objective markers can be found on page 58.\n\n#### 3. Create the Battlefield\n\nPlayers now create the battlefield and set up terrain features using the guidelines on pages 49–52. The minimum size of your battlefield depends on the battle size you have selected, as shown in the table below.\n\n| Battle size | Minimum battlefield size |\n|---|---|\n| Incursion / Strike Force | 44\" × 60\" |\n| Onslaught | 44\" × 90\" |\n\nPlayers must then alternate setting up objective markers on the battlefield, starting with whichever player wins a roll-off, until a total of four have been placed. Objective markers cannot be placed within 6\" of any battlefield edge, or within 9\" of any other objective markers.",
-            "score": 0.03021353930031804,
+            "score": 0.031054405392392875,
             "method": "rrf"
+          },
+          {
+            "id": "S1",
+            "type": "sql",
+            "status": "ok",
+            "sql": "SELECT d.name AS unit_name, m.oc AS objective_control FROM datasheets d JOIN datasheets_models m ON m.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
+            "parameters": {
+              "unit_name": "%Necron Warriors%"
+            },
+            "tables": [
+              "datasheets",
+              "datasheets_models"
+            ],
+            "columns": [
+              "unit_name",
+              "objective_control"
+            ],
+            "rows": [
+              {
+                "unit_name": "Necron Warriors",
+                "objective_control": "2"
+              }
+            ],
+            "row_count": 1,
+            "truncated": false
           }
         ],
         "usage": {
           "routing": {
-            "input_tokens": 1007,
-            "output_tokens": 125,
-            "total_tokens": 1132
+            "input_tokens": 1148,
+            "output_tokens": 143,
+            "total_tokens": 1291
           },
-          "sql": null,
+          "sql": {
+            "input_tokens": 1256,
+            "output_tokens": 103,
+            "total_tokens": 1359
+          },
           "answer": {
-            "input_tokens": 1816,
-            "output_tokens": 102,
-            "total_tokens": 1918
+            "input_tokens": 1946,
+            "output_tokens": 144,
+            "total_tokens": 2090
           },
-          "total_tokens": 3050
+          "total_tokens": 4740
         },
         "error": null
       },
       "diagnostics": {
-        "route_correct": false,
-        "required_citation_types_present": false,
+        "route_correct": true,
+        "required_citation_types_present": true,
         "pdf_page_coverage_proxy": {
           "required_pages": [
             58
@@ -2106,7 +2221,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 85.37,
+      "elapsed_seconds": 106.65,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,
@@ -2156,9 +2271,9 @@
         ],
         "usage": {
           "routing": {
-            "input_tokens": 949,
-            "output_tokens": 89,
-            "total_tokens": 1038
+            "input_tokens": 1090,
+            "output_tokens": 85,
+            "total_tokens": 1175
           },
           "sql": {
             "input_tokens": 1255,
@@ -2166,7 +2281,7 @@
             "total_tokens": 1373
           },
           "answer": null,
-          "total_tokens": 2411
+          "total_tokens": 2548
         },
         "error": null
       },
@@ -2179,7 +2294,7 @@
           "inline_matches_reported": true
         }
       },
-      "elapsed_seconds": 16.48,
+      "elapsed_seconds": 46.37,
       "human_review": {
         "answer_correct": null,
         "evidence_sufficient": null,

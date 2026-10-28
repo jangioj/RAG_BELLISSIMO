@@ -1,0 +1,120 @@
+{
+  "evaluated_at_utc": "2026-10-28T17:27:02.038563+00:00",
+  "split": "development",
+  "input_file": "backend_eval_development.json",
+  "judge_provider": "Google Gemini (official google-genai SDK)",
+  "judge_model": "gemini-3.5-flash-lite",
+  "ragas_metrics": [
+    "Faithfulness",
+    "FactualCorrectness (F1)"
+  ],
+  "total_successful_backend_cases": 13,
+  "cases_processed": 13,
+  "faithfulness_scored": 13,
+  "factual_correctness_scored": 13,
+  "mean_faithfulness": 0.9231,
+  "mean_factual_correctness": 0.9054,
+  "methodology": {
+    "faithfulness": "RAGAS evidence support using retrieved PDF text and SQL result rows.",
+    "factual_correctness": "RAGAS F1 versus manually validated gold answer.",
+    "scope": "Only backend cases with status=ok and a nonempty answer.",
+    "limitations": [
+      "Failed backend cases remain in the backend evaluation and are not scored here.",
+      "Missing RAGAS scores are excluded from means; they are not zeros.",
+      "LLM judge scores may require human verification."
+    ]
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "category": "pdf",
+      "faithfulness": 1.0,
+      "factual_correctness": 0.86,
+      "errors": {}
+    },
+    {
+      "id": "P02",
+      "category": "pdf",
+      "faithfulness": 1.0,
+      "factual_correctness": 0.86,
+      "errors": {}
+    },
+    {
+      "id": "P07",
+      "category": "pdf",
+      "faithfulness": 1.0,
+      "factual_correctness": 1.0,
+      "errors": {}
+    },
+    {
+      "id": "S01",
+      "category": "sql",
+      "faithfulness": 1.0,
+      "factual_correctness": 1.0,
+      "errors": {}
+    },
+    {
+      "id": "S04",
+      "category": "sql",
+      "faithfulness": 1.0,
+      "factual_correctness": 1.0,
+      "errors": {}
+    },
+    {
+      "id": "S06",
+      "category": "sql",
+      "faithfulness": 1.0,
+      "factual_correctness": 0.5,
+      "errors": {}
+    },
+    {
+      "id": "S07",
+      "category": "sql",
+      "faithfulness": 1.0,
+      "factual_correctness": 1.0,
+      "errors": {}
+    },
+    {
+      "id": "S08",
+      "category": "sql",
+      "faithfulness": 1.0,
+      "factual_correctness": 1.0,
+      "errors": {}
+    },
+    {
+      "id": "M01",
+      "category": "mixed",
+      "faithfulness": 0.5,
+      "factual_correctness": 0.8,
+      "errors": {}
+    },
+    {
+      "id": "M02",
+      "category": "mixed",
+      "faithfulness": 1.0,
+      "factual_correctness": 0.86,
+      "errors": {}
+    },
+    {
+      "id": "M06",
+      "category": "mixed",
+      "faithfulness": 1.0,
+      "factual_correctness": 1.0,
+      "errors": {}
+    },
+    {
+      "id": "T01",
+      "category": "multiturn",
+      "faithfulness": 1.0,
+      "factual_correctness": 1.0,
+      "errors": {}
+    },
+    {
+      "id": "T03",
+      "category": "multiturn",
+      "faithfulness": 0.5,
+      "factual_correctness": 0.89,
+      "errors": {}
+    }
+  ]
+}
