@@ -1,0 +1,76 @@
+[
+  {
+    "test": "filtered_join",
+    "question": "List all CSM faction units with the Terminator keyword and Toughness 5. Return unit IDs and names.",
+    "model": "gemini-3.5-flash-lite",
+    "usage": {
+      "input_tokens": 1263,
+      "output_tokens": 229,
+      "total_tokens": 1492
+    },
+    "reason": "",
+    "status": "ok",
+    "sql": "SELECT DISTINCT d.Id AS unit_id, d.name AS unit_name FROM datasheets d JOIN factions f ON f.Id = d.factionId JOIN datasheets_keywords dk ON dk.DatasheetId = d.Id JOIN datasheets_models dm ON dm.DatasheetId = d.Id WHERE (f.name LIKE :faction_name OR f.name LIKE :faction_alt) AND dk.keyword = :keyword AND dm.t = :toughness",
+    "parameters": {
+      "faction_name": "%Chaos Space Marines%",
+      "faction_alt": "%CSM%",
+      "keyword": "Terminator",
+      "toughness": "5"
+    },
+    "columns": [
+      "unit_id",
+      "unit_name"
+    ],
+    "rows": [
+      {
+        "unit_id": "000000924",
+        "unit_name": "Abaddon The Despoiler"
+      },
+      {
+        "unit_id": "000000930",
+        "unit_name": "Chaos Lord In Terminator Armour"
+      },
+      {
+        "unit_id": "000000939",
+        "unit_name": "Sorcerer In Terminator Armour"
+      },
+      {
+        "unit_id": "000000947",
+        "unit_name": "Chaos Terminator Squad"
+      },
+      {
+        "unit_id": "000004205",
+        "unit_name": "Kravek Morne"
+      }
+    ],
+    "row_count": 5,
+    "tables": [
+      "datasheets",
+      "datasheets_keywords",
+      "datasheets_models",
+      "factions"
+    ],
+    "truncated": false,
+    "error": null
+  },
+  {
+    "test": "missing_role",
+    "question": "What is the battlefield role of Abaddon The Despoiler?",
+    "status": "unanswerable",
+    "model": "gemini-3.5-flash-lite",
+    "sql": null,
+    "parameters": {},
+    "reason": "datasheets.role is empty for all records in the database, so the battlefield role cannot be determined.",
+    "usage": {
+      "input_tokens": 1255,
+      "output_tokens": 49,
+      "total_tokens": 1304
+    },
+    "error": null,
+    "columns": [],
+    "rows": [],
+    "row_count": 0,
+    "tables": [],
+    "truncated": false
+  }
+]

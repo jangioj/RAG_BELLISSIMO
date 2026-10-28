@@ -1,0 +1,73 @@
+[
+  {
+    "test": "numeric_comparison",
+    "question": "Which Tyranid unit has the highest numeric Toughness? Return its name and Toughness.",
+    "model": "gemini-3.5-flash-lite",
+    "usage": {
+      "input_tokens": 1261,
+      "output_tokens": 127,
+      "total_tokens": 1388
+    },
+    "reason": "",
+    "status": "ok",
+    "sql": "SELECT d.name AS unit_name, m.t AS toughness FROM datasheets d JOIN factions f ON d.factionId = f.Id JOIN datasheets_models m ON m.DatasheetId = d.Id WHERE f.name = :faction_name ORDER BY CAST(m.t AS INTEGER) DESC LIMIT 1",
+    "parameters": {
+      "faction_name": "Tyranids"
+    },
+    "columns": [
+      "unit_name",
+      "toughness"
+    ],
+    "rows": [
+      {
+        "unit_name": "Hierophant",
+        "toughness": "14"
+      }
+    ],
+    "row_count": 1,
+    "tables": [
+      "datasheets",
+      "datasheets_models",
+      "factions"
+    ],
+    "truncated": false,
+    "error": null
+  },
+  {
+    "test": "stratagem_join",
+    "question": "What is the name, CP cost and phase of the Rapid Ingress stratagem linked to the Termagants datasheet?",
+    "model": "gemini-3.5-flash-lite",
+    "usage": {
+      "input_tokens": 1266,
+      "output_tokens": 176,
+      "total_tokens": 1442
+    },
+    "reason": "Successfully matched the stratagem linked to the given datasheet.",
+    "status": "ok",
+    "sql": "SELECT s.name AS stratagem_name, s.cpCost AS cp_cost, s.phase AS phase FROM stratagems s JOIN datasheets_stratagems ds ON ds.stratagemId = s.id JOIN datasheets d ON d.Id = ds.DatasheetId WHERE d.name LIKE :unit_name AND s.name LIKE :stratagem_name",
+    "parameters": {
+      "unit_name": "%Termagants%",
+      "stratagem_name": "%Rapid Ingress%"
+    },
+    "columns": [
+      "stratagem_name",
+      "cp_cost",
+      "phase"
+    ],
+    "rows": [
+      {
+        "stratagem_name": "RAPID INGRESS",
+        "cp_cost": "1",
+        "phase": "Movement phase"
+      }
+    ],
+    "row_count": 1,
+    "tables": [
+      "datasheets",
+      "datasheets_stratagems",
+      "stratagems"
+    ],
+    "truncated": false,
+    "error": null
+  }
+]

@@ -1,0 +1,396 @@
+{
+  "benchmark_version": "1.0",
+  "evaluated_at_utc": "2026-10-28T14:23:18.116048+00:00",
+  "split": "development",
+  "metrics": {
+    "tested": 3,
+    "status_ok": 2,
+    "route_correct": 3,
+    "route_labeled": 3,
+    "routing_accuracy": 1.0,
+    "factual_correctness": null,
+    "faithfulness": null,
+    "note": "Routing accuracy is automatic. Answer correctness and faithfulness have not yet been evaluated."
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "split": "development",
+      "category": "pdf",
+      "question": "What is the rule for the GRENADE Stratagem: who can use it, at what distance, and how are mortal wounds determined?",
+      "reference_answer": "In your Shooting phase, select an eligible Grenades unit that has not shot and is not engaged; choose a visible enemy within 8 inches and not engaged with your units; roll six D6 and inflict one mortal wound per 4+. Cost 1CP under the Core Stratagems.",
+      "expected_route": "pdf",
+      "answerable": true,
+      "gold_pdf_evidence": [
+        {
+          "page": 42,
+          "anchor": "TARGET: One Grenades unit"
+        }
+      ],
+      "gold_sql_evidence": null,
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "ok",
+        "route": "pdf",
+        "resolved_question": "What is the rule for the GRENADE Stratagem: who can use it, at what distance, and how are mortal wounds determined?",
+        "answer": "The GRENADE Stratagem can be used during your Shooting phase by one Grenades unit from your army that is not within Engagement Range of any enemy units and has not been selected to shoot this phase [P1]. The target enemy unit must not be within Engagement Range of any units from your army and must be within 8\" of and visible to your Grenades unit [P1]. To determine mortal wounds, you roll six D6, and for each roll of 4+, that enemy unit suffers 1 mortal wound [P1].",
+        "citations": [
+          "P1"
+        ],
+        "sources": [
+          {
+            "id": "P1",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0105",
+            "page_start": 42,
+            "page_end": 42,
+            "text": "### GRENADE (1CP)\n\nCORE - WARGEAR STRATAGEM\n\nPriming their hand-held projectiles, these warriors draw back and hurl death into the enemy's midst.\n\nWHEN: Your Shooting phase.\n\nTARGET: One Grenades unit from your army that is not within Engagement Range of any enemy units and has not been selected to shoot this phase.\n\nEFFECT: Select one enemy unit that is not within Engagement Range of any units from your army and is within 8\" of and visible to your Grenades unit. Roll six D6: for each 4+, that enemy unit suffers 1 mortal wound.\n\n### TANK SHOCK (1CP)\n\nCORE - STRATEGIC PLOY STRATAGEM\n\nRamming the foe with a speeding vehicle may be an unsubtle tactic, but it is a murderously effective one.\n\nWHEN: Your Charge phase.\n\nTARGET: One Vehicle unit from your army.\n\nEFFECT: Until the end of the phase, after your unit ends a Charge move, select one enemy unit within Engagement Range of it, then select one melee weapon your unit is equipped with. Roll a number of D6 equal to that weapon's Strength characteristic. If that Strength characteristic is greater than that enemy unit's Toughness characteristic, roll two additional D6. For each 5+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds).",
+            "score": 0.03278688524590164,
+            "method": "rrf"
+          },
+          {
+            "id": "P2",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0054",
+            "page_start": 23,
+            "page_end": 23,
+            "text": "#### MORTAL WOUNDS\n\nSome attacks are so powerful that no armour or force field can withstand their fury.\n\nSome attacks inflict mortal wounds. Each mortal wound inflicts one point of damage on the target unit, and they are always applied one at a time. Do not make a Wound roll or saving throw (including invulnerable saving throws) against a mortal wound - just allocate it as you would any other attack and inflict damage to a model in the target unit as described on the right.\n\nUnlike damage inflicted by normal attacks, excess damage from mortal wounds is not lost if the damage can be allocated to another model. Instead, keep allocating damage to another model in the target unit until either all the damage has been allocated or the target unit is destroyed.",
+            "score": 0.03128054740957967,
+            "method": "rrf"
+          },
+          {
+            "id": "P3",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0072",
+            "page_start": 28,
+            "page_end": 28,
+            "text": "Example: A unit of five models make five attacks with ranged weapons with the [HAZARDOUS] ability. After the unit has finished shooting, its controlling player rolls five D6. One of the results is a 1, and as no models in the unit are Characters, Monsters or Vehicles, one of those models is destroyed.\n- After a unit shoots or fights, roll one Hazardous test (one D6) for each Hazardous weapon used. For each 1, one model equipped with a Hazardous weapon is destroyed (Characters, Monsters and Vehicles suffer 3 mortal wounds instead).\n\n#### DEVASTATING WOUNDS\n\nSome weapons can inflict strikes of such power that they make a mockery of armour and can cleave through several foes.\n\nWeapons with [DEVASTATING WOUNDS] in their profile are known as Devastating Wounds weapons. Each time an attack is made with such a weapon, a Critical Wound inflicts a number of mortal wounds on the target equal to the Damage characteristic of that weapon and the attack sequence ends.\n\nExample: An attack made with a Devastating Wounds weapon with a Damage characteristic of 2 scores a Critical Wound. Instead of allocating the attack and making saving throws normally, the target suffers 2 mortal wounds.\n- A Critical Wound inflicts mortal wounds equal to the weapon's Damage characteristic, instead of any normal damage.",
+            "score": 0.03125,
+            "method": "rrf"
+          },
+          {
+            "id": "P4",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0071",
+            "page_start": 27,
+            "page_end": 28,
+            "text": "#### Weapon Designations — illustrated reference\n\nThe source page is an illustration labelled **IMPERIAL REF: Weapon Designations**, **FILE: 0-∆XE-15622100**, identifying the following weapons:\n\n- Heavy bolter\n- Force weapon\n- Plasma gun\n- Plasma pistol\n- Sniper rifle\n- Boltgun\n- Astartes shotgun\n- Astartes chainsword\n- Assault cannon\n- Missile launcher\n- Lightning claw\n- Flamer\n- Meltagun\n\n*The weapon illustrations themselves are not reproduced in this text-only Markdown.*\n\n#### HAZARDOUS\n\nWeapons powered by unstable and dangerous energy sources pose a substantial risk to the wielder every time they are used.\n\nWeapons with [HAZARDOUS] in their profile are known as Hazardous weapons. Each time a unit is selected to shoot or fight, if one or more models attack with Hazardous weapons, then after that unit has resolved all of its attacks, you must take one Hazardous test for each Hazardous weapon that was just used by rolling one D6. For each roll of 1, that test is failed and one model in that unit equipped with a Hazardous weapon is destroyed (selected by the controlling player), unless that model is a Character, Monster or Vehicle, in which case it suffers 3 mortal wounds instead. Note that if you selected a Character model in an Attached unit, the mortal wounds suffered must be allocated to that model first, even if there is another model in that unit that has lost one or more wounds or has had attacks allocated to it this phase.",
+            "score": 0.028404512489927477,
+            "method": "rrf"
+          },
+          {
+            "id": "P5",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0057",
+            "page_start": 23,
+            "page_end": 23,
+            "text": "#### DEADLY DEMISE\n\nFrom detonating ammo stores to corrosive innards or frenzied death throes, some targets are deadly even in defeat.\n\nSome models have 'Deadly Demise x' listed in their abilities. When such a model is destroyed, roll one D6 before removing it from play (if such a model is a Transport, roll before any embarked models disembark). On a 6, each unit within 6\" of that model suffers a number of mortal wounds denoted by 'x' (if this is a random number, roll separately for each unit within 6\").\n\nExample: A Transport model with the Deadly Demise D3 ability is destroyed. Before any models disembark and before removing it from play, its controlling player rolls one D6, getting a 6. There are three units within 6\" of that destroyed model, so its controlling player rolls one D3 for each of them, inflicting mortal wounds accordingly.\n- Deadly Demise x: When this model is destroyed, roll one D6. On a 6, each unit within 6\" suffers 'x' mortal wounds.",
+            "score": 0.027242401779095628,
+            "method": "rrf"
+          }
+        ],
+        "usage": {
+          "routing": {
+            "input_tokens": 964,
+            "output_tokens": 132,
+            "total_tokens": 1096
+          },
+          "sql": null,
+          "answer": {
+            "input_tokens": 1912,
+            "output_tokens": 144,
+            "total_tokens": 2056
+          },
+          "total_tokens": 3152
+        },
+        "error": null
+      },
+      "diagnostics": {
+        "route_correct": true,
+        "required_citation_types_present": true,
+        "pdf_page_coverage_proxy": {
+          "required_pages": [
+            42
+          ],
+          "found_pages": [
+            42
+          ],
+          "fraction": 1.0
+        },
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": true
+        }
+      },
+      "elapsed_seconds": 41.32,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "P02",
+      "split": "development",
+      "category": "pdf",
+      "question": "How are Stratagems paid for and limited per phase, and can one normally affect a Battle-shocked unit?",
+      "reference_answer": "Pay the listed CP cost; a Stratagem cannot be used more than once in the same phase. A player cannot normally use Stratagems to affect their Battle-shocked units, subject to special exceptions.",
+      "expected_route": "pdf",
+      "answerable": true,
+      "gold_pdf_evidence": [
+        {
+          "page": 41,
+          "anchor": "reduce your CP total"
+        },
+        {
+          "page": 11,
+          "anchor": "cannot use Stratagems to affect that unit"
+        }
+      ],
+      "gold_sql_evidence": null,
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "error",
+        "route": "pdf",
+        "resolved_question": "How are Stratagems paid for and limited per phase, and can one normally affect a Battle-shocked unit?",
+        "answer": null,
+        "citations": [],
+        "sources": [
+          {
+            "id": "P1",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0104",
+            "page_start": 41,
+            "page_end": 42,
+            "text": "### EPIC CHALLENGE (1CP)\n\nCORE - EPIC DEED STRATAGEM\n\nThe legends of the 41st Millennium are replete with deadly duels between mighty champions.\n\nWHEN: Fight phase, when a Character unit from your army that is within Engagement Range of one or more Attached units is selected to fight.\n\nTARGET: One Character model in your unit.\n\nEFFECT: Until the end of the phase, all melee attacks made by that model have the [PRECISION] ability (pg 26).\n\n### INSANE BRAVERY (1CP)\n\nCORE - EPIC DEED STRATAGEM\n\nIndifferent to their own survival, these warriors hold their ground against seemingly impossible odds.\n\nWHEN: Battle-shock step of your Command phase, just after you have failed a Battle-shock test taken for a unit from your army (pg 11).\n\nTARGET: The unit from your army that Battle-shock test was just taken for (even though your Battle-shocked units cannot normally be affected by your Stratagems).\n\nEFFECT: Your unit is treated as having passed that test instead, and is not Battle-shocked as a result.",
+            "score": 0.032266458495966696,
+            "method": "rrf"
+          },
+          {
+            "id": "P2",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0022",
+            "page_start": 11,
+            "page_end": 11,
+            "text": "#### 2. BATTLE-SHOCK\n\nIn this step, you must take a Battle-shock test for each of your units on the battlefield that is Below Half-strength (pg 12). To do so, roll 2D6: if the result is greater than or equal to the best Leadership characteristic in that unit, the test is passed; otherwise, the test is failed and, until the start of your next Command phase, that unit is Battle-shocked.\n\nWhile a unit is Battle-shocked:\n- The Objective Control characteristic of all of its models is 0.\n- If it Falls Back, you must take a Desperate Escape test for every model in that unit (pg 14).\n- Its controlling player cannot use Stratagems to affect that unit.\n\nOnce you have taken Battle-shock tests for all of your units that require them, your Command phase ends and you progress to your Movement phase.\n- Take a Battle-shock test for each unit from your army on the battlefield that is Below Half-strength.\n- Roll 2D6: if the result is greater than or equal to the unit's Leadership, the test is passed. Otherwise, the unit is Battle-shocked until the start of your next Command phase.\n- Battle-shocked units have an OC of 0 and their controlling player cannot use Stratagems to affect them.\n- Battle-shocked units must take Desperate Escape tests if they Fall Back.",
+            "score": 0.03177805800756621,
+            "method": "rrf"
+          },
+          {
+            "id": "P3",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0101",
+            "page_start": 41,
+            "page_end": 41,
+            "text": "## Stratagems\n\nCommand points can be spent during the battle to use Stratagems. All players can use the Core Stratagems presented here. Additional Stratagems can be found in Codexes and other publications.\n\nWhen you use a Stratagem, reduce your CP total by the amount listed on that Stratagem. If you do not have enough CP for a specific Stratagem, you cannot use it. You can use the same Stratagem multiple times during a battle, but you cannot use the same Stratagem more than once in the same phase.\n- To use a Stratagem you must pay the CP specified.\n- The same Stratagem cannot be used more than once in the same phase.",
+            "score": 0.030776515151515152,
+            "method": "rrf"
+          },
+          {
+            "id": "P4",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0021",
+            "page_start": 11,
+            "page_end": 11,
+            "text": "### Command Phase\n\nCommanders gauge the flow of the battle, consolidating their objectives before making alterations to their battle plans and devising new tactics and strategies with which to defeat the foe.\n\n#### 1. COMMAND\n\nAt the start of your Command phase, before doing anything else, both players gain 1CP. Command points are a strategic resource that you can spend during the battle to use Stratagems. You can find out more about Stratagems on pages 41-42.\n\nThen, if you have any other rules that need to be resolved in the Command phase, you do so now before progressing to the Battle-shock step.\n- Both players gain 1CP.\n- Resolve any other rules that occur in the Command phase.",
+            "score": 0.029850746268656716,
+            "method": "rrf"
+          },
+          {
+            "id": "P5",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0023",
+            "page_start": 11,
+            "page_end": 12,
+            "text": "Your Command phase is split into two steps. In the first, both players gain 1 Command point (CP) and you resolve any other Command phase rules; in the second, you test to see if any of your units are Battle-shocked.\n\n#### COMMAND\n\n#### BATTLE-SHOCK\n\n#### GAINING COMMAND POINTS\n\nOutside of the CP players gain at the start of the Command phase, each player can only gain a total of 1CP per battle round, regardless of the source.\n\n#### STARTING STRENGTH\n\nThe number of models a unit contains when it is added to your army is known as its Starting Strength.\n\n#### BELOW HALF-STRENGTH\n\nSome rules will refer to a unit being Below Half-strength.\n- If a unit has a Starting Strength of 1, then it is said to be Below Half-strength while its remaining number of wounds is less than half of its Wounds characteristic.\n- For any other unit, while the number of models in that unit is less than half of its Starting Strength, that unit is said to be Below Half-strength.",
+            "score": 0.028958333333333336,
+            "method": "rrf"
+          }
+        ],
+        "usage": {
+          "routing": {
+            "input_tokens": 960,
+            "output_tokens": 131,
+            "total_tokens": 1091
+          },
+          "sql": null,
+          "answer": null,
+          "total_tokens": 1091
+        },
+        "error": {
+          "code": "GEMINI_ERROR",
+          "message": "Gemini answer generation failed.",
+          "source": "answer_generator"
+        }
+      },
+      "diagnostics": {
+        "route_correct": true,
+        "required_citation_types_present": false,
+        "pdf_page_coverage_proxy": {
+          "required_pages": [
+            11,
+            41
+          ],
+          "found_pages": [
+            11,
+            41
+          ],
+          "fraction": 1.0
+        },
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": true
+        }
+      },
+      "elapsed_seconds": 18.84,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "P03",
+      "split": "development",
+      "category": "pdf",
+      "question": "In the Only War mission, how is an objective controlled and when/how many Victory points can be scored from objectives?",
+      "reference_answer": "Sum the OC of models within 3 inches horizontally and 5 inches vertically. Higher total controls the objective; ties are contested. Starting battle round 2, at the end of each player's Command phase, the active player gains 1VP per controlled objective, up to 3VP per turn.",
+      "expected_route": "pdf",
+      "answerable": true,
+      "gold_pdf_evidence": [
+        {
+          "page": 58,
+          "anchor": "add together the OC characteristics"
+        },
+        {
+          "page": 59,
+          "anchor": "Starting from the second battle round"
+        }
+      ],
+      "gold_sql_evidence": null,
+      "history_seed_question": null,
+      "seed_status": null,
+      "observed": {
+        "status": "ok",
+        "route": "pdf",
+        "resolved_question": "In the Only War mission, how is an objective controlled and when/how many Victory points can be scored from objectives?",
+        "answer": "In the Only War mission, the objective is a progressive objective called Capture and Control [P1]. Starting from the second battle round, at the end of each player's Command phase, the player whose turn it is scores 1 Victory point (VP) for each objective marker they control, up to a maximum of 3VP per turn [P1]. However, the specific details of how to control objective markers are stated to be found on page 58 of the rules, which is not fully detailed in the provided text [P1].",
+        "citations": [
+          "P1"
+        ],
+        "sources": [
+          {
+            "id": "P1",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0145",
+            "page_start": 59,
+            "page_end": 59,
+            "text": "#### 1. Muster Armies\n\nFirst, players will need to muster armies based on the battle size they have selected, as described on pages 55–56. This mission is designed for Incursion, Strike Force and Onslaught battle sizes.\n\n#### 2. Mission Objectives\n\n**Capture and Control — Progressive Objective.**\n\nStarting from the second battle round, at the end of each player's Command phase, the player whose turn it is scores 1 Victory point (VP) for each objective marker they control (to a maximum of 3VP per turn). Details of how to control objective markers can be found on page 58.\n\n#### 3. Create the Battlefield\n\nPlayers now create the battlefield and set up terrain features using the guidelines on pages 49–52. The minimum size of your battlefield depends on the battle size you have selected, as shown in the table below.\n\n| Battle size | Minimum battlefield size |\n|---|---|\n| Incursion / Strike Force | 44\" × 60\" |\n| Onslaught | 44\" × 90\" |\n\nPlayers must then alternate setting up objective markers on the battlefield, starting with whichever player wins a roll-off, until a total of four have been placed. Objective markers cannot be placed within 6\" of any battlefield edge, or within 9\" of any other objective markers.",
+            "score": 0.03177805800756621,
+            "method": "rrf"
+          },
+          {
+            "id": "P2",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0138",
+            "page_start": 57,
+            "page_end": 57,
+            "text": "### 2. Read Mission Objectives\n\nEach mission will state what its primary objectives are, and may also include one or more special rules. These cover unique situations, or abilities that can be used in the battle.\n\n### 3. Create The Battlefield\n\nEach mission will include details of the size of the battlefield that you will need. Each mission will also instruct you if any terrain features or objective markers must be set up, and will provide details of where to set them up. Otherwise, it is assumed you are using the guidelines on pages 49-52 to create your battlefield. If you are using a battlefield that is a different size or shape to those guidelines, you will need to adjust distances, and the location of deployment zones, objective markers and terrain features, in an appropriate way.",
+            "score": 0.0315136476426799,
+            "method": "rrf"
+          },
+          {
+            "id": "P3",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0137",
+            "page_start": 57,
+            "page_end": 57,
+            "text": "## Missions\n\nBefore you can wage war in a game of Warhammer 40,000, you must first select a mission. The Core Rules include a single mission - Only War - that is ideal to get the action started quickly. Others can be found elsewhere in this or other books, or you could play a mission of your own creation. If you and your opponent can't agree which mission to play, you must roll off, and the winner decides.\n\n### 1. Muster Armies\n\nPlayers muster their armies based on their selected battle size, as described on pages 55-56. Each mission will guide players on what size of battle they can play, and may include further rules that could affect how players pick their armies.",
+            "score": 0.03149801587301587,
+            "method": "rrf"
+          },
+          {
+            "id": "P4",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0140",
+            "page_start": 57,
+            "page_end": 57,
+            "text": "### 7. Determine First Turn\n\nEach mission will tell you how to determine which player has the first turn.\n\n### 8. Resolve Pre-Battle Rules\n\nPlayers alternate resolving any pre-battle rules units from their armies have, starting with the player who will take the first turn.\n\n### 9. Begin The Battle\n\nThe first battle round begins. Players continue to complete battle rounds until the battle ends.\n\n### 10. End The Battle\n\nEach mission will tell you when the battle ends. This will typically be after a set number of battle rounds have been completed, or when one player has achieved a certain victory condition.\n\n### 11. Determine Victor\n\nEach mission will tell you what you need to do in order to win the game. If neither player manages to achieve a victory then the game is considered to be a draw.",
+            "score": 0.03149801587301587,
+            "method": "rrf"
+          },
+          {
+            "id": "P5",
+            "type": "pdf",
+            "source": "Core Rules.pdf",
+            "chunk_id": "structured_0144",
+            "page_start": 58,
+            "page_end": 59,
+            "text": "### Mission Map Key\n\n- **Attacker's Deployment Zone:** The Attacker must set up their army within this area.\n- **Defender's Deployment Zone:** The Defender must set up their army within this area.\n- **No Man's Land:** The region of the battlefield that is not within either player's deployment zone is known as No Man's Land.\n- **Objective Markers:** The locations of objective markers on the battlefield are typically shown on the deployment map of the mission being played, and are represented by an icon.\n- **Attacker's Battlefield Edge**, **Defender's Battlefield Edge**, and **Centre of Battlefield** are illustrated map landmarks.\n\n### Only War — Mission\n\nThe time has come to prove your worth as the greatest commander in the galaxy! All that stands between you and ultimate glory is an opposing force bent upon your destruction. Destroy the enemy army and secure strategic sites littered across the battlefield while stopping your foe from doing likewise.",
+            "score": 0.031054405392392875,
+            "method": "rrf"
+          }
+        ],
+        "usage": {
+          "routing": {
+            "input_tokens": 960,
+            "output_tokens": 111,
+            "total_tokens": 1071
+          },
+          "sql": null,
+          "answer": {
+            "input_tokens": 1592,
+            "output_tokens": 145,
+            "total_tokens": 1737
+          },
+          "total_tokens": 2808
+        },
+        "error": null
+      },
+      "diagnostics": {
+        "route_correct": true,
+        "required_citation_types_present": true,
+        "pdf_page_coverage_proxy": {
+          "required_pages": [
+            58,
+            59
+          ],
+          "found_pages": [
+            58,
+            59
+          ],
+          "fraction": 1.0
+        },
+        "citation_identifiers": {
+          "identifiers_exist": true,
+          "inline_matches_reported": true
+        }
+      },
+      "elapsed_seconds": 47.96,
+      "human_review": {
+        "answer_correct": null,
+        "evidence_sufficient": null,
+        "citations_support_claims": null,
+        "notes": ""
+      }
+    }
+  ]
+}

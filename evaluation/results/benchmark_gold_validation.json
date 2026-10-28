@@ -1,0 +1,12 @@
+{
+  "benchmark_version": "1.0",
+  "checked_at_utc": "2026-10-28T14:16:21.225920+00:00",
+  "database": "wahadb.sqlite",
+  "pdf": "Core Rules.pdf",
+  "total_cases": 30,
+  "sql_queries_checked": 19,
+  "pdf_anchors_checked": 23,
+  "negative_cases_without_gold_evidence": 3,
+  "passed": true,
+  "failures": []
+}

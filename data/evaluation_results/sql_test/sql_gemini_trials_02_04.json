@@ -1,0 +1,189 @@
+[
+  {
+    "test": "abilities",
+    "expected": 9,
+    "question": "List all abilities and their descriptions for Abaddon The Despoiler.",
+    "model": "gemini-3.5-flash-lite",
+    "usage": {
+      "input_tokens": 1256,
+      "output_tokens": 206,
+      "total_tokens": 1462
+    },
+    "reason": "Successfully generated query to list abilities and their descriptions for Abaddon The Despoiler using standard schema patterns.",
+    "status": "ok",
+    "sql": "SELECT COALESCE(NULLIF(TRIM(da.name), ''), NULLIF(TRIM(a.name), '')) AS ability_name, COALESCE(NULLIF(TRIM(da.description), ''), NULLIF(TRIM(a.description), '')) AS ability_description FROM datasheets d JOIN datasheets_abilities da ON da.DatasheetId = d.Id LEFT JOIN abilities a ON a.Id = da.abilityId AND (a.factionId = d.factionId OR a.factionId = '') WHERE d.name LIKE :unit_name",
+    "parameters": {
+      "unit_name": "%Abaddon The Despoiler%"
+    },
+    "columns": [
+      "ability_name",
+      "ability_description"
+    ],
+    "rows": [
+      {
+        "ability_name": "Dark Destiny",
+        "ability_description": "Each time this modelâs unit makes a Dark Pact and does not fail the resulting leadership roll, if the result of that roll was 7+, you gain 1CP."
+      },
+      {
+        "ability_name": "Lord of the Traitor Legions (Aura)",
+        "ability_description": "While a friendly HERETIC ASTARTES unit (excluding DAMNED units) is within 6\" of this model, you can re-roll Leadership and Battle-shock tests taken for that unit."
+      },
+      {
+        "ability_name": "Mark of Chaos Ascendant (Aura)",
+        "ability_description": "While a friendly Heretic Astartes Infantry or Heretic Astartes Mounted unit (excluding DAMNED units) is within 6\" of this model, models in that unit have a 4+ invulnerable save."
+      },
+      {
+        "ability_name": "Paragon of Hatred (Aura)",
+        "ability_description": "While a friendly HERETIC ASTARTES unit is within 6\" (excluding DAMNED units) of this model, each time a model in that unit makes an attack, you can re-roll the Hit roll."
+      },
+      {
+        "ability_name": "SUPREME COMMANDER",
+        "ability_description": "If this model is in your army, it must be your Warlord."
+      },
+      {
+        "ability_name": "The Warmaster",
+        "ability_description": "In your Command phase, select one Warmaster ability (see left). Until the start of your next Command phase, this model has that ability."
+      },
+      {
+        "ability_name": "Deep Strike",
+        "ability_description": "DEEP STRIKE24.09There are many ways by which to deploy troops to the field of battle including tunnels, teleportation devices and other esoteric means of transportation.Each time this unit makes an ingress move (20.04), if every model in this unit has this ability, it can be set up anywhere on the battlefield that is more than 8\" horizontally from all enemy units, even if that is within your opponentâs deployment zone."
+      },
+      {
+        "ability_name": "Leader",
+        "ability_description": "LEADER24.22Mighty heroes fight at the forefront of battle.Before the battle, in the Muster Armies step, for each leader and support unit in your army, you can select one friendly bodyguard unit that unit can lead. That unit will then lead that bodyguard unit for the battle and form an attached unit with it.Unless otherwise stated, each bodyguard unit can only have one leader unit and one support unit attached to it."
+      },
+      {
+        "ability_name": "Dark Pacts",
+        "ability_description": "If your Army Faction is HERETIC ASTARTES, each time a unit with  this ability is selected to shoot or fight, it can make a Dark Pact. If it does, it must first take a Leadership test before any effects of that Dark Pact are resolved; if that test is failed, that unit suffers D3 mortal wounds. Then, select one of the following abilities for that unitâs weapons to gain until the end of the phase:[LETHAL HITS][SUSTAINED HITS 1]"
+      }
+    ],
+    "row_count": 9,
+    "tables": [
+      "abilities",
+      "datasheets",
+      "datasheets_abilities"
+    ],
+    "truncated": false,
+    "error": null
+  },
+  {
+    "test": "keywords",
+    "expected": 8,
+    "question": "List all keywords of Abaddon The Despoiler.",
+    "model": "gemini-3.5-flash-lite",
+    "usage": {
+      "input_tokens": 1253,
+      "output_tokens": 123,
+      "total_tokens": 1376
+    },
+    "reason": "Successfully generated query to list all keywords for Abaddon The Despoiler.",
+    "status": "ok",
+    "sql": "SELECT dk.keyword AS keyword, dk.isFactionKeyword AS is_faction_keyword FROM datasheets d JOIN datasheets_keywords dk ON dk.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
+    "parameters": {
+      "unit_name": "%Abaddon The Despoiler%"
+    },
+    "columns": [
+      "keyword",
+      "is_faction_keyword"
+    ],
+    "rows": [
+      {
+        "keyword": "Abaddon the Despoiler",
+        "is_faction_keyword": "false"
+      },
+      {
+        "keyword": "Chaos",
+        "is_faction_keyword": "false"
+      },
+      {
+        "keyword": "Chaos Undivided",
+        "is_faction_keyword": "false"
+      },
+      {
+        "keyword": "Character",
+        "is_faction_keyword": "false"
+      },
+      {
+        "keyword": "Epic Hero",
+        "is_faction_keyword": "false"
+      },
+      {
+        "keyword": "Heretic Astartes",
+        "is_faction_keyword": "true"
+      },
+      {
+        "keyword": "Infantry",
+        "is_faction_keyword": "false"
+      },
+      {
+        "keyword": "Terminator",
+        "is_faction_keyword": "false"
+      }
+    ],
+    "row_count": 8,
+    "tables": [
+      "datasheets",
+      "datasheets_keywords"
+    ],
+    "truncated": false,
+    "error": null
+  },
+  {
+    "test": "wargear",
+    "expected": 3,
+    "question": "List all weapons of Abaddon The Despoiler with their range, attacks, AP and damage.",
+    "model": "gemini-3.5-flash-lite",
+    "usage": {
+      "input_tokens": 1262,
+      "output_tokens": 176,
+      "total_tokens": 1438
+    },
+    "reason": "Successfully generated query to list weapons of Abaddon The Despoiler with their range, attacks, AP, and damage using the datasheets and datasheets_wargear tables.",
+    "status": "ok",
+    "sql": "SELECT d.name AS unit_name, w.name AS weapon_name, w.range AS weapon_range, w.a AS weapon_attacks, w.ap AS weapon_ap, w.d AS weapon_damage FROM datasheets d JOIN datasheets_wargear w ON w.DatasheetId = d.Id WHERE d.name LIKE :unit_name",
+    "parameters": {
+      "unit_name": "%Abaddon The Despoiler%"
+    },
+    "columns": [
+      "unit_name",
+      "weapon_name",
+      "weapon_range",
+      "weapon_attacks",
+      "weapon_ap",
+      "weapon_damage"
+    ],
+    "rows": [
+      {
+        "unit_name": "Abaddon The Despoiler",
+        "weapon_name": "Drachânyen",
+        "weapon_range": "Melee",
+        "weapon_attacks": "8",
+        "weapon_ap": "-4",
+        "weapon_damage": "3"
+      },
+      {
+        "unit_name": "Abaddon The Despoiler",
+        "weapon_name": "Talon of Horus",
+        "weapon_range": "24",
+        "weapon_attacks": "4",
+        "weapon_ap": "-1",
+        "weapon_damage": "2"
+      },
+      {
+        "unit_name": "Abaddon The Despoiler",
+        "weapon_name": "Talon of Horus",
+        "weapon_range": "Melee",
+        "weapon_attacks": "14",
+        "weapon_ap": "-3",
+        "weapon_damage": "1"
+      }
+    ],
+    "row_count": 3,
+    "tables": [
+      "datasheets",
+      "datasheets_wargear"
+    ],
+    "truncated": false,
+    "error": null
+  }
+]
